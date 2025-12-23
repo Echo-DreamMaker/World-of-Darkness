@@ -1,26 +1,33 @@
-using Content.Server.GameTicking.Events;
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Clock;
 using Content.Shared.Destructible;
-using Robust.Server.GameStates;
-using Robust.Shared.Random;
 
 namespace Content.Server.Clock;
 
 public sealed class ClockSystem : SharedClockSystem
 {
+/* // Orion-Edit: Removed
     [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
+*/
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
 
+/* // Orion-Edit: Removed
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         SubscribeLocalEvent<GlobalTimeManagerComponent, MapInitEvent>(OnMapInit);
+*/
         SubscribeLocalEvent<ClockComponent, BreakageEventArgs>(OnBreak);
     }
 
+/* // Orion-Edit: Removed
     private void OnRoundStart(RoundStartingEvent ev)
     {
         var manager = Spawn();
@@ -33,6 +40,7 @@ public sealed class ClockSystem : SharedClockSystem
         _pvsOverride.AddGlobalOverride(ent);
         Dirty(ent);
     }
+*/
 
     private void OnBreak(Entity<ClockComponent> ent, ref BreakageEventArgs args)
     {

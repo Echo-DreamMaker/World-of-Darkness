@@ -1,4 +1,89 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <koolthunder019@gmail.com>
+// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
+using Content.Client._Orion.Lobby.UI;
 using Content.Client.Guidebook;
 using Content.Client.Humanoid;
 using Content.Client.Inventory;
@@ -6,12 +91,13 @@ using Content.Client.Lobby.UI;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Station;
 using Content.Shared.CCVar;
-using Content.Shared.Clothing.Loadouts.Prototypes;
-using Content.Shared.Clothing.Loadouts.Systems;
+using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
+using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Robust.Client.Player;
@@ -22,11 +108,7 @@ using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using static Content.Shared.Humanoid.SharedHumanoidAppearanceSystem;
-using CharacterSetupGui = Content.Client.Lobby.UI.CharacterSetupGui;
-using HumanoidProfileEditor = Content.Client.Lobby.UI.HumanoidProfileEditor;
 
 namespace Content.Client.Lobby;
 
@@ -35,23 +117,22 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IFileDialogManager _dialogManager = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IStateManager _stateManager = default!;
-    [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
+    [Dependency] private readonly JobRequirementsManager _requirements = default!;
     [Dependency] private readonly MarkingManager _markings = default!;
     [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
+    [UISystemDependency] private readonly StationSpawningSystem _spawn = default!;
     [UISystemDependency] private readonly GuidebookSystem _guide = default!;
-    [UISystemDependency] private readonly SharedLoadoutSystem _loadouts = default!;
-    [UISystemDependency] private readonly StationSpawningSystem _stationSpawning = default!;
 
     private CharacterSetupGui? _characterSetup;
     private HumanoidProfileEditor? _profileEditor;
     private CharacterSetupGuiSavePanel? _savePanel;
+
+    private static readonly string[] UnderwearSlots = ["underwear", "undershirt", "socks"]; // Orion
 
     /// <summary>
     /// This is the characher preview panel in the chat. This should only update if their character updates.
@@ -68,53 +149,71 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     public override void Initialize()
     {
         base.Initialize();
-
-        _prototypeManager.PrototypesReloaded += OnPrototypesReloaded;
+        _prototypeManager.PrototypesReloaded += OnProtoReload;
         _preferencesManager.OnServerDataLoaded += PreferencesDataLoaded;
-        _jobRequirements.Updated += OnRequirementsUpdated;
+        _requirements.Updated += OnRequirementsUpdated;
 
-        _configurationManager.OnValueChanged(CCVars.FlavorText, _ => _profileEditor?.RefreshFlavorText());
+        _configurationManager.OnValueChanged(CCVars.FlavorText, args =>
+        {
+            _profileEditor?.RefreshFlavorText();
+        });
+
         _configurationManager.OnValueChanged(CCVars.GameRoleTimers, _ => RefreshProfileEditor());
-        _configurationManager.OnValueChanged(CCVars.GameRoleWhitelist, _ => RefreshProfileEditor());
 
-        _preferencesManager.OnServerDataLoaded += PreferencesDataLoaded;
+        _configurationManager.OnValueChanged(CCVars.GameRoleWhitelist, _ => RefreshProfileEditor());
     }
 
     private LobbyCharacterPreviewPanel? GetLobbyPreview()
     {
         if (_stateManager.CurrentState is LobbyState lobby)
+        {
             return lobby.Lobby?.CharacterPreview;
+        }
 
         return null;
     }
 
     private void OnRequirementsUpdated()
     {
-        if (_profileEditor == null)
-            return;
-
-        _profileEditor.RefreshAntags();
-        _profileEditor.RefreshJobs();
+        if (_profileEditor != null)
+        {
+            _profileEditor.RefreshAntags();
+            _profileEditor.RefreshJobs();
+        }
     }
 
-
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs obj)
+    private void OnProtoReload(PrototypesReloadedEventArgs obj)
     {
-        if (_profileEditor == null)
-            return;
+        if (_profileEditor != null)
+        {
+            if (obj.WasModified<AntagPrototype>())
+            {
+                _profileEditor.RefreshAntags();
+            }
 
-        if (obj.WasModified<SpeciesPrototype>())
-            _profileEditor.RefreshSpecies();
+            if (obj.WasModified<JobPrototype>() ||
+                obj.WasModified<DepartmentPrototype>())
+            {
+                _profileEditor.RefreshJobs();
+            }
 
-        if (obj.WasModified<AntagPrototype>())
-            _profileEditor.RefreshAntags();
+            if (obj.WasModified<LoadoutPrototype>() ||
+                obj.WasModified<LoadoutGroupPrototype>() ||
+                obj.WasModified<RoleLoadoutPrototype>())
+            {
+                _profileEditor.RefreshLoadouts();
+            }
 
-        if (obj.WasModified<JobPrototype>()
-            || obj.WasModified<DepartmentPrototype>())
-            _profileEditor.RefreshJobs();
+            if (obj.WasModified<SpeciesPrototype>())
+            {
+                _profileEditor.RefreshSpecies();
+            }
 
-        if (obj.WasModified<TraitPrototype>())
-            _profileEditor.UpdateTraits(null, true);
+            if (obj.WasModified<TraitPrototype>())
+            {
+                _profileEditor.RefreshTraits();
+            }
+        }
     }
 
     private void PreferencesDataLoaded()
@@ -174,7 +273,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
             return;
         }
 
-        var dummy = LoadProfileEntity(humanoid, null, true, true);
+        var dummy = LoadProfileEntity(humanoid, null, ClothingDisplayMode.ShowAll); // Orion-Edit
         PreviewPanel.SetSprite(dummy);
         PreviewPanel.SetSummaryText(humanoid.Summary);
     }
@@ -183,6 +282,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     {
         _profileEditor?.RefreshAntags();
         _profileEditor?.RefreshJobs();
+        _profileEditor?.RefreshLoadouts();
     }
 
     private void SaveProfile()
@@ -193,6 +293,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
             return;
 
         var selected = _preferencesManager.Preferences?.SelectedCharacterIndex;
+
         if (selected == null)
             return;
 
@@ -209,7 +310,9 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         _profileEditor.Visible = false;
 
         if (_stateManager.CurrentState is LobbyState lobbyGui)
+        {
             lobbyGui.SwitchState(LobbyGui.LobbyGuiState.Default);
+        }
     }
 
     private void OpenSavePanel()
@@ -252,13 +355,12 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
             _configurationManager,
             EntityManager,
             _dialogManager,
-            _logManager,
+            LogManager,
             _playerManager,
             _prototypeManager,
             _resourceCache,
-            _jobRequirements,
-            _markings,
-            _random);
+            _requirements,
+            _markings);
 
         _profileEditor.OnOpenGuidebook += _guide.OpenHelp;
 
@@ -290,21 +392,42 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         {
             _preferencesManager.DeleteCharacter(args);
 
+            // Reload everything
             if (EditedSlot == args)
-                // Reload everything
+            {
                 ReloadCharacterSetup();
+            }
             else
+            {
                 // Only need to reload character pickers
                 _characterSetup?.ReloadCharacterPickers();
+            }
         };
 
         if (_stateManager.CurrentState is LobbyState lobby)
+        {
             lobby.Lobby?.CharacterSetupState.AddChild(_characterSetup);
+        }
 
         return (_characterSetup, _profileEditor);
     }
 
     #region Helpers
+
+    /// <summary>
+    /// Applies the highest priority job's clothes to the dummy.
+    /// </summary>
+    public void GiveDummyJobClothesLoadout(EntityUid dummy, JobPrototype? jobProto, HumanoidCharacterProfile profile, ClothingDisplayMode clothingMode = ClothingDisplayMode.ShowAll) // Orion-Edit
+    {
+        var job = jobProto ?? GetPreferredJob(profile);
+        GiveDummyJobClothes(dummy, profile, job, clothingMode); // Orion-Edit
+
+        if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID)))
+        {
+            var loadout = profile.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job.ID), _playerManager.LocalSession, profile.Species, EntityManager, _prototypeManager);
+            GiveDummyLoadout(dummy, loadout, clothingMode); // Orion-Edit
+        }
+    }
 
     /// <summary>
     /// Gets the highest priority job for the profile.
@@ -316,60 +439,144 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         return _prototypeManager.Index<JobPrototype>(highPriorityJob.Id ?? SharedGameTicker.FallbackOverflowJob);
     }
 
-    /// <summary>
-    /// Applies loadouts to the dummy.
-    /// </summary>
-    public void GiveDummyLoadout(EntityUid dummy, JobPrototype job, HumanoidCharacterProfile profile)
+    public void GiveDummyLoadout(EntityUid uid, RoleLoadout? roleLoadout, ClothingDisplayMode clothingMode = ClothingDisplayMode.ShowAll) // Orion-Edit
     {
-        _loadouts.ApplyCharacterLoadout(dummy, job, profile, _jobRequirements.GetRawPlayTimeTrackers(), _jobRequirements.IsWhitelisted(), out _);
+        if (roleLoadout is null)
+            return;
+
+        foreach (var group in roleLoadout.SelectedLoadouts.Values)
+        {
+            foreach (var loadout in group)
+            {
+                if (!_prototypeManager.TryIndex(loadout.Prototype, out var loadoutProto))
+                    continue;
+
+                // Orion-Start
+                if (clothingMode == ClothingDisplayMode.ShowUnderwearOnly)
+                {
+                    if (!_prototypeManager.TryIndex(loadoutProto.StartingGear, out var gear))
+                        continue;
+
+                    if (gear is not IEquipmentLoadout equipGear)
+                        continue;
+
+                    foreach (var slotName in UnderwearSlots)
+                    {
+                        var itemType = equipGear.GetGear(slotName);
+                        if (string.IsNullOrEmpty(itemType))
+                            continue;
+
+                        var item = EntityManager.SpawnEntity(itemType, MapCoordinates.Nullspace);
+                        _inventory.TryEquip(uid, item, slotName, true, true);
+                    }
+                }
+                // Orion-End
+                // Orion-Edit-Start
+                else
+                {
+                    _spawn.EquipStartingGear(uid, loadoutProto);
+                }
+                // Orion-Edit-End
+            }
+        }
     }
 
     /// <summary>
     /// Applies the specified job's clothes to the dummy.
     /// </summary>
-    public void GiveDummyJobClothes(EntityUid dummy, JobPrototype job, HumanoidCharacterProfile profile)
+    private void GiveDummyJobClothes(EntityUid dummy, HumanoidCharacterProfile profile, JobPrototype job, ClothingDisplayMode clothingMode = ClothingDisplayMode.ShowAll) // Orion-Edit
     {
-        if (!_inventory.TryGetSlots(dummy, out var slots)
-            || job.StartingGear == null)
+        if (!_inventory.TryGetSlots(dummy, out var slots)) // Orion-Edit
             return;
 
-        var gear = _prototypeManager.Index<StartingGearPrototype>(job.StartingGear);
-        gear = _stationSpawning.ApplySubGear(gear, profile, job);
+        // Apply loadout
+        if (profile.Loadouts.TryGetValue(job.ID, out var jobLoadout))
+        {
+            foreach (var loadouts in jobLoadout.SelectedLoadouts.Values)
+            {
+                foreach (var loadout in loadouts)
+                {
+                    if (!_prototypeManager.TryIndex(loadout.Prototype, out var loadoutProto))
+                        continue;
+
+                    foreach (var slot in slots)
+                    {
+                        // Orion-Start
+                        if (clothingMode == ClothingDisplayMode.ShowUnderwearOnly &&
+                            !UnderwearSlots.Contains(slot.Name))
+                            continue;
+                        // Orion-End
+
+                        // Try startinggear first
+                        if (_prototypeManager.TryIndex(loadoutProto.StartingGear, out var loadoutGear))
+                        {
+                            var itemType = ((IEquipmentLoadout) loadoutGear).GetGear(slot.Name);
+
+                            if (_inventory.TryUnequip(dummy, slot.Name, out var unequippedItem, silent: true, force: true, reparent: false))
+                            {
+                                EntityManager.DeleteEntity(unequippedItem.Value);
+                            }
+
+                            if (itemType != string.Empty)
+                            {
+                                var item = EntityManager.SpawnEntity(itemType, MapCoordinates.Nullspace);
+                                _inventory.TryEquip(dummy, item, slot.Name, true, true);
+                            }
+                        }
+                        else
+                        {
+                            var itemType = ((IEquipmentLoadout) loadoutProto).GetGear(slot.Name);
+
+                            if (_inventory.TryUnequip(dummy, slot.Name, out var unequippedItem, silent: true, force: true, reparent: false))
+                            {
+                                EntityManager.DeleteEntity(unequippedItem.Value);
+                            }
+
+                            if (itemType != string.Empty)
+                            {
+                                var item = EntityManager.SpawnEntity(itemType, MapCoordinates.Nullspace);
+                                _inventory.TryEquip(dummy, item, slot.Name, true, true);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Orion-Start
+        if (clothingMode == ClothingDisplayMode.ShowUnderwearOnly)
+            return;
+        // Orion-End
+
+        if (!_prototypeManager.TryIndex(job.StartingGear, out var gear))
+            return;
 
         foreach (var slot in slots)
         {
-            var itemType = gear.GetGear(slot.Name);
+            var itemType = ((IEquipmentLoadout) gear).GetGear(slot.Name);
 
             if (_inventory.TryUnequip(dummy, slot.Name, out var unequippedItem, silent: true, force: true, reparent: false))
+            {
                 EntityManager.DeleteEntity(unequippedItem.Value);
+            }
 
-            if (itemType == string.Empty)
-                continue;
-
-            var item = EntityManager.SpawnEntity(itemType, MapCoordinates.Nullspace);
-            _inventory.TryEquip(dummy, item, slot.Name, true, true);
+            if (itemType != string.Empty)
+            {
+                var item = EntityManager.SpawnEntity(itemType, MapCoordinates.Nullspace);
+                _inventory.TryEquip(dummy, item, slot.Name, true, true);
+            }
         }
-    }
-
-    public void RemoveDummyClothes(EntityUid dummy)
-    {
-        if (!_inventory.TryGetSlots(dummy, out var slots))
-            return;
-
-        foreach (var slot in slots)
-            if (_inventory.TryUnequip(dummy, slot.Name, out var unequippedItem, silent: true, force: true, reparent: false))
-                EntityManager.DeleteEntity(unequippedItem.Value);
     }
 
     /// <summary>
     /// Loads the profile onto a dummy entity.
     /// </summary>
-    public EntityUid LoadProfileEntity(HumanoidCharacterProfile? humanoid, JobPrototype? job, bool jobClothes, bool loadouts)
+    public EntityUid LoadProfileEntity(HumanoidCharacterProfile? humanoid, JobPrototype? job, ClothingDisplayMode clothingMode) // Orion-Edit
     {
         EntityUid dummyEnt;
 
         EntProtoId? previewEntity = null;
-        if (humanoid != null && jobClothes)
+        if (humanoid != null && clothingMode != ClothingDisplayMode.HideAll) // Orion-Edit
         {
             job ??= GetPreferredJob(humanoid);
 
@@ -389,27 +596,28 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         }
         else
         {
-            var dummy = _prototypeManager.Index<SpeciesPrototype>(DefaultSpecies).DollPrototype;
-            dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
+            dummyEnt = EntityManager.SpawnEntity(_prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies).DollPrototype, MapCoordinates.Nullspace);
         }
 
         _humanoid.LoadProfile(dummyEnt, humanoid);
 
-        if (humanoid != null && jobClothes)
-        {
-            DebugTools.Assert(job != null);
+        // Orion-Edit-Start
+        if (humanoid == null || clothingMode == ClothingDisplayMode.HideAll)
+            return dummyEnt;
 
-            GiveDummyJobClothes(dummyEnt, job, humanoid);
+        DebugTools.Assert(job != null);
 
-            if (jobClothes)
-                GiveDummyJobClothes(dummyEnt, job, humanoid);
-            if (loadouts)
-                GiveDummyLoadout(dummyEnt, job, humanoid);
-        }
+        GiveDummyJobClothes(dummyEnt, humanoid, job, clothingMode);
+
+        if (!_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID)))
+            return dummyEnt;
+
+        var loadout = humanoid.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job.ID), _playerManager.LocalSession, humanoid.Species, EntityManager, _prototypeManager);
+        GiveDummyLoadout(dummyEnt, loadout, clothingMode);
+        // Orion-Edit-End
 
         return dummyEnt;
     }
 
     #endregion
 }
-

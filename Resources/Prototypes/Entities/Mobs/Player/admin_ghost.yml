@@ -107,6 +107,7 @@
   - type: Stripping
   - type: SolutionScanner
   - type: IgnoreUIRange
+  - type: IgnoreInventoryBlock # Orion
   - type: ShowAntagIcons
   - type: Inventory
     templateId: aghost

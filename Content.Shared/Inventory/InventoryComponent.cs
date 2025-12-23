@@ -6,7 +6,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared.Inventory;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(InventorySystem))]
+// [Access(typeof(InventorySystem))] // Orion-Edit: Removed
 [AutoGenerateComponentState(true)]
 public sealed partial class InventoryComponent : Component
 {
@@ -19,6 +19,14 @@ public sealed partial class InventoryComponent : Component
     public SlotDefinition[] Slots = Array.Empty<SlotDefinition>();
 
     public ContainerSlot[] Containers = Array.Empty<ContainerSlot>();
+
+    // Orion-Start
+    [DataField("blockedSlotsList"), AutoNetworkedField]
+    public HashSet<SlotFlags> BlockList = new();
+
+    [DataField("hiddenSlotsList"), AutoNetworkedField]
+    public HashSet<SlotFlags> HideList = new();
+    // Orion-End
 
     [DataField]
     public Dictionary<string, DisplacementData> Displacements = new();

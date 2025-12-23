@@ -1,3 +1,36 @@
+# SPDX-FileCopyrightText: 2024 Adeinitas <147965189+adeinitas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Danger Revolution! <142105406+DangerRevolution@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Timemaster99 <57200767+Timemaster99@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GNUtopia <93669372+GNUtopia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   save: false
   name: Urist McHarpy
@@ -5,27 +38,69 @@
   id: MobHarpyBase
   abstract: true
   components:
-  - type: Singer
-    proto: HarpySinger
+  - type: HarpySinger
+    ShutUpDamageThreshold: 5 # Punch does 5 damage
+  - type: Instrument
+    allowPercussion: false
+    program: 52
+  - type: SwappableInstrument
+    instrumentList:
+      "Voice": {52: 0}
+      "Trumpet": {56: 0}
+      "Electric": {27: 0}
+      "Bass": {33: 0}
+      "Rock": {29: 0}
+      "Acoustic": {24: 0}
+      "Flute": {73: 0}
+      "Sax": {66: 0}
+      "Piano": {1: 0}
+      "Church Organ": {19: 0}
+      "Violin": {41: 0}
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      # Goobstation - changelings
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.HereticLivingHeartKey.Key: # goob edit - heretics
+        type: LivingHeartMenuBoundUserInterface
+      enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+        type: WizardTeleportBoundUserInterface
+        requireInputValidation: false
   - type: Sprite
-    scale: 0.9, 0.9
+    # scale: 0.9, 0.9 # Goobstation: port EE height/width sliders
     layers:
+      - map: [ "enum.HumanoidVisualLayers.Groin" ]
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-      - map: [ "underpants" ]
+#      - map: [ "enum.HumanoidVisualLayers.Underwear" ] # Orion-Edit: Replaced with clothes
+#      - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # Orion-Edit: Replaced with clothes
+#      - map: [ "underpants" ] # Orion-Edit: Removed
+#      - map: [ "undershirt" ] # Orion-Edit: Removed
+#      - map: [ "socks" ] # Orion-Edit: Removed
+      # Orion-Start
+      - map: [ "underwear" ]
       - map: [ "undershirt" ]
-      - map: [ "socks" ]
-      - map: [ "jumpsuit" ]
+      # Orion-End
+      # Orion-Edit-Start: Moved under jumpsuit
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
+      # Orion-Edit-End
+      - map: [ "socks" ] # Orion
+      - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
@@ -35,14 +110,15 @@
         visible: false
       - map: [ "id" ]
       - map: [ "gloves" ]
+      - map: [ "wrists" ] # Orion
+      - map: [ "earsright" ] # Orion
       - map: [ "ears" ]
-      - map: [ "innerBelt" ]
-      - map: [ "innerNeck" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
       - map: [ "neck" ]
       - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
@@ -54,12 +130,13 @@
         visible: false
 # Yes, RArm has to be down here
       - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "maskalt" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "head" ]
       - map: [ "singingLayer" ]
-        sprite: Effects/harpysinger.rsi
+        sprite: _DV/Effects/harpysinger.rsi
         state: singing_music_notes
         visible: false
   - type: HumanoidAppearance
@@ -69,8 +146,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.32
-        density: 90
+          radius: 0.35
+        density: 120
         restitution: 0.0
         mask:
         - MobMask
@@ -90,11 +167,19 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
+    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble', 'Mars']
   - type: Vocal
     sounds:
-      Male: SoundsHarpy
-      Female: SoundsHarpy
-      Unsexed: SoundsHarpy
+      Male: SoundsHarpyMale
+      Female: SoundsHarpyFemale
+      Unsexed: SoundsHarpyFemale
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - ValyrianStandard
+    understands:
+    - TauCetiBasic
+    - ValyrianStandard
   - type: GenericVisualizer
     visuals:
       enum.HarpyVisualLayers.Singing:
@@ -102,97 +187,128 @@
           False:  {visible: false}
           True:  {visible: true}
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 5.5
     weightlessAcceleration: 2.5
     weightlessModifier: 1.12
+  - type: Inventory
+    speciesId: harpy
+    templateId: digitigrade # Einstein Engines
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+      # Orion-Start
+      underwear:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+      # Orion-End
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+      # Orion-Start
+      underwear:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+      # Orion-End
   - type: HarpyVisuals
-  - type: UltraVision
   - type: Tag
     tags:
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
     - HarpyEmotes
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    - ValyrianStandard
-    understands:
-    - TauCetiBasic
-    - ValyrianStandard
-  - type: ProtectedFromStepTriggers
+    - AnomalyHost
+  - type: StepTriggerImmune
     whitelist:
       types:
-      # - Shard - WD EDIT
+      - Shard
       - Landmine
       - Mousetrap
-  - type: FootPrints
-    leftBarePrint: "footprint-left-bare-lizard"
-    rightBarePrint: "footprint-right-bare-lizard" # I was about to complain about this, then I remembered birbs have dinosaur feet. So this is valid.
-  - type: CanMoveInAir
-  - type: Inventory
-    speciesId: harpy
-    templateId: digitigrade
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Harpy/displacement.rsi
-            state: jumpsuit
-            copyToShaderParameters:
-              # Value required, provide a dummy. Gets overridden when applied.
-              layerKey: dummy
-              parameterTexture: displacementMap
-              parameterUV: displacementUV
-    # WD EDIT START
-    femaleDisplacements:
-      jumpsuit-body-slim:
-        sizeMaps:
-          32:
-            sprite: _White/Mobs/Species/Harpy/displacement.rsi
-            state: jumpsuit-slim
-    # WD EDIT END
 
 - type: entity
   save: false
-  categories: [ HideSpawnMenu ]
-  name: Urist McBirb
+  name: Urist McHands
   parent: MobHumanDummy
   id: MobHarpyDummy
+  categories: [ HideSpawnMenu ]
   description: A dummy Harpy meant to be used in character setup.
   components:
   - type: HumanoidAppearance
     species: Harpy
+  - type: Inventory
+    speciesId: harpy
+    templateId: digitigrade # Einstein Engines
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+      # Orion-Start
+      underwear:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+      # Orion-End
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+      # Orion-Start
+      underwear:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+      # Orion-End
   - type: Sprite
-    scale: 0.9, 0.9
+    # scale: 0.9, 0.9 # Goobstation: port EE height/width sliders
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Groin" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "underpants" ]
+#      - map: [ "underpants" ] # Orion-Edit: Removed
+#      - map: [ "undershirt" ] # Orion-Edit: Removed
+#      - map: [ "socks" ] # Orion-Edit: Removed
+      # Orion-Start
+      - map: [ "underwear" ]
       - map: [ "undershirt" ]
-      - map: [ "socks" ]
-      - map: [ "jumpsuit" ]
+      # Orion-End
+      # Orion-Edit-Start: Moved under jumpsuit
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
+      # Orion-Edit-End
+      - map: [ "socks" ] # Orion
+      - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "id" ]
       - map: [ "gloves" ]
+      - map: [ "wrists" ] # Orion
+      - map: [ "earsright" ] # Orion
       - map: [ "ears" ]
-      - map: [ "innerBelt" ]
-      - map: [ "innerNeck" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
       - map: [ "neck" ]
       - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
@@ -205,66 +321,7 @@
         visible: false
 # Yes, RArm has to be down here
       - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "maskalt" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "mask" ]
       - map: [ "head" ]
-      - map: [ "singingLayer" ]
-        sprite: Effects/harpysinger.rsi
-        state: singing_music_notes
-  - type: Inventory
-    speciesId: harpy
-    templateId: digitigrade
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Harpy/displacement.rsi
-            state: jumpsuit
-            copyToShaderParameters:
-              # Value required, provide a dummy. Gets overridden when applied.
-              layerKey: dummy
-              parameterTexture: displacementMap
-              parameterUV: displacementUV
-    # WD EDIT START
-    femaleDisplacements:
-      jumpsuit-body-slim:
-        sizeMaps:
-          32:
-            sprite: _White/Mobs/Species/Harpy/displacement.rsi
-            state: jumpsuit-slim
-    # WD EDIT END
-
-- type: entity
-  id: ActionHarpyPlayMidi
-  name: Play MIDI
-  description: Sing your heart out! Right click yourself to set an instrument.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    checkCanInteract: false
-    icon: DeltaV/Interface/Actions/harpy_sing.png
-    event: !type:OpenUiActionEvent
-      key: enum.InstrumentUiKey.Key
-
-- type: entity
-  id: ActionSyrinxChangeVoiceMask
-  name: Set name
-  description: Change the name others hear to something else.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    icon: DeltaV/Interface/Actions/harpy_syrinx.png
-    itemIconStyle: BigAction
-    event: !type:VoiceMaskSetNameEvent
-
-- type: entity
-  id: ActionToggleFlight
-  name: Fly
-  description: Make use of your wings to fly. Beat the flightlessness allegations.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    checkCanInteract: false
-    icon: { sprite: Interface/Actions/flight.rsi, state: flight_off }
-    iconOn: { sprite : Interface/Actions/flight.rsi, state: flight_on }
-    event: !type:ToggleFlightEvent
