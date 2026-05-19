@@ -344,6 +344,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 
                     break;
                 case Sex.Female:
+                case Sex.Futanari: // Arcane-edit
                     if (inventory.FemaleDisplacements.Count > 0)
                     {
                         if (!string.IsNullOrEmpty(clothingComponent.ClothingType))
