@@ -1,0 +1,153 @@
+using Content.Server._Arcane.ERP;
+using Content.Server.Chat.Systems;
+using Content.Server.Interaction;
+using Content.Shared._Arcane.ErpPanel;
+using Content.Shared.Chat;
+using Content.Shared.Verbs;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
+
+namespace Content.Server._Arcane.ErpPanel;
+
+public sealed partial class ErpPanelSystem : EntitySystem
+{
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly InteractionSystem _interaction = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _ticking = default!;
+    [Dependency] private readonly ArousalSystem _arousal = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<ErpPanelOwnerComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ErpPanelOwnerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+
+        SubscribeLocalEvent<ErpPanelOwnerComponent, BoundUIOpenedEvent>(OnBoundUIOpenedEvent);
+        SubscribeLocalEvent<ErpPanelOwnerComponent, BoundUIClosedEvent>(OnBoundUIClosedEvent);
+
+        Subs.BuiEvents<ErpPanelOwnerComponent>(ErpPanelKey.Key, subs =>
+        {
+            subs.Event<ErpPanelSendMessage>(OnSendMessage);
+        });
+    }
+
+    private void OnMapInit(Entity<ErpPanelOwnerComponent> entity, ref MapInitEvent args)
+    {
+        var interfaceData = new InterfaceData(
+            clientType: "Content.Client._Arcane.ErpPanel.ErpPanelWindowBUI"
+        );
+
+        _ui.SetUi(entity.Owner, ErpPanelKey.Key, interfaceData);
+    }
+
+    private void OnGetVerbs(EntityUid uid, ErpPanelOwnerComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!TryComp<ErpPanelOwnerComponent>(args.User, out var userPanel))
+            return;
+
+        AlternativeVerb verb = new()
+        {
+            Act = () => {
+                userPanel.Target = args.Target;
+                OpenUI(args.User, args.Target);
+            },
+            Text = Loc.GetString("erp-panel-open-verb"),
+            Icon = new SpriteSpecifier.Rsi(new("Mobs/Silicon/station_ai.rsi"), "default"),
+            Disabled = !_interaction.InRangeAndAccessible(args.User, args.Target),
+            Priority = 2
+        };
+
+        args.Verbs.Add(verb);
+    }
+
+    private void OnBoundUIOpenedEvent(Entity<ErpPanelOwnerComponent> entity, ref BoundUIOpenedEvent args)
+    {
+        if (args.UiKey is not ErpPanelKey.Key)
+            return;
+
+        if (entity.Comp.Target == null)
+            return;
+
+        var state = new ErpPanelBuiState(GetNetEntity(entity.Owner), GetNetEntity(entity.Comp.Target.Value));
+        _ui.SetUiState(entity.Owner, ErpPanelKey.Key, state);
+    }
+
+    private void OnBoundUIClosedEvent(Entity<ErpPanelOwnerComponent> entity, ref BoundUIClosedEvent args)
+    {
+        if (args.UiKey is not ErpPanelKey.Key)
+            return;
+
+        entity.Comp.Target = null;
+    }
+
+    private void OnSendMessage(Entity<ErpPanelOwnerComponent> entity, ref ErpPanelSendMessage args)
+    {
+        var user = args.Actor;
+        var target = entity.Comp.Target;
+        if (target == null)
+            return;
+
+        ProccessInteraction(user, target.Value, args.Interaction);
+    }
+
+    public void ProccessInteraction(EntityUid user, EntityUid target, string interactionId)
+    {
+        if (!_prototype.TryIndex<PanelInteractionPrototype>(interactionId, out var interaction))
+            return;
+
+        if (!IsValidInteraction(user, target, interaction))
+            return;
+
+        if (!TryComp<ErpPanelOwnerComponent>(user, out var userPanel))
+            return;
+
+        userPanel.Cooldowns[interaction.ID] = _ticking.CurTime;
+        Dirty(user, userPanel);
+
+        var message = _random.Pick(interaction.Messages)
+            .Replace("$target", MetaData(target).EntityName);
+
+        _chat.TrySendInGameICMessage(user, message, InGameICChatType.Emote, false, colorOverride: Color.MediumAquamarine);
+    }
+
+    private void OpenUI(EntityUid user, EntityUid target)
+    {
+        if (!IsValidUI(user, target))
+            return;
+
+        _ui.TryOpenUi(user, ErpPanelKey.Key, user);
+    }
+
+    private bool IsValidUI(EntityUid user, EntityUid target)
+    {
+        if (!HasComp<ErpPanelOwnerComponent>(user) || !HasComp<ErpPanelOwnerComponent>(target))
+            return false;
+
+        return true;
+    }
+
+    private bool IsValidInteraction(EntityUid user, EntityUid target, PanelInteractionPrototype interaction)
+    {
+        if (!_interaction.InRangeAndAccessible(user, target, interaction.Range))
+            return false;
+
+        if (!TryComp<ErpPanelOwnerComponent>(user, out var userPanel))
+            return false;
+
+        if (!HasComp<ErpPanelOwnerComponent>(target))
+            return false;
+
+        if (userPanel.Cooldowns.TryGetValue(interaction.ID, out var lastUse) && lastUse + interaction.Cooldown > _ticking.CurTime)
+            return false;
+
+        return true;
+    }
+
+
+}

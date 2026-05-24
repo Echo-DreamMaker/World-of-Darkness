@@ -1,0 +1,23 @@
+- type: panelInteraction
+  id: BiteEars
+  category: Mouth
+  name: Укусить Шею
+  messages:
+  - кусает шею $target!
+  - покусывает шею $target.
+  - осторожно прикусывает шею $target.
+  icon: _Arcane/Interface/ErpPanel/bite_ears.png
+
+- type: panelInteraction
+  id: SuckDick
+  category: Mouth
+  name: Сосать Член
+  messages:
+  - пиздец $target!
+  - ахуеть $target.
+  - просто кошмар $target.
+  icon: _Arcane/Interface/ErpPanel/cock_tongue_fap.png
+  targetRequirements:
+  - !type:EroticOrganRequirement
+    organ: penis
+    requireVisible: true

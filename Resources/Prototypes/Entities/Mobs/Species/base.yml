@@ -258,6 +258,7 @@
     allowMovementWhileCrit: true
     allowMovementWhileSoftCrit: true
   - type: MobThresholdSounds
+  - type: ErpPanelOwner # Arcane
   # WD EDIT END
 
 - type: entity
