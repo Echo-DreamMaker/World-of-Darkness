@@ -38,6 +38,9 @@ public sealed partial class EroticOrganRequirement : ErpRequirement
         var bodySystem = entityManager.System<SharedBodySystem>();
         foreach (var organ in bodySystem.GetBodyOrganEntityComps<EroticOrganComponent>((uid, body)))
         {
+            if (!entityManager.HasComponent(organ.Owner, OrganTypes[Organ]))
+                continue;
+
             if (RequireVisible)
                 return organ.Comp1.Visible;
             else

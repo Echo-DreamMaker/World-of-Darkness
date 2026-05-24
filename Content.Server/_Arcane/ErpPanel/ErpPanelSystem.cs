@@ -90,7 +90,7 @@ public sealed partial class ErpPanelSystem : EntitySystem
     {
         var user = args.Actor;
         var target = entity.Comp.Target;
-        if (target == null)
+        if (target == null || user != entity.Owner)
             return;
 
         ProccessInteraction(user, target.Value, args.Interaction);
@@ -105,6 +105,12 @@ public sealed partial class ErpPanelSystem : EntitySystem
             return;
 
         if (!TryComp<ErpPanelOwnerComponent>(user, out var userPanel))
+            return;
+
+        if (interaction.Messages.Count == 0)
+            return;
+
+        if (!CheckRequirements(user, target, interaction))
             return;
 
         userPanel.Cooldowns[interaction.ID] = _ticking.CurTime;
@@ -149,5 +155,28 @@ public sealed partial class ErpPanelSystem : EntitySystem
         return true;
     }
 
+    private bool CheckRequirements(EntityUid user, EntityUid target, PanelInteractionPrototype interaction)
+    {
+        var passed = true;
 
+        if (interaction.UserRequirements != null)
+        {
+            foreach (var requirement in interaction.UserRequirements)
+            {
+                if (!requirement.IsAvailable(user, EntityManager))
+                    passed = false;
+            }
+        }
+
+        if (interaction.TargetRequirements != null)
+        {
+            foreach (var requirement in interaction.TargetRequirements)
+            {
+                if (!requirement.IsAvailable(target, EntityManager))
+                    passed = false;
+            }
+        }
+
+        return passed;
+    }
 }
