@@ -99,6 +99,9 @@ public sealed partial class ErpPanelSystem : EntitySystem
         if (!CheckRequirements(user, target, interaction))
             return;
 
+        customArousal = Math.Clamp(customArousal, 0, 300);
+        customMoaning = Math.Clamp(customMoaning, 0, 300);
+
         _arousal.AddArousal(user, interaction.UserArouse * customArousal / 100);
         _arousal.AddArousal(target, interaction.TargetArouse * customArousal / 100);
 

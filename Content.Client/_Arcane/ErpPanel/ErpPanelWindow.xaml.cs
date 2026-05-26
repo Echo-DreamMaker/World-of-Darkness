@@ -110,9 +110,10 @@ public sealed partial class ErpPanelWindow : FancyWindow
     private void UpdateCooldowns()
     {
         var now = _timing.CurTime;
-
-        foreach (var (button, (lastUse, cooldown)) in _cooldowns)
+        var buttons = _cooldowns.Keys.ToList();
+        foreach (var button in buttons)
         {
+            var (lastUse, cooldown) = _cooldowns[button];
             if (now - lastUse >= cooldown)
             {
                 _cooldowns.Remove(button);
