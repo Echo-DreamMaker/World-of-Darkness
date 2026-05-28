@@ -22,6 +22,7 @@ public sealed partial class ErpPanelWindow : FancyWindow
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     private readonly SpriteSystem _sprite;
+    private readonly ArousalSystem _arousal;
 
     private static readonly Color BackgroundColor = new Color(21, 29, 33);
     private static readonly Color FrameColor = new Color(50, 80, 99);
@@ -29,8 +30,10 @@ public sealed partial class ErpPanelWindow : FancyWindow
     private static readonly Color ButtonFrameColor = new Color(99, 235, 255);
 
     private HashSet<string> _openedCategories = new();
-    private TimeSpan _lastUpdate = TimeSpan.Zero;
-    private static readonly TimeSpan ReloadCooldown = TimeSpan.FromMilliseconds(250);
+    private TimeSpan _lastInteractionUpdate = TimeSpan.Zero;
+    private static readonly TimeSpan ReloadCooldown = TimeSpan.FromMilliseconds(150);
+    private TimeSpan _lastArousalUpdate = TimeSpan.Zero;
+    private static readonly TimeSpan ArousalUpdateCooldown = TimeSpan.FromMilliseconds(50);
 
     private EntityUid? _currentUser;
     private EntityUid? _currentTarget;
@@ -45,6 +48,7 @@ public sealed partial class ErpPanelWindow : FancyWindow
         IoCManager.InjectDependencies(this);
 
         _sprite = _entManager.System<SpriteSystem>();
+        _arousal = _entManager.System<ArousalSystem>();
 
         SearchInput.OnTextChanged += _ => ReloadInteractionsIfNeeded(true);
 
@@ -125,12 +129,20 @@ public sealed partial class ErpPanelWindow : FancyWindow
         }
     }
 
-    private void UpdateArousal() // TODO: ПЕРЕДЕЛАТЬ КОГДА AROUSAL SYSTEM БУДЕТ В ЕБУЧЕМ SHARED И МЫ СТАНЕМ ОБНОВЛЯТЬ ЭТУ ХУЙНЮ ДИНАМИЧЕСКИ
+    private void UpdateArousal()
     {
-        if (!_entManager.TryGetComponent<ArousalComponent>(_currentUser, out var arousalComponent))
+        if (_lastArousalUpdate + ArousalUpdateCooldown > _timing.CurTime)
+            return;
+        _lastArousalUpdate = _timing.CurTime;
+
+        if (!_entManager.TryGetComponent<ArousalComponent>(_currentUser, out var userArousal))
             return;
 
-        ArousalProgressBar.Value = Math.Clamp(arousalComponent.LastValue / arousalComponent.MaxArousal, 0f, 1f);
+        var percent = _arousal.GetArousal(userArousal) / userArousal.MaxArousal;
+        var targetValue = Math.Clamp(percent, 0f, 1f);
+        var diff = targetValue - ArousalProgressBar.Value;
+
+        ArousalProgressBar.Value += 0.1f * diff;
     }
 
     private void ReloadInteractionsIfNeeded(bool force = false)
@@ -139,10 +151,10 @@ public sealed partial class ErpPanelWindow : FancyWindow
             return;
 
         var now = _timing.CurTime;
-        if (!force && now < _lastUpdate + ReloadCooldown)
+        if (!force && now < _lastInteractionUpdate + ReloadCooldown)
             return;
 
-        _lastUpdate = now;
+        _lastInteractionUpdate = now;
 
         if (!TryUpdateCurrentInteractions())
             return;
@@ -195,12 +207,9 @@ public sealed partial class ErpPanelWindow : FancyWindow
         foreach (var category in categories)
         {
             var categoryCollapsible = PrepareInteractionCategory(category);
-            ButtonsContainer.AddChild(categoryCollapsible);
-
             var categoryBody = new BoxContainer() { Orientation = LayoutOrientation.Vertical };
-            categoryCollapsible.Body?.AddChild(categoryBody);
 
-            foreach (var interaction in interactions.Where(i => i.Category.Id == category.ID))
+            foreach (var interaction in interactions.Where(i => i.Category.Id == category.ID).OrderBy(i => i.Name))
             {
                 var requirementPassed = CheckRequirements(user, target, interaction);
                 if (!requirementPassed)
@@ -209,9 +218,21 @@ public sealed partial class ErpPanelWindow : FancyWindow
                 if (!InteractionMatchesSearch(interaction))
                     continue;
 
+                if (user == target && interaction.SelfMessages.Count == 0)
+                    continue;
+
+                if (user != target && interaction.Messages.Count == 0)
+                    continue;
+
                 var interactionContainer = PrepareInteractionButton(interaction);
                 categoryBody.AddChild(interactionContainer);
             }
+
+            if (categoryBody.ChildCount == 0)
+                continue;
+
+            ButtonsContainer.AddChild(categoryCollapsible);
+            categoryCollapsible.Body?.AddChild(categoryBody);
         }
     }
 
@@ -234,7 +255,8 @@ public sealed partial class ErpPanelWindow : FancyWindow
 
         var category = new Collapsible(heading, body)
         {
-            HorizontalExpand = true
+            HorizontalExpand = true,
+            Margin = new Thickness(0, 0, 0, 5)
         };
 
         heading.OnPressed += _ =>
@@ -308,6 +330,10 @@ public sealed partial class ErpPanelWindow : FancyWindow
     private bool CheckRequirements(EntityUid user, EntityUid target, PanelInteractionPrototype interaction)
     {
         var passed = true;
+
+        var transform = _entManager.System<TransformSystem>();
+        if (!transform.InRange(user, target, interaction.Range))
+            passed = false;
 
         if (interaction.UserRequirements != null)
         {

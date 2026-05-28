@@ -1,4 +1,3 @@
-using Content.Server._Arcane.ERP;
 using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Shared._Arcane.ERP;
@@ -6,6 +5,9 @@ using Content.Shared._Arcane.ErpPanel;
 using Content.Shared.Chat;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
+using Robust.Server.Audio;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -22,7 +24,10 @@ public sealed partial class ErpPanelSystem : EntitySystem
     [Dependency] private readonly IGameTiming _ticking = default!;
     [Dependency] private readonly ArousalSystem _arousal = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
+    private EntProtoId _heartsProto = new("EffectHearts");
 
     public override void Initialize()
     {
@@ -50,6 +55,9 @@ public sealed partial class ErpPanelSystem : EntitySystem
     private void OnGetVerbs(EntityUid uid, ErpPanelOwnerComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
         if (!TryComp<ErpPanelOwnerComponent>(args.User, out var userPanel))
+            return;
+
+        if (!IsValidUI(args.User, args.Target))
             return;
 
         AlternativeVerb verb = new()
@@ -105,13 +113,25 @@ public sealed partial class ErpPanelSystem : EntitySystem
         _arousal.AddArousal(user, interaction.UserArouse * customArousal / 100);
         _arousal.AddArousal(target, interaction.TargetArouse * customArousal / 100);
 
+        if (interaction.TargetArouse > 0)
+            Spawn(_heartsProto, _transform.GetMapCoordinates(target));
+
         userPanel.Cooldowns[interaction.ID] = _ticking.CurTime;
         Dirty(user, userPanel);
 
-        var message = _random.Pick(interaction.Messages)
+        var messagesCollection = user == target ? interaction.SelfMessages : interaction.Messages;
+
+        var message = _random.Pick(messagesCollection)
             .Replace("$target", Identity.Name(target, EntityManager, user));
 
         _chat.TrySendInGameICMessage(user, message, InGameICChatType.Emote, false);
+
+        if (interaction.Sounds.Count == 0)
+            return;
+
+        var resSound = _random.Pick(interaction.Sounds);
+        var sound = new SoundPathSpecifier(resSound);
+        _audio.PlayPvs(sound, user);
     }
 
     private void TryOpenPanel(EntityUid user, EntityUid target)
@@ -130,6 +150,9 @@ public sealed partial class ErpPanelSystem : EntitySystem
         if (!HasComp<ErpPanelOwnerComponent>(user) || !HasComp<ErpPanelOwnerComponent>(target))
             return false;
 
+        if (!HasComp<ArousalComponent>(user) || !HasComp<ArousalComponent>(target))
+            return false;
+
         if (TryComp<ErpStatusComponent>(target, out var targetStatus) && targetStatus.Preference == ErpPreference.No)
             return false;
 
@@ -144,10 +167,16 @@ public sealed partial class ErpPanelSystem : EntitySystem
         if (interaction.Messages.Count == 0)
             return false;
 
+        if (user == target && interaction.SelfMessages.Count == 0 || interaction.Messages.Count == 0)
+            return false;
+
         if (!TryComp<ErpPanelOwnerComponent>(user, out var userPanel))
             return false;
 
         if (!HasComp<ErpPanelOwnerComponent>(target))
+            return false;
+
+        if (!HasComp<ArousalComponent>(user) || !HasComp<ArousalComponent>(target))
             return false;
 
         if (userPanel.Cooldowns.TryGetValue(interaction.ID, out var lastUse) && lastUse + interaction.Cooldown > _ticking.CurTime)

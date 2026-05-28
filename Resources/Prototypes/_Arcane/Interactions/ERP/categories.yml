@@ -1,3 +1,11 @@
 - type: panelInteractionCategory
   id: Mouth
   name: Рот
+
+- type: panelInteractionCategory
+  id: Ears
+  name: Уши
+
+- type: panelInteractionCategory
+  id: Penis
+  name: Член

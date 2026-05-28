@@ -1,25 +1,15 @@
 - type: panelInteraction
-  id: BiteEars
+  id: BiteNeck
   category: Mouth
-  name: Укусить Шею
+  name: Укусить шею
   messages:
-  - кусает шею $target!
-  - покусывает шею $target.
-  - осторожно прикусывает шею $target.
-  icon: _Arcane/Interface/ErpPanel/bite_ears.png
+  - вцепляется зубами в шею $target!
+  - оставляет болезненный укус на шее $target.
+  - резко кусает $target за шею.
+  - прихватывает шею $target зубами.
+  - впивается клыками в шею $target.
+  - медленно кусает $target за шею.
+  - оставляет след от укуса на шее $target.
+  - прикусывает шею $target.
+  icon: _Arcane/Interface/ErpPanel/bite_neck.png
 
-- type: panelInteraction
-  id: SuckDick
-  category: Mouth
-  name: Сосать Член
-  userArouse: 5
-  targetArouse: 15
-  messages:
-  - проталкивает член $target в своё горло.
-  - осторожно сосет член $target.
-  - проводит языком по члену $target во рту.
-  icon: _Arcane/Interface/ErpPanel/cock_tongue_fap.png
-  targetRequirements:
-  - !type:EroticOrganRequirement
-    organ: penis
-    requireVisible: true
