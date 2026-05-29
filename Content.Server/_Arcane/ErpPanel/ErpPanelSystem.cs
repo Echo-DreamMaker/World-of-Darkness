@@ -158,15 +158,17 @@ public sealed partial class ErpPanelSystem : EntitySystem
             return;
 
         arousalPercent = Math.Clamp(arousalPercent, 0f, 1f);
+
         var index = (int) Math.Ceiling(arousalPercent * soundCollection.PickFiles.Count) - 1; // WTF??????
         index += _random.Next(-2, 1);
         index = Math.Clamp(index, 0, soundCollection.PickFiles.Count - 1);
-        Logger.Debug($"{index} - {ToPrettyString(uid)}");
+
         var audioParams = new AudioParams()
         {
             Variation = 0.125f,
             MaxDistance = 4f,
         };
+
         _audio.PlayPvs(new ResolvedCollectionSpecifier(collection, index), uid, audioParams);
 
         _chat.TrySendInGameICMessage(uid, Loc.GetString("moan-message"), InGameICChatType.Emote, true);
