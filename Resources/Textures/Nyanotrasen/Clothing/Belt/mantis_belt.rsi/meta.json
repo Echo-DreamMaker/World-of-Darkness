@@ -8,6 +8,13 @@
     },
     "states": [
         {
+            "name": "equipped-UNDERWEAR",
+            "directions": 4
+        },
+        {
+            "name": "condom-trash"
+        },
+        {
             "name": "icon"
         },
         {
