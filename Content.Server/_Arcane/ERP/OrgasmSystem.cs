@@ -70,6 +70,13 @@ public sealed class OrgasmSystem : EntitySystem
         var weakness = EnsureComp<OrgasmWeaknessComponent>(uid);
         weakness.ExpiresAt = _timing.CurTime + TimeSpan.FromSeconds(2.5);
         Dirty(uid, weakness);
+
+        var scheduledUid = uid;
+        Timer.Spawn((int) TimeSpan.FromSeconds(2.5).TotalMilliseconds, () =>
+        {
+            if (TryComp<OrgasmWeaknessComponent>(scheduledUid, out var comp) && comp.ExpiresAt <= _timing.CurTime)
+                RemCompDeferred<OrgasmWeaknessComponent>(scheduledUid);
+        });
     }
 
     private void SpawnEjaculation(EntityUid uid)

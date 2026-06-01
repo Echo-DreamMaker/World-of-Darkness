@@ -119,6 +119,14 @@ public sealed partial class ErpPanelSystem : EntitySystem
         customArousal = Math.Clamp(customArousal, 0, 300);
         customMoaning = Math.Clamp(customMoaning, 0, 300);
 
+        // Block if the target would receive arousal but is currently refractory.
+        if (interaction.TargetArouse > 0 && !_arousal.CanAddArousal(target))
+        {
+            var key = user == target ? "erp-refractory-self" : "erp-refractory-target";
+            _popup.PopupEntity(Loc.GetString(key), target, user, PopupType.SmallCaution);
+            return;
+        }
+
         if (interaction.TargetArouse > 0)
             Spawn(_heartsProto, _transform.GetMapCoordinates(target));
 
@@ -127,14 +135,6 @@ public sealed partial class ErpPanelSystem : EntitySystem
 
         ProccessMessages(user, target, interaction);
         ProccessSounds(user, interaction);
-
-        if (user == target
-            && interaction.TargetArouse > 0
-            && TryComp<ArousalComponent>(target, out var targetArousal)
-            && _arousal.IsRefractory(targetArousal))
-        {
-            _popup.PopupEntity(Loc.GetString("erp-refractory-self"), target, user, PopupType.SmallCaution);
-        }
 
         _arousal.AddArousal(target, interaction.TargetArouse * customArousal / 100);
         ProccessMoan(target, customMoaning);

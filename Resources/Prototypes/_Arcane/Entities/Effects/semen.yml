@@ -1,0 +1,12 @@
+- type: entity
+  id: PuddleSemen
+  parent: PuddleTemporary
+  suffix: semen
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Semen
+          Quantity: 2

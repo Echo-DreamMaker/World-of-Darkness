@@ -83,6 +83,15 @@ public sealed class ArousalSystem : EntitySystem
         Dirty(uid, comp);
     }
 
+    public bool CanAddArousal(EntityUid uid, ArousalComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp, false))
+            return false;
+        if (IsErpDisabled(uid))
+            return false;
+        return !IsRefractory(comp);
+    }
+
     public void AddArousal(EntityUid uid, float amount, ArousalComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
