@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._Arcane.ERP;
 using Content.Shared._White.Bark;
 using Content.Shared._White.Bark.Systems;
 using Content.Shared._White.TTS;
@@ -358,7 +359,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             .EnumeratePrototypes<TTSVoicePrototype>()
             .Where(o => CanHaveVoice(o, sex)).ToArray()
         ).ID;
-         // WD EDIT END
+        // WD EDIT END
 
         var name = GetName(species, gender);
 
@@ -517,6 +518,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             ("age", Age)
         );
 
+    public ErpPreference ErpPreference { get; set; }
     public bool MemberwiseEquals(ICharacterProfile maybeOther)
     {
         return maybeOther is HumanoidCharacterProfile other
@@ -721,7 +723,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         if (voice is null || !CanHaveVoice(voice, Sex))
             Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
 
-        if(!CanHaveBark(prototypeManager, collection))
+        if (!CanHaveBark(prototypeManager, collection))
             BarkVoice = SharedHumanoidAppearanceSystem.DefaultBarkVoice;
 
         foreach (var (key, loadout) in loadouts)
@@ -755,12 +757,12 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     }
 
     public bool CanHaveBark(
-        IPrototypeManager prototypeManager,IDependencyCollection collection,
+        IPrototypeManager prototypeManager, IDependencyCollection collection,
         ProtoId<BarkListPrototype>? id = null
     )
     {
         var voice = BarkVoice;
-        if(
+        if (
             !prototypeManager.TryIndex<BarkListPrototype>(id ?? "default", out var barkList) ||
             !barkList.VoiceList.TryGetValue(voice, out var voiceRequirements) ||
             !prototypeManager.TryIndex<BarkVoicePrototype>(voice, out var voicePrototype))

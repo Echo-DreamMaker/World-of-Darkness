@@ -19,7 +19,10 @@ public sealed class EroticCoverageSystem : EntitySystem
     private const SlotFlags GroinCovering = SlotFlags.INNERCLOTHING | SlotFlags.OUTERCLOTHING | SlotFlags.LEGS | SlotFlags.UNDERWEAR;
     private const SlotFlags ChestCovering = SlotFlags.INNERCLOTHING | SlotFlags.OUTERCLOTHING | SlotFlags.UNDERSHIRT;
 
+    [Obsolete]
+#pragma warning disable CS0809 // Устаревший член переопределяет неустаревший член
     public override void Initialize()
+#pragma warning restore CS0809 // Устаревший член переопределяет неустаревший член
     {
         base.Initialize();
         SubscribeLocalEvent<HumanoidAppearanceComponent, EroticOrgansSpawnedEvent>(OnOrgansSpawned);
@@ -27,21 +30,25 @@ public sealed class EroticCoverageSystem : EntitySystem
         SubscribeLocalEvent<HumanoidAppearanceComponent, ClothingDidUnequippedEvent>(OnUnequipped);
     }
 
+    [Obsolete]
     private void OnOrgansSpawned(Entity<HumanoidAppearanceComponent> ent, ref EroticOrgansSpawnedEvent args)
     {
         RefreshOrganVisibility(ent);
     }
 
+    [Obsolete]
     private void OnEquipped(Entity<HumanoidAppearanceComponent> ent, ref ClothingDidEquippedEvent args)
     {
         RefreshOrganVisibility(ent);
     }
 
+    [Obsolete]
     private void OnUnequipped(Entity<HumanoidAppearanceComponent> ent, ref ClothingDidUnequippedEvent args)
     {
         RefreshOrganVisibility(ent);
     }
 
+    [Obsolete]
     private void RefreshOrganVisibility(EntityUid uid)
     {
         var coverage = SlotFlags.NONE;

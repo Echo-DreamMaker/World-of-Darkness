@@ -53,7 +53,8 @@ public sealed partial class ErpPanelSystem : EntitySystem
 
         AlternativeVerb verb = new()
         {
-            Act = () => {
+            Act = () =>
+            {
                 userPanel.Target = args.Target;
                 OpenUI(args.User, args.Target);
             },
@@ -119,7 +120,7 @@ public sealed partial class ErpPanelSystem : EntitySystem
         var message = _random.Pick(interaction.Messages)
             .Replace("$target", MetaData(target).EntityName);
 
-        _chat.TrySendInGameICMessage(user, message, InGameICChatType.Emote, false, colorOverride: Color.MediumAquamarine);
+        _chat.TrySendInGameICMessage(user, message, InGameICChatType.Emote, false);
     }
 
     private void OpenUI(EntityUid user, EntityUid target)

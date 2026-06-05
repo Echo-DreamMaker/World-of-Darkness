@@ -1060,6 +1060,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         return false;
     }
 
+    internal void TrySendInGameICMessage(EntityUid user, string message, InGameICChatType emote, bool v, Color colorOverride) => throw new NotImplementedException();
+
     #endregion
 }
 
