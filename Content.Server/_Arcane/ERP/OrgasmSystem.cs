@@ -55,7 +55,7 @@ public sealed class OrgasmSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("orgasm-popup-self"), uid, uid, PopupType.MediumCaution);
 
-        if (humanoid?.Sex is Sex.Male or Sex.Futanari)
+        if (humanoid?.Sex == Sex.Male)
             SpawnEjaculation(uid);
 
         var weakness = EnsureComp<OrgasmWeaknessComponent>(uid);

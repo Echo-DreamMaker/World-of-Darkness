@@ -12,19 +12,19 @@ public sealed partial class EroticOrgansComponent : Component
     public List<EroticOrganEntry> GroinCommon = [];
 
     /// <summary>
-    /// Organs spawned for Male and Futanari in the groin slot.
+    /// Organs spawned for Male in the groin slot.
     /// </summary>
     [DataField]
     public List<EroticOrganEntry> GroinMale = [];
 
     /// <summary>
-    /// Organs spawned for Female and Futanari in the groin slot.
+    /// Organs spawned for Female in the groin slot.
     /// </summary>
     [DataField]
     public List<EroticOrganEntry> GroinFemale = [];
 
     /// <summary>
-    /// Organs spawned for Female and Futanari in the chest slot.
+    /// Organs spawned for Female in the chest slot.
     /// </summary>
     [DataField]
     public List<EroticOrganEntry> ChestFemale = [];

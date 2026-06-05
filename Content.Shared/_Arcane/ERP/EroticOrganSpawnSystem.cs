@@ -1,5 +1,6 @@
 using Content.Shared._Arcane.ERP.Organs;
 using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
@@ -70,14 +71,14 @@ public sealed class EroticOrganSpawnSystem : EntitySystem
         {
             TrySpawnOrgans(uid, groin.Value, def.GroinCommon);
 
-            if (sex is Sex.Male or Sex.Futanari)
+            if (sex == Sex.Male)
                 TrySpawnOrgans(uid, groin.Value, def.GroinMale);
 
-            if (sex is Sex.Female or Sex.Futanari)
+            if (sex == Sex.Female)
                 TrySpawnOrgans(uid, groin.Value, def.GroinFemale);
         }
 
-        if (chest.HasValue && sex is Sex.Female or Sex.Futanari)
+        if (chest.HasValue && sex == Sex.Female)
             TrySpawnOrgans(uid, chest.Value, def.ChestFemale);
 
         var ev = new EroticOrgansSpawnedEvent();
@@ -86,10 +87,19 @@ public sealed class EroticOrganSpawnSystem : EntitySystem
 
     private void RemoveEroticOrgans(EntityUid bodyUid)
     {
-        var organs = _body.GetBodyOrganEntityComps<EroticOrganComponent>((bodyUid, null));
+        if (!TryComp<BodyComponent>(bodyUid, out var bodyComp))
+            return;
+
+        // Check if body is properly initialized (has root part)
+        if (_body.GetRootPartOrNull(bodyUid, bodyComp) is null)
+            return;
+
+        if (!_body.TryGetBodyOrganEntityComps<EroticOrganComponent>((bodyUid, bodyComp), out var organs))
+            return;
+
         foreach (var organ in organs)
         {
-            _body.RemoveOrgan(organ.Owner, organ.Comp2);
+            _body.RemoveOrgan(organ.Owner);
             QueueDel(organ.Owner);
         }
     }

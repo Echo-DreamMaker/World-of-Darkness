@@ -578,6 +578,7 @@ public partial class SharedBodySystem
     public (EntityUid Entity, BodyPartComponent BodyPart)? GetRootPartOrNull(EntityUid bodyId, BodyComponent? body = null)
     {
         if (!Resolve(bodyId, ref body)
+            || body.RootContainer is null
             || body.RootContainer.ContainedEntity is null)
         {
             return null;

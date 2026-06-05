@@ -125,6 +125,7 @@ public sealed partial class CharacterSexRequirement : CharacterRequirement
 ///     Requires the profile to be a certain species
 /// </summary>
 [UsedImplicitly, Serializable, NetSerializable]
+[SerializedType("SpeciesRequirement")]
 public sealed partial class CharacterSpeciesRequirement : CharacterRequirement
 {
     [DataField(required: true)]

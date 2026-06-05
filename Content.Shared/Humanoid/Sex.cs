@@ -11,7 +11,6 @@ namespace Content.Shared.Humanoid
         Male,
         Female,
         Unsexed,
-        Futanari, // Arcane-edit
     }
 
     /// <summary>
