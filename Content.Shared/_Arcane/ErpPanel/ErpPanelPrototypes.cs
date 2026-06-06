@@ -5,7 +5,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Arcane.ErpPanel;
 
-[Prototype]
+[Prototype("panelInteraction")]
 public sealed partial class PanelInteractionPrototype : IPrototype
 {
     [IdDataField]
@@ -48,7 +48,7 @@ public sealed partial class PanelInteractionPrototype : IPrototype
     public List<ErpRequirement>? TargetRequirements;
 }
 
-[Prototype]
+[Prototype("panelInteractionCategory")]
 public sealed partial class PanelInteractionCategoryPrototype : IPrototype
 {
     [IdDataField]

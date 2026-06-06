@@ -20,7 +20,7 @@ namespace Content.Shared.Humanoid
             if (!HasSexMorph(layer) || sex == Sex.Unsexed)
                 return id;
 
-            var visualSex = sex == Sex.Female;
+            var visualSex = sex == Sex.Female ? "Female" : "Male";
             return $"{id}{visualSex}";
         }
 
