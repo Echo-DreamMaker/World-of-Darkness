@@ -1,0 +1,138 @@
+using Content.Shared._Arcane.ERP.Organs;
+using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Organ;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
+using Content.Shared.Humanoid;
+using Robust.Shared.Containers;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
+
+namespace Content.Shared._Arcane.ERP;
+
+public sealed class EroticOrganSpawnSystem : EntitySystem
+{
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!;
+    [Dependency] private readonly INetManager _net = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        // Run after SharedBodySystem so body parts are already spawned when we look for them.
+        SubscribeLocalEvent<EroticOrgansComponent, MapInitEvent>(OnMapInit, after: [typeof(SharedBodySystem)]);
+        SubscribeLocalEvent<EroticOrgansComponent, ProfileLoadFinishedEvent>(OnProfileLoaded);
+        SubscribeLocalEvent<EroticOrgansComponent, SexChangedEvent>(OnSexChanged);
+    }
+
+    private void OnMapInit(Entity<EroticOrgansComponent> ent, ref MapInitEvent args)
+    {
+        if (!_net.IsServer)
+            return;
+
+        if (!TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
+            return;
+
+        SpawnEroticOrgans(ent, ent.Comp, humanoid.Sex);
+    }
+
+    private void OnProfileLoaded(Entity<EroticOrgansComponent> ent, ref ProfileLoadFinishedEvent args)
+    {
+        if (!_net.IsServer)
+            return;
+
+        if (!TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
+            return;
+
+        RemoveEroticOrgans(ent);
+        SpawnEroticOrgans(ent, ent.Comp, humanoid.Sex);
+    }
+
+    private void OnSexChanged(Entity<EroticOrgansComponent> ent, ref SexChangedEvent args)
+    {
+        if (!_net.IsServer)
+            return;
+
+        RemoveEroticOrgans(ent);
+        SpawnEroticOrgans(ent, ent.Comp, args.NewSex);
+    }
+
+    private void SpawnEroticOrgans(EntityUid uid, EroticOrgansComponent def, Sex sex)
+    {
+        if (sex == Sex.Unsexed)
+            return;
+
+        // Note: No mob prototype uses BodyPartType.Groin or BodyPartType.Chest.
+        // All body parts use Torso. So we spawn groin and chest organs in the torso.
+        var torso = GetBodyPartOfType(uid, BodyPartType.Torso);
+
+        if (torso.HasValue)
+        {
+            TrySpawnOrgans(uid, torso.Value, def.GroinCommon);
+
+            if (sex == Sex.Male)
+                TrySpawnOrgans(uid, torso.Value, def.GroinMale);
+
+            if (sex == Sex.Female)
+            {
+                TrySpawnOrgans(uid, torso.Value, def.GroinFemale);
+                TrySpawnOrgans(uid, torso.Value, def.ChestFemale);
+            }
+        }
+
+        var ev = new EroticOrgansSpawnedEvent();
+        RaiseLocalEvent(uid, ref ev);
+    }
+
+    private void RemoveEroticOrgans(EntityUid bodyUid)
+    {
+        if (!TryComp<BodyComponent>(bodyUid, out var bodyComp))
+            return;
+
+        // Check if body is properly initialized (has root part)
+        if (_body.GetRootPartOrNull(bodyUid, bodyComp) is null)
+            return;
+
+        if (!_body.TryGetBodyOrganEntityComps<EroticOrganComponent>((bodyUid, bodyComp), out var organs))
+            return;
+
+        foreach (var organ in organs)
+        {
+            _body.RemoveOrgan(organ.Owner);
+            QueueDel(organ.Owner);
+        }
+    }
+
+    private void TrySpawnOrgans(EntityUid bodyUid, EntityUid partUid, List<EroticOrganEntry> organs)
+    {
+        foreach (var entry in organs)
+            TrySpawnOrgan(bodyUid, partUid, entry.Proto, entry.Slot);
+    }
+
+    private void TrySpawnOrgan(EntityUid bodyUid, EntityUid partUid, EntProtoId protoId, string slotId)
+    {
+        if (!_proto.HasIndex(protoId))
+            return;
+
+        _body.TryCreateOrganSlot(partUid, slotId, out _);
+
+        var containerId = SharedBodySystem.GetOrganContainerId(slotId);
+        if (_containers.TryGetContainer(partUid, containerId, out var container)
+            && container.ContainedEntities.Count > 0)
+            return;
+
+        var organEnt = Spawn(protoId, Transform(partUid).Coordinates);
+        if (!_body.InsertOrgan(partUid, organEnt, slotId))
+            QueueDel(organEnt);
+    }
+
+    private EntityUid? GetBodyPartOfType(EntityUid bodyUid, BodyPartType partType)
+    {
+        foreach (var (partUid, _) in _body.GetBodyChildrenOfType(bodyUid, partType))
+            return partUid;
+
+        return null;
+    }
+}

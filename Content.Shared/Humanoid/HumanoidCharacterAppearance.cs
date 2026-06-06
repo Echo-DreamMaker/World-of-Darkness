@@ -62,6 +62,10 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
 
     }
 
+    public HumanoidCharacterAppearance()
+    {
+    }
+
     public HumanoidCharacterAppearance WithHairStyleName(string newName)
     {
         return new(newName, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Markings);

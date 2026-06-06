@@ -1,0 +1,91 @@
+using Content.Shared._Arcane.ERP;
+using Content.Shared._Arcane.ERP.Organs;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
+using Content.Shared.Clothing;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Humanoid;
+using Content.Shared.Inventory;
+using Robust.Shared.Containers;
+
+namespace Content.Server._Arcane.ERP;
+
+public sealed class EroticCoverageSystem : EntitySystem
+{
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!;
+
+    private const SlotFlags GroinCovering = SlotFlags.INNERCLOTHING | SlotFlags.OUTERCLOTHING | SlotFlags.LEGS | SlotFlags.UNDERWEAR;
+    private const SlotFlags ChestCovering = SlotFlags.INNERCLOTHING | SlotFlags.OUTERCLOTHING | SlotFlags.UNDERSHIRT;
+
+    [Obsolete]
+#pragma warning disable CS0809 // Устаревший член переопределяет неустаревший член
+    public override void Initialize()
+#pragma warning restore CS0809 // Устаревший член переопределяет неустаревший член
+    {
+        base.Initialize();
+        SubscribeLocalEvent<HumanoidAppearanceComponent, EroticOrgansSpawnedEvent>(OnOrgansSpawned);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, ClothingDidEquippedEvent>(OnEquipped);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, ClothingDidUnequippedEvent>(OnUnequipped);
+    }
+
+    [Obsolete]
+    private void OnOrgansSpawned(Entity<HumanoidAppearanceComponent> ent, ref EroticOrgansSpawnedEvent args)
+    {
+        RefreshOrganVisibility(ent);
+    }
+
+    [Obsolete]
+    private void OnEquipped(Entity<HumanoidAppearanceComponent> ent, ref ClothingDidEquippedEvent args)
+    {
+        RefreshOrganVisibility(ent);
+    }
+
+    [Obsolete]
+    private void OnUnequipped(Entity<HumanoidAppearanceComponent> ent, ref ClothingDidUnequippedEvent args)
+    {
+        RefreshOrganVisibility(ent);
+    }
+
+    [Obsolete]
+    private void RefreshOrganVisibility(EntityUid uid)
+    {
+        var coverage = SlotFlags.NONE;
+        var enumerator = _inventory.GetSlotEnumerator(uid, GroinCovering | ChestCovering);
+        while (enumerator.NextItem(out var item))
+        {
+            if (TryComp<ClothingComponent>(item, out var clothing))
+                coverage |= clothing.Slots;
+        }
+
+        var groinCovered = (coverage & GroinCovering) != SlotFlags.NONE;
+        var chestCovered = (coverage & ChestCovering) != SlotFlags.NONE;
+
+        foreach (var organ in _body.GetBodyOrganEntityComps<EroticOrganComponent>((uid, null)))
+        {
+            if (!_containers.TryGetContainingContainer(organ.Owner, out var container))
+                continue;
+
+            if (!TryComp<BodyPartComponent>(container.Owner, out var part))
+                continue;
+
+            // Note: No mob prototype uses Groin or Chest as BodyPartType.
+            // All body parts including groin/chest area use Torso.
+            var visible = part.PartType switch
+            {
+                BodyPartType.Torso => !groinCovered,
+                _ => true,
+            };
+            // Treat torso the same for chest coverage as well (breasts are also on torso)
+            if (part.PartType == BodyPartType.Torso && visible)
+                visible = !chestCovered;
+
+            if (organ.Comp1.Visible == visible)
+                continue;
+
+            organ.Comp1.Visible = visible;
+            Dirty(organ.Owner, organ.Comp1);
+        }
+    }
+}
