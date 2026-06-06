@@ -24,10 +24,10 @@ public sealed partial class ErpPanelWindow : FancyWindow
     private readonly SpriteSystem _sprite;
     private readonly ArousalSystem _arousal;
 
-    private static readonly Color BackgroundColor = new Color(21, 29, 33);
-    private static readonly Color FrameColor = new Color(50, 80, 99);
-    private static readonly Color ButtonColor = new Color(85, 133, 138);
-    private static readonly Color ButtonFrameColor = new Color(99, 235, 255);
+    private static readonly Color BackgroundColor = new Color(15, 8, 8);
+    private static readonly Color FrameColor = new Color(58, 8, 8);
+    private static readonly Color ButtonColor = new Color(42, 8, 8);
+    private static readonly Color ButtonFrameColor = new Color(139, 26, 26);
 
     private HashSet<string> _openedCategories = new();
     private TimeSpan _lastInteractionUpdate = TimeSpan.Zero;
