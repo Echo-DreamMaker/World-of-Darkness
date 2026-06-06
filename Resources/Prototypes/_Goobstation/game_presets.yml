@@ -7,9 +7,4 @@
   description: blob-description
   rules:
     - BlobGameMode
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
     - LavalandStormScheduler

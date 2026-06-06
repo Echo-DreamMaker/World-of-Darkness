@@ -1,59 +1,20 @@
 - type: entityTable
   id: BasicCalmEventsTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - id: AnomalySpawn
-    - id: BluespaceArtifact
-    - id: BluespaceLocker
-    - id: BreakerFlip
-    - id: BureaucraticError
-    - id: CarpSpawn
-    - id: ClericalError
-    - id: CockroachMigration
-    - id: GasLeak
-    - id: GreytideVirus
-    - id: IonStorm # its calm like 90% of the time smh
-    - id: KudzuGrowth
-    - id: MassHallucinations
-    - id: MimicVendorRule
-    - id: MouseMigration
-    - id: PowerGridCheck
-    - id: RandomSentience
-    - id: SlimesSpawn
-    - id: SolarFlare
-    - id: SnakeSpawn
-    - id: SpiderClownSpawn
-    - id: SpiderSpawn
-    - id: VentClog
-    # WD EDIT START
-    - id: WormholesSpawn
-    - id: StraySupplyPod
-    - id: StraySupplyPodSyndicate
-    # WD EDIT END
+  table: !type:AllSelector
+    children: []
+  # Все ивенты станции отключены - только гриншифт/эвакуация
 
 - type: entityTable
   id: BasicAntagEventsTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - id: ClosetSkeleton
-    - id: KingRatMigration
-    - id: RevenantSpawn
+  table: !type:AllSelector
+    children: []
+  # Все антаг-ивенты станции отключены
 
 - type: entityTable
   id: ModerateAntagEventsTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - id: DragonSpawn
-    - id: NinjaSpawn
-    - id: SleeperAgents
-    - id: ZombieOutbreak
-    - id: LoneOpsSpawn
-    - id: DerelictCyborgSpawn
-    - id: WizardSpawn
-    # WD EDIT START
-    - id: ParadoxAnomalySpawn
-    - id: XenomorphsInfestation
-    # WD EDIT END
+  table: !type:AllSelector
+    children: []
+  # Все антаг-ивенты станции отключены
 
 - type: entity
   id: BaseStationEvent

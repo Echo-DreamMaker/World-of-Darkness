@@ -3,15 +3,10 @@
   alias:
   - bloodcult
   name: blood-cult-title
-  showInVote: true
+  showInVote: false
   description: blood-cult-description
   rules:
   - BloodCult
-  - SubGamemodesRule
-  - BasicStationEventScheduler
-  - MeteorSwarmScheduler
-  - SpaceTrafficControlEventScheduler
-  - BasicRoundstartVariation
   - LavalandStormScheduler
 
 - type: gamePreset

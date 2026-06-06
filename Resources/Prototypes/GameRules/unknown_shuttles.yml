@@ -2,36 +2,21 @@
 
 - type: entityTable
   id: UnknownShuttlesFriendlyTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - id: UnknownShuttleCargoLost
-    - id: UnknownShuttleTravelingCuisine
-    - id: UnknownShuttleDisasterEvacPod
-    - id: UnknownShuttleHonki
-    - id: UnknownShuttleNTQuark
-    - id: UnknownShuttleCruiser
-    - id: UnknownShuttleCryptid
-    - id: UnknownShuttleEternal
-    - id: UnknownShuttleFlatline
-    - id: UnknownShuttleGym
-    - id: UnknownShuttleNTIncorporation
-    - id: UnknownShuttleJoe
-    - id: UnknownShuttleLambordeere
-    - id: UnknownShuttleMeatZone
-    - id: UnknownShuttleMicroshuttle
-    - id: UnknownShuttleSpacebus
+  table: !type:AllSelector
+    children: []
+  # Все шаттлы отключены - нет пулла карт с станцией
 
 - type: entityTable
   id: UnknownShuttlesFreelanceTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - id: UnknownShuttleSyndieEvacPod
+  table: !type:AllSelector
+    children: []
+  # Все шаттлы отключены
 
 - type: entityTable
   id: UnknownShuttlesHostileTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - id: UnknownShuttleInstigator
+  table: !type:AllSelector
+    children: []
+  # Все шаттлы отключены
 
 # Shuttle Game Rules
 

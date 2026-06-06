@@ -344,46 +344,21 @@
 
 - type: entityTable
   id: BasicGameRulesTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - !type:NestedSelector
-      tableId: BasicCalmEventsTable
-    - !type:NestedSelector
-      tableId: BasicAntagEventsTable
-    - !type:NestedSelector
-      tableId: ModerateAntagEventsTable
-    - !type:NestedSelector
-      tableId: CargoGiftsTable
-    - !type:NestedSelector
-      tableId: CalmPestEventsTable
-    - !type:NestedSelector
-      tableId: SpicyPestEventsTable
+  table: !type:AllSelector
+    children: []
+  # Все ивенты отключены
 
 - type: entityTable
   id: DynamicGameRulesTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - !type:NestedSelector
-      tableId: BasicCalmEventsTable
-    - !type:NestedSelector
-      tableId: BasicAntagEventsTable
-    - !type:NestedSelector
-      tableId: CargoGiftsTable
-    - !type:NestedSelector
-      tableId: CalmPestEventsTable
-    - !type:NestedSelector
-      tableId: SpicyPestEventsTable
+  table: !type:AllSelector
+    children: []
+  # Все ивенты отключены
 
 - type: entityTable
   id: SpaceTrafficControlTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - !type:NestedSelector
-      tableId: UnknownShuttlesFriendlyTable
-    - !type:NestedSelector
-      tableId: UnknownShuttlesFreelanceTable
-    - !type:NestedSelector
-      tableId: UnknownShuttlesHostileTable
+  table: !type:AllSelector
+    children: []
+  # Все шаттлы отключены
 
 - type: entity
   id: BasicStationEventScheduler

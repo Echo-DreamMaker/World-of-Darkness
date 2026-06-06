@@ -92,58 +92,57 @@ namespace Content.Client.Stylesheets
         public const string StyleClassPopupMessageLarge = "PopupMessageLarge";
         public const string StyleClassPopupMessageLargeCaution = "PopupMessageLargeCaution";
 
-        public static readonly Color PanelDark = Color.FromHex("#1E1E22");
+        public static readonly Color PanelDark = Color.FromHex("#0A0A0A");
 
-        public static readonly Color NanoGold = Color.FromHex("#A88B5E");
+        public static readonly Color NanoGold = Color.FromHex("#8B0000");
         public static readonly Color GoodGreenFore = Color.FromHex("#31843E");
         public static readonly Color ConcerningOrangeFore = Color.FromHex("#A5762F");
         public static readonly Color DangerousRedFore = Color.FromHex("#BB3232");
-        public static readonly Color DisabledFore = Color.FromHex("#5A5A5A");
+        public static readonly Color DisabledFore = Color.FromHex("#3A3A3A");
 
-        // WD EDIT
-        public static readonly Color ButtonColorDefault = Color.FromHex("#29282f");
-        public static readonly Color ButtonColorDefaultRed = Color.FromHex("#992327");
-        public static readonly Color ButtonColorHovered = Color.FromHex("#3f3d48");
-        public static readonly Color ButtonColorHoveredRed = Color.FromHex("#4D5D53");
-        public static readonly Color ButtonColorPressed = Color.FromHex("#0f0f0f");
-        public static readonly Color ButtonColorDisabled = Color.FromHex("#0f0f0f");
-        // WD EDIT
+        // Vampire Blood Red Theme
+        public static readonly Color ButtonColorDefault = Color.FromHex("#1A0A0A");
+        public static readonly Color ButtonColorDefaultRed = Color.FromHex("#6B0000");
+        public static readonly Color ButtonColorHovered = Color.FromHex("#3A1515");
+        public static readonly Color ButtonColorHoveredRed = Color.FromHex("#4D1A1A");
+        public static readonly Color ButtonColorPressed = Color.FromHex("#0F0505");
+        public static readonly Color ButtonColorDisabled = Color.FromHex("#0A0505");
 
-        public static readonly Color ButtonColorCautionDefault = Color.FromHex("#8F6A33");
-        public static readonly Color ButtonColorCautionHovered = Color.FromHex("#C0934E");
-        public static readonly Color ButtonColorCautionPressed = Color.FromHex("#E49F35");
-        public static readonly Color ButtonColorCautionDisabled = Color.FromHex("#28251F");
+        public static readonly Color ButtonColorCautionDefault = Color.FromHex("#3A1515");
+        public static readonly Color ButtonColorCautionHovered = Color.FromHex("#5A2020");
+        public static readonly Color ButtonColorCautionPressed = Color.FromHex("#7A2828");
+        public static readonly Color ButtonColorCautionDisabled = Color.FromHex("#1A0808");
 
-        public static readonly Color ButtonColorDangerDefault = Color.FromHex("#7B2D2D");
-        public static readonly Color ButtonColorDangerHovered = Color.FromHex("#BD524B");
-        public static readonly Color ButtonColorDangerPressed = Color.FromHex("#C12525");
-        public static readonly Color ButtonColorDangerDisabled = Color.FromHex("#2F2020");
+        public static readonly Color ButtonColorDangerDefault = Color.FromHex("#5A1010");
+        public static readonly Color ButtonColorDangerHovered = Color.FromHex("#8B1A1A");
+        public static readonly Color ButtonColorDangerPressed = Color.FromHex("#AA2020");
+        public static readonly Color ButtonColorDangerDisabled = Color.FromHex("#1F0808");
 
-        public static readonly Color ButtonColorGoodDefault = Color.FromHex("#3E6C45");
-        public static readonly Color ButtonColorGoodHovered = Color.FromHex("#31843E");
-        public static readonly Color ButtonColorGoodDisabled = Color.FromHex("#164420");
+        public static readonly Color ButtonColorGoodDefault = Color.FromHex("#1A3A1A");
+        public static readonly Color ButtonColorGoodHovered = Color.FromHex("#2A4A2A");
+        public static readonly Color ButtonColorGoodDisabled = Color.FromHex("#0A1A0A");
 
         //NavMap
         public static readonly Color PointRed = Color.FromHex("#B02E26");
         public static readonly Color PointGreen = Color.FromHex("#38b026");
         public static readonly Color PointMagenta = Color.FromHex("#FF00FF");
 
-        // Context menu button colors
-        public static readonly Color ButtonColorContext = Color.FromHex("#1119");
-        public static readonly Color ButtonColorContextHover = Color.FromHex("#575b61");
-        public static readonly Color ButtonColorContextPressed = Color.FromHex("#3e6c45");
+        // Context menu button colors - Vampire theme
+        public static readonly Color ButtonColorContext = Color.FromHex("#1A0808");
+        public static readonly Color ButtonColorContextHover = Color.FromHex("#3A1515");
+        public static readonly Color ButtonColorContextPressed = Color.FromHex("#5A1010");
         public static readonly Color ButtonColorContextDisabled = Color.Black;
 
-        // Examine button colors
+        // Examine button colors - Vampire theme
         public static readonly Color ExamineButtonColorContext = Color.Transparent;
-        public static readonly Color ExamineButtonColorContextHover = Color.FromHex("#575b61");
-        public static readonly Color ExamineButtonColorContextPressed = Color.FromHex("#3e6c45");
-        public static readonly Color ExamineButtonColorContextDisabled = Color.FromHex("#5A5A5A");
+        public static readonly Color ExamineButtonColorContextHover = Color.FromHex("#3A1515");
+        public static readonly Color ExamineButtonColorContextPressed = Color.FromHex("#5A1010");
+        public static readonly Color ExamineButtonColorContextDisabled = Color.FromHex("#2A0A0A");
 
-        // Fancy Tree elements
-        public static readonly Color FancyTreeEvenRowColor = Color.FromHex("#25252A");
+        // Fancy Tree elements - Vampire theme
+        public static readonly Color FancyTreeEvenRowColor = Color.FromHex("#150808");
         public static readonly Color FancyTreeOddRowColor = FancyTreeEvenRowColor * new Color(0.8f, 0.8f, 0.8f);
-        public static readonly Color FancyTreeSelectedRowColor = new Color(55, 55, 68);
+        public static readonly Color FancyTreeSelectedRowColor = new Color(40, 10, 10);
 
         //Used by the APC and SMES menus
         public const string StyleClassPowerStateNone = "PowerStateNone";
@@ -164,7 +163,7 @@ namespace Content.Client.Stylesheets
         public const string StyleClassButtonColorRed = "ButtonColorRed";
         public const string StyleClassButtonColorGreen = "ButtonColorGreen";
 
-        public static readonly Color ChatBackgroundColor = Color.FromHex("#25252ADD");
+        public static readonly Color ChatBackgroundColor = Color.FromHex("#0A0505DD");
 
         // DeltaV - AAC button variables
         public static readonly string CommandButtonClass = "CommandButton";
@@ -176,24 +175,23 @@ namespace Content.Client.Stylesheets
         public static readonly string SecurityButtonClass = "SecurityButton";
         public static readonly string ServiceButtonClass = "ServiceButton";
 
-        // DeltaV - AAC button colors
-        public static readonly Color CommandButtonColorDefault = Color.FromHex("#404A58");
-        public static readonly Color CommandColorHovered = Color.FromHex("#4F587B");
-        public static readonly Color EngineeringButtonColorDefault = Color.FromHex("#77684B");
-        public static readonly Color EngineeringColorHovered = Color.FromHex("#776D71");
-        public static readonly Color EpistemicsButtonColorDefault = Color.FromHex("#6F5973");
-        public static readonly Color EpistemicsColorHovered = Color.FromHex("#71638E");
-        public static readonly Color LogisticsButtonColorDefault = Color.FromHex("#61503A");
-        public static readonly Color LogisticsColorHovered = Color.FromHex("#675C64");
-        public static readonly Color JusticeButtonColorDefault = Color.FromHex("#4F3D4C");
-        public static readonly Color JusticeColorHovered = Color.FromHex("#5C4B5A");
-        public static readonly Color MedicalButtonColorDefault = Color.FromHex("#49687D");
-        public static readonly Color MedicalColorHovered = Color.FromHex("#556E95");
-        public static readonly Color SecurityButtonColorDefault = Color.FromHex("#724449");
-        public static readonly Color SecurityColorHovered = Color.FromHex("#745370");
-        public static readonly Color ServiceButtonColorDefault = Color.FromHex("#607952");
-        public static readonly Color ServiceColorHovered = Color.FromHex("#667A76");
-        // End DeltaV
+        // DeltaV - AAC button colors - Vampire theme
+        public static readonly Color CommandButtonColorDefault = Color.FromHex("#2A0808");
+        public static readonly Color CommandColorHovered = Color.FromHex("#4A1010");
+        public static readonly Color EngineeringButtonColorDefault = Color.FromHex("#2A0A08");
+        public static readonly Color EngineeringColorHovered = Color.FromHex("#4A1510");
+        public static readonly Color EpistemicsButtonColorDefault = Color.FromHex("#3A0810");
+        public static readonly Color EpistemicsColorHovered = Color.FromHex("#5A1020");
+        public static readonly Color LogisticsButtonColorDefault = Color.FromHex("#2A0505");
+        public static readonly Color LogisticsColorHovered = Color.FromHex("#4A0A0A");
+        public static readonly Color JusticeButtonColorDefault = Color.FromHex("#3A0510");
+        public static readonly Color JusticeColorHovered = Color.FromHex("#5A0A1A");
+        public static readonly Color MedicalButtonColorDefault = Color.FromHex("#2A0808");
+        public static readonly Color MedicalColorHovered = Color.FromHex("#4A1010");
+        public static readonly Color SecurityButtonColorDefault = Color.FromHex("#4A0A0A");
+        public static readonly Color SecurityColorHovered = Color.FromHex("#6A1515");
+        public static readonly Color ServiceButtonColorDefault = Color.FromHex("#1A0A0A");
+        public static readonly Color ServiceColorHovered = Color.FromHex("#3A1515");
 
         //Bwoink
         public const string StyleClassPinButtonPinned = "pinButtonPinned";
@@ -432,20 +430,20 @@ namespace Content.Client.Stylesheets
             };
             tabContainerPanel.SetPatchMargin(StyleBox.Margin.All, 2);
 
-            var tabContainerBoxActive = new StyleBoxFlat { BackgroundColor = new Color(64, 64, 64) };
+            var tabContainerBoxActive = new StyleBoxFlat { BackgroundColor = new Color(40, 10, 10) };
             tabContainerBoxActive.SetContentMarginOverride(StyleBox.Margin.Horizontal, 5);
-            var tabContainerBoxInactive = new StyleBoxFlat { BackgroundColor = new Color(32, 32, 32) };
+            var tabContainerBoxInactive = new StyleBoxFlat { BackgroundColor = new Color(20, 5, 5) };
             tabContainerBoxInactive.SetContentMarginOverride(StyleBox.Margin.Horizontal, 5);
 
             var progressBarBackground = new StyleBoxFlat
             {
-                BackgroundColor = new Color(0.25f, 0.25f, 0.25f)
+                BackgroundColor = new Color(0.15f, 0.05f, 0.05f)
             };
             progressBarBackground.SetContentMarginOverride(StyleBox.Margin.Vertical, 14.5f);
 
             var progressBarForeground = new StyleBoxFlat
             {
-                BackgroundColor = new Color(0.25f, 0.50f, 0.25f)
+                BackgroundColor = new Color(0.55f, 0.0f, 0.0f)
             };
             progressBarForeground.SetContentMarginOverride(StyleBox.Margin.Vertical, 14.5f);
 
@@ -553,7 +551,7 @@ namespace Content.Client.Stylesheets
             var sliderFillBox = new StyleBoxTexture
             {
                 Texture = sliderFillTex,
-                Modulate = Color.FromHex("#3E6C45")
+                Modulate = Color.FromHex("#8B0000")
             };
 
             var sliderBackBox = new StyleBoxTexture
