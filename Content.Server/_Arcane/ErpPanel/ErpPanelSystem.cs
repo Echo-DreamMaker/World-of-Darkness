@@ -193,8 +193,13 @@ public sealed partial class ErpPanelSystem : EntitySystem
     {
         var messagesCollection = user == target ? interaction.SelfMessages : interaction.Messages;
 
+        var targetName = Identity.Name(target, EntityManager, user);
+        var userName = Identity.Name(user, EntityManager, user);
+
         var message = _random.Pick(messagesCollection)
-            .Replace("$target", Identity.Name(target, EntityManager, user));
+            .Replace("$target", targetName)
+            .Replace("%target", targetName)
+            .Replace("%user", userName);
 
         _chat.TrySendInGameICMessage(user, message, InGameICChatType.Emote, false);
     }

@@ -8,13 +8,13 @@
 
     <PanelContainer HorizontalExpand="True" VerticalExpand="True">
         <PanelContainer.PanelOverride>
-            <gfx:StyleBoxFlat BackgroundColor="#3F6BA6" />
+            <gfx:StyleBoxFlat BackgroundColor="#1A0505" />
         </PanelContainer.PanelOverride>
     </PanelContainer>
 
     <PanelContainer Margin="3">
         <PanelContainer.PanelOverride>
-            <gfx:StyleBoxFlat BackgroundColor="#151D21" />
+            <gfx:StyleBoxFlat BackgroundColor="#0A0505" BorderColor="#3A0808" BorderThickness="2" />
         </PanelContainer.PanelOverride>
 
         <BoxContainer Orientation="Vertical">
@@ -22,9 +22,9 @@
                 <RichTextLabel Name="HeaderLabel" Margin="0 10 0 5" HorizontalAlignment="Center" />
                 <ProgressBar Name="ArousalProgressBar" MaxHeight="32" Margin="10 5" MinValue="0" Value="0" MaxValue="1">
                     <ProgressBar.ForegroundStyleBoxOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#3F6BA6"
+                        <gfx:StyleBoxFlat BackgroundColor="#6B0A0A"
                             BorderThickness="2"
-                            BorderColor="#243F69"/>
+                            BorderColor="#8B1A1A"/>
                     </ProgressBar.ForegroundStyleBoxOverride>
                     <TextureRect TexturePath="/Textures/_Arcane/Interface/heartIcon.png"
                                 Stretch="KeepAspectCentered"
@@ -42,7 +42,7 @@
                                 SetWidth="175"
                                 Margin="10 0">
                             <Button.StyleBoxOverride>
-                                <gfx:StyleBoxFlat BackgroundColor="#55858A" BorderColor="#63EBFF" BorderThickness="2"/>
+                                <gfx:StyleBoxFlat BackgroundColor="#2A0808" BorderColor="#8B1A1A" BorderThickness="2"/>
                             </Button.StyleBoxOverride>
                         </Button>
                         <Button Name="CustomMoaningButton"
@@ -53,7 +53,7 @@
                                 SetWidth="175"
                                 Margin="10 0">
                             <Button.StyleBoxOverride>
-                                <gfx:StyleBoxFlat BackgroundColor="#55858A" BorderColor="#63EBFF" BorderThickness="2"/>
+                                <gfx:StyleBoxFlat BackgroundColor="#2A0808" BorderColor="#8B1A1A" BorderThickness="2"/>
                             </Button.StyleBoxOverride>
                         </Button>
                     </BoxContainer>
