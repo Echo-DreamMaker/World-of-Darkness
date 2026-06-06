@@ -181,3 +181,58 @@
   - !type:EroticOrganRequirement
     organ: penis
     requireVisible: true
+# WoD Edit Start
+- type: panelInteraction
+  id: PenisFuck
+  category: Penis
+  name: Трахать член вагиной
+  userArouse: 10
+  targetArouse: 10
+  icon: _Arcane/Interface/ErpPanel/cock_slime_sex.png
+  sounds:
+  - /Audio/_Arcane/Interactions/champ_fingering.ogg
+  - /Audio/_Arcane/Interactions/bj1.ogg
+  - /Audio/_Arcane/Interactions/bj2.ogg
+  - /Audio/_Arcane/Interactions/bj3.ogg
+  messages:
+  - "%user возбужденно седлает вагиной член %target"
+  - "%user страстно скачет вагиной на члене %target"
+  - "%user заведенно трахает вагиной член %target"
+  - "%user резко опускается вагиной на член %target"
+  - "%user грубо скачет вагиной на члене %target"
+  userRequirements:
+  - !type:EroticOrganRequirement
+    organ: vagina
+    requireVisible: true
+  targetRequirements:
+  - !type:EroticOrganRequirement
+    organ: penis
+    requireVisible: true
+
+- type: panelInteraction
+  id: PenisGrind
+  category: Penis
+  name: Тереться вагиной о член
+  userArouse: 5
+  targetArouse: 5
+  icon: _Arcane/Interface/ErpPanel/pussy_scissors.png
+  sounds:
+  - /Audio/_Arcane/Interactions/champ_fingering.ogg
+  - /Audio/_Arcane/Interactions/bj1.ogg
+  - /Audio/_Arcane/Interactions/bj2.ogg
+  - /Audio/_Arcane/Interactions/bj3.ogg
+  messages:
+  - "%user сидя сверху, возбужденно трется вагиной об член %target"
+  - "%user сидя сверху, прижимается вагиной к члену %target и двигает бедрами"
+  - "%user увлеченно скользит вагиной вдоль члена %target"
+  - "%user страстно трется вагиной об член %target"
+  - "%user прислоняет киску к члену %target, совершая поступальные движения вдоль него"
+  userRequirements:
+  - !type:EroticOrganRequirement
+    organ: vagina
+    requireVisible: true
+  targetRequirements:
+  - !type:EroticOrganRequirement
+    organ: penis
+    requireVisible: true
+# WoD Edit End

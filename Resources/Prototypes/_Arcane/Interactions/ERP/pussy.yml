@@ -77,3 +77,35 @@
   - !type:EroticOrganRequirement
     organ: vagina
     requireVisible: true
+# WoD Edit Start
+- type: panelInteraction
+  id: PussyFuck
+  category: Pussy
+  name: Трахать вагину членом
+  userArouse: 10
+  targetArouse: 10
+  sounds:
+  - /Audio/_Arcane/Interactions/champ_fingering.ogg
+  - /Audio/_Arcane/Interactions/bj1.ogg
+  - /Audio/_Arcane/Interactions/bj2.ogg
+  - /Audio/_Arcane/Interactions/bj3.ogg
+  messages:
+  - "%user быстро трахает членом вагину %target"
+  - "%user жестко трахает членом вагину %target"
+  - "%user ритмично долбит членом вагину %target"
+  - "%user полностью входит членом в вагину %target"
+  - "%user страстно трахает членом вагину %target"
+  - "%user нежно вводит член в вагину %target"
+  - "%user медленно проникает членом в вагину %target"
+  - "%user до упора входит членов в вагину %target"
+  - "%user медленно входит членом в вагину %target"
+  icon: _Arcane/Interface/ErpPanel/pussy_scissors.png
+  userRequirements:
+  - !type:EroticOrganRequirement
+    organ: penis
+    requireVisible: true
+  targetRequirements:
+  - !type:EroticOrganRequirement
+    organ: vagina
+    requireVisible: true
+# WoD Edit End
