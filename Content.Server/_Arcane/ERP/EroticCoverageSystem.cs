@@ -70,12 +70,16 @@ public sealed class EroticCoverageSystem : EntitySystem
             if (!TryComp<BodyPartComponent>(container.Owner, out var part))
                 continue;
 
+            // Note: No mob prototype uses Groin or Chest as BodyPartType.
+            // All body parts including groin/chest area use Torso.
             var visible = part.PartType switch
             {
-                BodyPartType.Groin => !groinCovered,
-                BodyPartType.Chest => !chestCovered,
+                BodyPartType.Torso => !groinCovered,
                 _ => true,
             };
+            // Treat torso the same for chest coverage as well (breasts are also on torso)
+            if (part.PartType == BodyPartType.Torso && visible)
+                visible = !chestCovered;
 
             if (organ.Comp1.Visible == visible)
                 continue;

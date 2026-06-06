@@ -64,22 +64,23 @@ public sealed class EroticOrganSpawnSystem : EntitySystem
         if (sex == Sex.Unsexed)
             return;
 
-        var groin = GetBodyPartOfType(uid, BodyPartType.Groin);
-        var chest = GetBodyPartOfType(uid, BodyPartType.Chest);
+        // Note: No mob prototype uses BodyPartType.Groin or BodyPartType.Chest.
+        // All body parts use Torso. So we spawn groin and chest organs in the torso.
+        var torso = GetBodyPartOfType(uid, BodyPartType.Torso);
 
-        if (groin.HasValue)
+        if (torso.HasValue)
         {
-            TrySpawnOrgans(uid, groin.Value, def.GroinCommon);
+            TrySpawnOrgans(uid, torso.Value, def.GroinCommon);
 
             if (sex == Sex.Male)
-                TrySpawnOrgans(uid, groin.Value, def.GroinMale);
+                TrySpawnOrgans(uid, torso.Value, def.GroinMale);
 
             if (sex == Sex.Female)
-                TrySpawnOrgans(uid, groin.Value, def.GroinFemale);
+            {
+                TrySpawnOrgans(uid, torso.Value, def.GroinFemale);
+                TrySpawnOrgans(uid, torso.Value, def.ChestFemale);
+            }
         }
-
-        if (chest.HasValue && sex == Sex.Female)
-            TrySpawnOrgans(uid, chest.Value, def.ChestFemale);
 
         var ev = new EroticOrgansSpawnedEvent();
         RaiseLocalEvent(uid, ref ev);
