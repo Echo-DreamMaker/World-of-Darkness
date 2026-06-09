@@ -329,18 +329,16 @@ public sealed partial class ErpPanelWindow : FancyWindow
 
     private bool CheckRequirements(EntityUid user, EntityUid target, PanelInteractionPrototype interaction)
     {
-        var passed = true;
-
         var transform = _entManager.System<TransformSystem>();
         if (!transform.InRange(user, target, interaction.Range))
-            passed = false;
+            return false;
 
         if (interaction.UserRequirements != null)
         {
             foreach (var requirement in interaction.UserRequirements)
             {
                 if (!requirement.IsAvailable(user, _entManager))
-                    passed = false;
+                    return false;
             }
         }
 
@@ -349,10 +347,10 @@ public sealed partial class ErpPanelWindow : FancyWindow
             foreach (var requirement in interaction.TargetRequirements)
             {
                 if (!requirement.IsAvailable(target, _entManager))
-                    passed = false;
+                    return false;
             }
         }
 
-        return passed;
+        return true;
     }
 }

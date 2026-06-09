@@ -1,0 +1,325 @@
+# World-of-Darkness (WoD) EDIT START
+# Добавлены эмоуты к интеракциям (userEmote/targetEmote) для привязки к EmotePrototype
+# У дружественных интеракций убраны очки arousal (userArouse, targetArouse)
+
+- type: panelInteraction
+  id: HugFromBehind
+  category: Friendship
+  name: Обнять сзади
+  range: 1
+  userEmote: Nod
+  targetEmote: Gasp
+  icon: _Arcane/Interface/ErpPanel/hand_shake.png
+
+- type: panelInteraction
+  id: ForeheadKiss
+  category: Mouth
+  name: Поцеловать в лоб
+  userArouse: 3
+  targetArouse: 5
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/kiss1.ogg
+  - /Audio/_Arcane/Interactions/kiss2.ogg
+  messages:
+  - нежно целует $target в лоб, прикрывая глаза.
+  - оставляет тёплый поцелуй на лбу $target.
+  - заботливо целует $target в лоб, обнимая.
+  - баюкает поцелуем в лоб $target.
+  icon: _Arcane/Interface/ErpPanel/kiss_neck.png
+
+- type: panelInteraction
+  id: CheekKiss
+  category: Mouth
+  name: Поцеловать в щёку
+  userArouse: 3
+  targetArouse: 5
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/kiss1.ogg
+  - /Audio/_Arcane/Interactions/kiss2.ogg
+  messages:
+  - нежно целует $target в щёку.
+  - чмокает $target в щёчку, как ребёнка.
+  - проводит губами по щеке $target, оставляя поцелуй.
+  - прижимается губами к щеке $target с теплотой.
+  icon: _Arcane/Interface/ErpPanel/lick_neck.png
+
+- type: panelInteraction
+  id: ForeheadToForehead
+  category: Friendship
+  name: Прижаться лбами
+  range: 1
+  userEmote: Nod
+  targetEmote: Nod
+  messages:
+  - прижимается лбом ко лбу $target, закрывая глаза.
+  - касается лбом $target в нежном жесте.
+  - нежно соприкасается лбами, дыша в унисон.
+  - лбы соприкасаются в безмолвной близости.
+  icon: _Arcane/Interface/ErpPanel/lick_neck.png
+
+- type: panelInteraction
+  id: HandKiss
+  category: Mouth
+  name: Поцеловать руку
+  userArouse: 3
+  targetArouse: 5
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/kiss1.ogg
+  - /Audio/_Arcane/Interactions/kiss2.ogg
+  messages:
+  - бережно подносит руку $target к губам и целует.
+  - с рыцарским поклоном целует руку $target.
+  - нежно целует тыльную сторону ладони $target.
+  - прижимается губами к руке $target с любовью.
+  icon: _Arcane/Interface/ErpPanel/kiss_neck.png
+
+- type: panelInteraction
+  id: Dance
+  category: Friendship
+  name: Танцевать вместе
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/friction1.ogg
+  - /Audio/_Arcane/Interactions/friction2.ogg
+  userEmote: Spin
+  targetEmote: Spin
+  messages:
+  - танцует с $target.
+  - крутится  $target.
+  - танцует с $target, не отрывая взгляда.
+  - держит $target в объятиях, кружась в танце.
+  icon: _Arcane/Interface/ErpPanel/hand_shake.png
+
+- type: panelInteraction
+  id: ForeplayTease
+  category: Friendship
+  name: Дразнить прикосновениями
+  range: 1
+  userEmote: Thump
+  targetEmote: Gasp
+  messages:
+  - дразнит $target лёгкими прикосновениями.
+  - едва касается кожи $target, дразня воображение.
+  - проводит пальцами по телу $target, не касаясь главного.
+  - играючи ласкает $target, доводя до исступления.
+  icon: _Arcane/Interface/ErpPanel/hand_shake.png
+
+- type: panelInteraction
+  id: WhisperName
+  category: Mouth
+  name: Прошептать имя
+  userArouse: 5
+  targetArouse: 10
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/breath1.ogg
+  - /Audio/_Arcane/Interactions/breath2.ogg
+  - /Audio/_Arcane/Interactions/breath3.ogg
+  messages:
+  - шепчет имя $target на ухо, как молитву.
+  - с любовью произносит имя $target губами у уха.
+  - шепчет имя $target так, словно это самое важное слово.
+  - голосом, полным нежности, называет имя $target.
+  icon: _Arcane/Interface/ErpPanel/lick_neck.png
+
+- type: panelInteraction
+  id: NoseKiss
+  category: Mouth
+  name: Поцеловать в нос
+  userArouse: 3
+  targetArouse: 5
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/kiss1.ogg
+  - /Audio/_Arcane/Interactions/kiss2.ogg
+  messages:
+  - легонько чмокает $target в кончик носа.
+  - нежно касается губами носа $target.
+  - целует $target в нос, вызывая смех.
+  - игриво чмокает $target в носик.
+  icon: _Arcane/Interface/ErpPanel/kiss_neck.png
+
+- type: panelInteraction
+  id: HoldHands
+  category: Friendship
+  name: Взять за руку
+  range: 1
+  userEmote: Salute
+  targetEmote: Salute
+  messages:
+  - нежно берёт $target за руку, переплетая пальцы.
+  - сжимает руку $target, передавая свою любовь.
+  - держит $target за руку, не отпуская.
+  - берёт ладонь $target в свою, согревая теплом.
+  icon: _Arcane/Interface/ErpPanel/hand_shake.png
+
+- type: panelInteraction
+  id: EarNibble
+  category: Ears
+  name: Прикусить ушко
+  userArouse: 5
+  targetArouse: 8
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/bite1.ogg
+  - /Audio/_Arcane/Interactions/bite2.ogg
+  messages:
+  - прикусывает мочку уха $target, шепча нежности.
+  - нежно покусывает ушко $target, вызывая дрожь.
+  - забавно прикусывает ухо $target, словно играя.
+  - проводит зубами по ушной раковине $target.
+  icon: _Arcane/Interface/ErpPanel/bite_neck.png
+
+- type: panelInteraction
+  id: EarWhisper
+  category: Ears
+  name: Шептать на ухо
+  userArouse: 5
+  targetArouse: 10
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/breath1.ogg
+  - /Audio/_Arcane/Interactions/breath2.ogg
+  - /Audio/_Arcane/Interactions/breath3.ogg
+  messages:
+  - горячо шепчет на ухо $target непристойности.
+  - дышит в ухо $target, посылая мурашки по коже.
+  - шепчет ласковые слова прямо в ухо $target.
+  - откровенно шепчет на ухо $target свои желания.
+  - щекочет ухо $target своим дыханием, говоря о любви.
+  icon: _Arcane/Interface/ErpPanel/lick_neck.png
+
+- type: panelInteraction
+  id: EarLick
+  category: Ears
+  name: Лизнуть ушко
+  userArouse: 5
+  targetArouse: 8
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/kiss1.ogg
+  - /Audio/_Arcane/Interactions/kiss2.ogg
+  messages:
+  - проводит языком по ушной раковине $target.
+  - нежно лижет мочку уха $target.
+  - щекочет ухо $target кончиком языка.
+  - проводит влажным языком по краю уха $target.
+  icon: _Arcane/Interface/ErpPanel/lick_neck.png
+
+- type: panelInteraction
+  id: NapeKiss
+  category: Neck
+  name: Поцеловать за ушком
+  userArouse: 5
+  targetArouse: 8
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/kiss1.ogg
+  - /Audio/_Arcane/Interactions/kiss2.ogg
+  messages:
+  - нежно целует $target за ушком.
+  - покрывает поцелуями шейку $target за ушами.
+  - проводит губами за ушком $target, шепча ласки.
+  - ласково целует местечко за ухом $target.
+  icon: _Arcane/Interface/ErpPanel/kiss_neck.png
+
+- type: panelInteraction
+  id: BellyPoke
+  category: Boobs
+  name: Пощекотать живот
+  targetEmote: Laugh
+  userArouse: 3
+  targetArouse: 5
+  range: 1
+  messages:
+  - щекочет $target, дразня живот.
+  - игриво проводит пальцами по животу $target.
+  - легонько щекочет животик $target, вызывая смех.
+  - проводит ногтями по животу $target, дразня.
+  icon: _Arcane/Interface/ErpPanel/boobs_paw.png
+
+- type: panelInteraction
+  id: BellyKiss
+  category: Boobs
+  name: Поцеловать живот
+  userArouse: 5
+  targetArouse: 8
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/kiss1.ogg
+  - /Audio/_Arcane/Interactions/kiss2.ogg
+  messages:
+  - покрывает поцелуями живот $target.
+  - целует животик $target, спускаясь ниже.
+  - проводит губами по животу $target, дразня.
+  - нежно целует живот $target, заставляя трепетать.
+  icon: _Arcane/Interface/ErpPanel/boobs_paw.png
+
+- type: panelInteraction
+  id: BackKiss
+  category: Friendship
+  name: Поцеловать спину
+  userArouse: 3
+  targetArouse: 5
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/kiss1.ogg
+  - /Audio/_Arcane/Interactions/kiss2.ogg
+  userEmote: Nod
+  targetEmote: Nod
+  messages:
+  - покрывает поцелуями спину $target сверху донизу.
+  - целует плечи и спину $target с нежностью.
+  - проводит губами вдоль позвоночника $target.
+  - осыпает поцелуями спину $target, заставляя стонать.
+  icon: _Arcane/Interface/ErpPanel/boobs_paw.png
+
+- type: panelInteraction
+  id: ShoulderKiss
+  category: Neck
+  name: Поцеловать плечо
+  userArouse: 3
+  targetArouse: 5
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/kiss1.ogg
+  - /Audio/_Arcane/Interactions/kiss2.ogg
+  messages:
+  - нежно целует плечо $target.
+  - оставляет поцелуй на плече $target.
+  - проводит губами по плечу $target с нежностью.
+  - целует обнажённое плечо $target.
+  icon: _Arcane/Interface/ErpPanel/kiss_neck.png
+
+- type: panelInteraction
+  id: CollarboneKiss
+  category: Neck
+  name: Поцеловать ключицу
+  userArouse: 5
+  targetArouse: 8
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/kiss1.ogg
+  - /Audio/_Arcane/Interactions/kiss2.ogg
+  messages:
+  - целует ключицу $target, спускаясь к груди.
+  - проводит губами по ключице $target.
+  - нежно покрывает поцелуями ключицу $target.
+  - оставляет влажный след на ключице $target.
+  icon: _Arcane/Interface/ErpPanel/boobs_paw.png
+
+- type: panelInteraction
+  id: SmallOfBackTouch
+  category: Friendship
+  name: Погладить поясницу
+  range: 1
+  messages:
+  - проводит рукой по пояснице $target, дразня.
+  - массирует поясницу $target, спускаясь ниже.
+  - поглаживает поясницу $target с чувственным нажимом.
+  - обводит пальцами поясницу $target, вызывая дрожь.
+  icon: _Arcane/Interface/ErpPanel/boobs_paw.png
+# World-of-Darkness (WoD) EDIT END

@@ -1,8 +1,12 @@
-﻿using Content.Server.Chat.Systems;
+// World-of-Darkness (WoD) EDIT START
+// Добавлен импорт WoD Requirements (JobRequirement, AntagRequirement, RoleTypeRequirement)
+using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Shared._Arcane.ERP;
 using Content.Shared._Arcane.ErpPanel;
+using Content.Shared._WoD.ErpPanel.Requirements;
 using Content.Shared.Chat;
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
@@ -114,37 +118,42 @@ public sealed partial class ErpPanelSystem : EntitySystem
         customArousal = Math.Clamp(customArousal, 0, 300);
         customMoaning = Math.Clamp(customMoaning, 0, 300);
 
-        // Block if the target would receive arousal but is currently refractory.
-        if (interaction.TargetArouse > 0 && !_arousal.CanAddArousal(target))
-        {
-            var key = user == target ? "erp-refractory-self" : "erp-refractory-target";
-            _popup.PopupEntity(Loc.GetString(key), target, user, PopupType.SmallCaution);
-            return;
-        }
-
         if (interaction.TargetArouse > 0)
+        {
+            // Block if the target would receive arousal but is currently refractory.
+            if (!_arousal.CanAddArousal(target))
+            {
+                var key = user == target ? "erp-refractory-self" : "erp-refractory-target";
+                _popup.PopupEntity(Loc.GetString(key), target, user, PopupType.SmallCaution);
+                return;
+            }
+
             Spawn(_heartsProto, _transform.GetMapCoordinates(target));
+            _arousal.AddArousal(target, interaction.TargetArouse * customArousal / 100);
+            ProccessMoan(target, customMoaning);
+        }
 
         userPanel.Cooldowns[interaction.ID] = _ticking.CurTime;
         Dirty(user, userPanel);
 
-        ProccessMessages(user, target, interaction);
+        ProccessEmotes(user, target, interaction);
         ProccessSounds(user, interaction);
-
-        _arousal.AddArousal(target, interaction.TargetArouse * customArousal / 100);
-        ProccessMoan(target, customMoaning);
 
         if (user == target)
             return;
 
-        if (interaction.UserArouse > 0 && !_arousal.CanAddArousal(user))
+        if (interaction.UserArouse > 0)
         {
-            _popup.PopupEntity(Loc.GetString("erp-refractory-self"), user, user, PopupType.SmallCaution);
-            return;
+            if (!_arousal.CanAddArousal(user))
+            {
+                _popup.PopupEntity(Loc.GetString("erp-refractory-self"), user, user, PopupType.SmallCaution);
+                return;
+            }
+
+            _arousal.AddArousal(user, interaction.UserArouse * customArousal / 100);
+            ProccessMoan(user, customMoaning);
         }
 
-        _arousal.AddArousal(user, interaction.UserArouse * customArousal / 100);
-        ProccessMoan(user, customMoaning);
     }
 
     private void ProccessMoan(EntityUid uid, float customMoaning)
@@ -187,6 +196,34 @@ public sealed partial class ErpPanelSystem : EntitySystem
         _audio.PlayPvs(new ResolvedCollectionSpecifier(collection, index), uid, audioParams);
 
         _chat.TrySendInGameICMessage(uid, Loc.GetString("moan-message"), InGameICChatType.Emote, true);
+    }
+
+    /// <summary>
+    ///     Воспроизводит эмоуты для user и target.
+    ///     Если указан <see cref="PanelInteractionPrototype.UserEmote"/>, то используется он
+    ///     (вызывает эмоут через <see cref="ChatSystem.TryEmoteWithChat"/>), иначе — стандартное
+    ///     текстовое сообщение из <see cref="PanelInteractionPrototype.Messages"/>.
+    ///     Аналогично для <see cref="PanelInteractionPrototype.TargetEmote"/>.
+    /// </summary>
+    private void ProccessEmotes(EntityUid user, EntityUid target, PanelInteractionPrototype interaction)
+    {
+        // Обработка user-эмоута. forceEmote=true, чтобы пропустить whitelist/blacklist/availability проверки,
+        // так как это ERP-интеракция — пользователь явно выбрал это действие из списка доступных.
+        if (interaction.UserEmote is { } userEmoteId)
+        {
+            _chat.TryEmoteWithChat(user, userEmoteId, forceEmote: true);
+        }
+        else
+        {
+            // Если эмоут не указан, используем стандартное текстовое сообщение
+            ProccessMessages(user, target, interaction);
+        }
+
+        // Обработка target-эмоута (только если user != target, чтобы не дублировать)
+        if (user != target && interaction.TargetEmote is { } targetEmoteId)
+        {
+            _chat.TryEmoteWithChat(target, targetEmoteId, forceEmote: true);
+        }
     }
 
     private void ProccessMessages(EntityUid user, EntityUid target, PanelInteractionPrototype interaction)
@@ -246,12 +283,13 @@ public sealed partial class ErpPanelSystem : EntitySystem
 
         // For self-targeting (user == target), only SelfMessages are used.
         // For cross-targeting, only Messages are used.
+        // Если задан UserEmote, то стандартные текстовые сообщения не обязательны.
         if (user == target)
         {
-            if (interaction.SelfMessages.Count == 0)
+            if (interaction.UserEmote == null && interaction.SelfMessages.Count == 0)
                 return false;
         }
-        else if (interaction.Messages.Count == 0)
+        else if (interaction.UserEmote == null && interaction.Messages.Count == 0)
         {
             return false;
         }
@@ -273,14 +311,12 @@ public sealed partial class ErpPanelSystem : EntitySystem
 
     private bool CheckRequirements(EntityUid user, EntityUid target, PanelInteractionPrototype interaction)
     {
-        var passed = true;
-
         if (interaction.UserRequirements != null)
         {
             foreach (var requirement in interaction.UserRequirements)
             {
                 if (!requirement.IsAvailable(user, EntityManager))
-                    passed = false;
+                    return false;
             }
         }
 
@@ -289,10 +325,10 @@ public sealed partial class ErpPanelSystem : EntitySystem
             foreach (var requirement in interaction.TargetRequirements)
             {
                 if (!requirement.IsAvailable(target, EntityManager))
-                    passed = false;
+                    return false;
             }
         }
 
-        return passed;
+        return true;
     }
 }
