@@ -5,6 +5,7 @@
   range: 1
   sounds:
   - /Audio/_Arcane/Interactions/handshake.ogg
+  userEmote: Salute
   messages:
   - пожимает руку $target.
   - дружески жмёт руку $target.
@@ -21,6 +22,7 @@
   sounds:
   - /Audio/_Arcane/Interactions/pat1.ogg
   - /Audio/_Arcane/Interactions/pat2.ogg
+  userEmote: Thump
   messages:
   - тыкает спину $target вдоль позвоночника.
   - мнёт лопатки $target.
@@ -40,6 +42,8 @@
   sounds:
   - /Audio/_Arcane/Interactions/friction1.ogg
   - /Audio/_Arcane/Interactions/friction2.ogg
+  userEmote: WagTail
+  targetEmote: WagTail
   messages:
   - проводит рукой по хвосту $target.
   - поглаживает хвост $target.
@@ -67,6 +71,8 @@
   sounds:
   - /Audio/_Arcane/Interactions/friction1.ogg
   - /Audio/_Arcane/Interactions/friction2.ogg
+  userEmote: WagTail
+  targetEmote: WagTail
   messages:
   - сплетается хвостиками с $target.
   - обвивает хвост $target своим.
@@ -104,6 +110,8 @@
   - /Audio/_Arcane/Interactions/bang4.ogg
   - /Audio/_Arcane/Interactions/bang5.ogg
   - /Audio/_Arcane/Interactions/bang6.ogg
+  userEmote: Clap
+  targetEmote: Clap
   messages:
   - даёт пять $target!
   - ударяет ладошкой по ладошке $target.

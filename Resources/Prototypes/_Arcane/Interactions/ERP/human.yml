@@ -1,34 +1,15 @@
 # World-of-Darkness (WoD) EDIT START
 # Добавлены эмоуты к интеракциям (userEmote/targetEmote) для привязки к EmotePrototype
+# У дружественных интеракций убраны очки arousal (userArouse, targetArouse)
+
 - type: panelInteraction
   id: HugFromBehind
   category: Friendship
   name: Обнять сзади
-  userArouse: 3
-  targetArouse: 5
   range: 1
-  # Эмоут, который проиграет user при этой интеракции (вместо стандартного текстового сообщения)
   userEmote: Nod
-  # Эмоут, который проиграет target (например, "вздрагивает" при неожиданных объятиях)
   targetEmote: Gasp
-  icon: _Arcane/Interface/ErpPanel/hand_paw.png
-
-- type: panelInteraction
-  id: DanceTogether
-  category: Friendship
-  name: Танцевать вместе
-  userArouse: 5
-  targetArouse: 8
-  range: 1
-  sounds:
-  - /Audio/_Arcane/Interactions/friction1.ogg
-  - /Audio/_Arcane/Interactions/friction2.ogg
-  # Эмоут "Spin" — персонаж "крутится" (анимация + сообщение в чат "X крутится!")
-  # Это полностью заменяет текстовое сообщение из `messages` — вызывается только эмоут
-  userEmote: Spin
-  targetEmote: Spin
-  icon: _Arcane/Interface/ErpPanel/hand_paw.png
-# World-of-Darkness (WoD) EDIT END
+  icon: _Arcane/Interface/ErpPanel/hand_shake.png
 
 - type: panelInteraction
   id: ForeheadKiss
@@ -68,9 +49,9 @@
   id: ForeheadToForehead
   category: Friendship
   name: Прижаться лбами
-  userArouse: 5
-  targetArouse: 8
   range: 1
+  userEmote: Nod
+  targetEmote: Nod
   messages:
   - прижимается лбом ко лбу $target, закрывая глаза.
   - касается лбом $target в нежном жесте.
@@ -96,49 +77,35 @@
   icon: _Arcane/Interface/ErpPanel/kiss_neck.png
 
 - type: panelInteraction
-  id: SlowDance
+  id: Dance
   category: Friendship
-  name: Медленный танец
-  userArouse: 5
-  targetArouse: 8
+  name: Танцевать вместе
   range: 1
   sounds:
   - /Audio/_Arcane/Interactions/friction1.ogg
   - /Audio/_Arcane/Interactions/friction2.ogg
+  userEmote: Spin
+  targetEmote: Spin
   messages:
-  - покачивается в медленном танце с $target.
-  - обнимает $target, тихо покачиваясь в ритме сердец.
-  - медленно танцует с $target, не отрывая взгляда.
+  - танцует с $target.
+  - крутится  $target.
+  - танцует с $target, не отрывая взгляда.
   - держит $target в объятиях, кружась в танце.
-  icon: _Arcane/Interface/ErpPanel/hand_paw.png
+  icon: _Arcane/Interface/ErpPanel/hand_shake.png
 
 - type: panelInteraction
   id: ForeplayTease
   category: Friendship
   name: Дразнить прикосновениями
-  userArouse: 5
-  targetArouse: 8
   range: 1
+  userEmote: Thump
+  targetEmote: Gasp
   messages:
   - дразнит $target лёгкими прикосновениями.
   - едва касается кожи $target, дразня воображение.
   - проводит пальцами по телу $target, не касаясь главного.
   - играючи ласкает $target, доводя до исступления.
-  icon: _Arcane/Interface/ErpPanel/hand_paw.png
-
-- type: panelInteraction
-  id: CuddleFloor
-  category: Friendship
-  name: Лечь рядом
-  userArouse: 5
-  targetArouse: 8
-  range: 1
-  messages:
-  - увлекает $target на пол, ложась рядом.
-  - ложится с $target на мягкой поверхности.
-  - устраивается уютно с $target, переплетаясь телами.
-  - разделяет с $target ложе, не отрываясь друг от друга.
-  icon: _Arcane/Interface/ErpPanel/hand_paw.png
+  icon: _Arcane/Interface/ErpPanel/hand_shake.png
 
 - type: panelInteraction
   id: WhisperName
@@ -179,15 +146,15 @@
   id: HoldHands
   category: Friendship
   name: Взять за руку
-  userArouse: 2
-  targetArouse: 3
   range: 1
+  userEmote: Salute
+  targetEmote: Salute
   messages:
   - нежно берёт $target за руку, переплетая пальцы.
   - сжимает руку $target, передавая свою любовь.
   - держит $target за руку, не отпуская.
   - берёт ладонь $target в свою, согревая теплом.
-  icon: _Arcane/Interface/ErpPanel/hand_paw.png
+  icon: _Arcane/Interface/ErpPanel/hand_shake.png
 
 - type: panelInteraction
   id: EarNibble
@@ -243,23 +210,6 @@
   icon: _Arcane/Interface/ErpPanel/lick_neck.png
 
 - type: panelInteraction
-  id: LapSit
-  category: Friendship
-  name: Сесть на колени
-  userArouse: 5
-  targetArouse: 8
-  range: 1
-  sounds:
-  - /Audio/_Arcane/Interactions/friction1.ogg
-  - /Audio/_Arcane/Interactions/friction2.ogg
-  messages:
-  - устраивается на коленях $target, обнимая.
-  - нежно садится на колени $target, обвивая руками шею.
-  - прижимается к $target, сидя у него на коленях.
-  - уютно устраивается на коленях $target.
-  icon: _Arcane/Interface/ErpPanel/hand_paw.png
-
-- type: panelInteraction
   id: NapeKiss
   category: Neck
   name: Поцеловать за ушком
@@ -280,6 +230,7 @@
   id: BellyPoke
   category: Boobs
   name: Пощекотать живот
+  targetEmote: Laugh
   userArouse: 3
   targetArouse: 5
   range: 1
@@ -311,12 +262,14 @@
   id: BackKiss
   category: Friendship
   name: Поцеловать спину
-  userArouse: 5
-  targetArouse: 8
+  userArouse: 3
+  targetArouse: 5
   range: 1
   sounds:
   - /Audio/_Arcane/Interactions/kiss1.ogg
   - /Audio/_Arcane/Interactions/kiss2.ogg
+  userEmote: Nod
+  targetEmote: Nod
   messages:
   - покрывает поцелуями спину $target сверху донизу.
   - целует плечи и спину $target с нежностью.
@@ -362,31 +315,11 @@
   id: SmallOfBackTouch
   category: Friendship
   name: Погладить поясницу
-  userArouse: 5
-  targetArouse: 8
   range: 1
   messages:
   - проводит рукой по пояснице $target, дразня.
   - массирует поясницу $target, спускаясь ниже.
-  -
-
   - поглаживает поясницу $target с чувственным нажимом.
   - обводит пальцами поясницу $target, вызывая дрожь.
   icon: _Arcane/Interface/ErpPanel/boobs_paw.png
-
-- type: panelInteraction
-  id: CaressHair
-  category: Friendship
-  name: еребирать волосы
-  userArouse: 3
-  targetArouse: 5
-  range: 1
-  sounds:
-  - /Audio/_Arcane/Interactions/friction1.ogg
-  - /Audio/_Arcane/Interactions/friction2.ogg
-  messages:
-  - нежно перебирает волосы $target, любуясь ими.
-  - проводит пальцами по волосам $target с любовью.
-  - накручивает прядь волос $target на палец.
-  - баюкает $target, перебирая волосы.
-  icon: _Arcane/Interface/ErpPanel/hand_paw.png
+# World-of-Darkness (WoD) EDIT END
