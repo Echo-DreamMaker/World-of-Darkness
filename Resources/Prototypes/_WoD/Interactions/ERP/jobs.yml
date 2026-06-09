@@ -1,0 +1,137 @@
+# Примеры ERP-интеракций, привязанных к конкретным работам (Job) и ролям (RoleType).
+# Эти интеракции показываются только если игрок подходит под требования.
+- type: panelInteraction
+  id: CaptainInspection
+  category: Friendship
+  name: Капитанский осмотр
+  userArouse: 2
+  targetArouse: 5
+  range: 1
+  # Использовать эту интеракцию может ТОЛЬКО Капитан.
+  # У target нет требований — осматривать можно любого.
+  userRequirements:
+  - !type:JobRequirement
+    jobs:
+    - Captain
+  # Эмоут у user — гордо выпрямляется (или подобный)
+  userEmote: Salute
+  messages:
+  - капитанским взглядом оценивает $target с головы до ног.
+  - окидывает $target строгим, но одобрительным взглядом.
+  - с инспекторской важностью осматривает $target.
+  icon: _Arcane/Interface/ErpPanel/hand_paw.png
+
+- type: panelInteraction
+  id: MedicalTenderness
+  category: Friendship
+  name: Заботливый осмотр
+  userArouse: 2
+  targetArouse: 8
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/breath1.ogg
+  # Только медицинский персонал может "осматривать" пациента.
+  userRequirements:
+  - !type:JobRequirement
+    jobs:
+    - ChiefMedicalOfficer
+    - MedicalDoctor
+    - Paramedic
+    - Chemist
+  messages:
+  - заботливо осматривает $target, проверяя самочувствие.
+  - мягко щупает пульс $target, проявляя профессионализм.
+  - нежно укрывает $target одеялом, поправляя подушку.
+  icon: _Arcane/Interface/ErpPanel/lick_neck.png
+
+- type: panelInteraction
+  id: SecurityPatDown
+  category: Friendship
+  name: Досмотр
+  userArouse: 3
+  targetArouse: 5
+  range: 1
+  # Только охрана может проводить досмотр.
+  # Причём target НЕ должен быть антагонистом (дружелюбный жест между мирными).
+  userRequirements:
+  - !type:JobRequirement
+    jobs:
+    - HeadOfSecurity
+    - SecurityOfficer
+    - Warden
+    - Detective
+  targetRequirements:
+  - !type:RoleTypeRequirement
+    inverted: true
+    roleTypes:
+    - SoloAntagonist
+    - TeamAntagonist
+    - SiliconAntagonist
+    - FreeAgent
+  messages:
+  - проводит руками по телу $target, проверяя на наличие запрещённых предметов.
+  - профессионально досматривает $target с ног до головы.
+  - осторожно обходит $target, выполняя стандартную процедуру.
+  icon: _Arcane/Interface/ErpPanel/hand_paw.png
+
+- type: panelInteraction
+  id: ClownSerenade
+  category: Mouth
+  name: Клоунская серенада
+  userArouse: 5
+  targetArouse: 10
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/kiss1.ogg
+  - /Audio/_Arcane/Interactions/kiss2.ogg
+  # Только клоун может устроить серенаду (каламбур с профессией).
+  # Target не должен быть антагонистом, чтобы клоун не разозлил опасного врага.
+  userRequirements:
+  - !type:JobRequirement
+    jobs:
+    - Clown
+  targetRequirements:
+  - !type:RoleTypeRequirement
+    inverted: true
+    roleTypes:
+    - SoloAntagonist
+    - TeamAntagonist
+    - SiliconAntagonist
+    - FreeAgent
+  # Эмоут "Honk" добавляет клоунский характер интеракции
+  userEmote: Honk
+  messages:
+  - с клоунским поклоном поёт серенаду для $target.
+  - жонглирует яблоками, признаваясь в любви $target.
+  - выдувает мыльные пузыри в сторону $target, шепча нежности.
+  - надевает огромный галстук-бабочку, посвящая танец $target.
+  icon: _Arcane/Interface/ErpPanel/lick_neck.png
+
+- type: panelInteraction
+  id: AntagGloat
+  category: Friendship
+  name: Злодейское хвастовство
+  userArouse: 5
+  targetArouse: 3
+  range: 1
+  sounds:
+  - /Audio/_Arcane/Interactions/breath1.ogg
+  # Эту интеракцию может использовать ТОЛЬКО антагонист любого типа.
+  # Это показывает, что он "глумится" над жертвой.
+  userRequirements:
+  - !type:AntagRequirement
+  # Target не должен быть антагонистом (иначе зачем глумиться над "соратником")
+  targetRequirements:
+  - !type:RoleTypeRequirement
+    inverted: true
+    roleTypes:
+    - SoloAntagonist
+    - TeamAntagonist
+    - SiliconAntagonist
+    - FreeAgent
+  messages:
+  - самодовольно усмехается, глядя на $target.
+  - с злодейским видом хвастается своими планами перед $target.
+  - театрально кланяется, наслаждаясь властью над $target.
+  - поигрывает "оружием", наслаждаясь испуганным видом $target.
+  icon: _Arcane/Interface/ErpPanel/hand_paw.png
