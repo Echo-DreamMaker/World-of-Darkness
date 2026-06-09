@@ -1,0 +1,346 @@
+# World-of-Darkness (WoD) EDIT START
+# Весь файл закомментирован, так как раса "вампир" ещё не реализована.
+# Когда появится SpeciesPrototype для вампира, нужно будет:
+# 1. Раскомментировать нужные интеракции
+# 2. Добавить для них userRequirements:
+#    - !type:SpeciesRequirement
+#      species: [Vampire]  # или другое название расы
+# 3. Для target, где нужно, добавить аналогичные проверки
+# World-of-Darkness (WoD) EDIT END
+
+# - type: panelInteraction
+#   id: VampireBiteNeck
+#   category: Neck
+#   name: Укусить за шею (вампир)
+#   userArouse: 5
+#   targetArouse: 15
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/bite1.ogg
+#   - /Audio/_Arcane/Interactions/bite2.ogg
+#   - /Audio/_Arcane/Interactions/bite3.ogg
+#   userEmote: Gasp
+#   targetEmote: Gasp
+#   targetEmoteForceChat: true
+#   messages:
+#   - осторожно прикусывает шею $target, пульсируя от возбуждения.
+#   - оставляет алый поцелуй-укус на шее $target.
+#   - впивается клыками в бледную кожу шеи $target!
+#   - нежно облизывает ранку от укуса на шее $target.
+#   - припадает к шее $target в экстазе.
+#   - с жадностью выпивает каплю крови из шеи $target.
+#   icon: _Arcane/Interface/ErpPanel/bite_neck.png
+#   userRequirements:
+#   - !type:SpeciesRequirement
+#     species: [Vampire]
+
+# - type: panelInteraction
+#   id: VampireKissLips
+#   category: Mouth
+#   name: Поцеловать в губы (с укусом)
+#   userArouse: 8
+#   targetArouse: 10
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/kiss1.ogg
+#   - /Audio/_Arcane/Interactions/kiss2.ogg
+#   - /Audio/_Arcane/Interactions/kiss3.ogg
+#   - /Audio/_Arcane/Interactions/kiss4.ogg
+#   - /Audio/_Arcane/Interactions/kiss5.ogg
+#   messages:
+#   - страстно целует $target в губы, пробуя кровь на языке.
+#   - нежно касается губ $target своими холодными губами.
+#   - с жадностью впивается в губы $target, оставляя привкус крови.
+#   - алый поцелуй заставляет $target затрепетать.
+#   - прикусывает нижнюю губу $target, вызывая стон.
+#   - глубокий поцелуй с привкусом ночи и крови.
+#   icon: _Arcane/Interface/ErpPanel/lick_neck.png
+#   userRequirements:
+#   - !type:SpeciesRequirement
+#     species: [Vampire]
+
+# - type: panelInteraction
+#   id: VampireLickWound
+#   category: Neck
+#   name: Зализать рану на шее
+#   userArouse: 5
+#   targetArouse: 10
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/kiss1.ogg
+#   - /Audio/_Arcane/Interactions/kiss2.ogg
+#   messages:
+#   - нежно зализывает ранку на шее $target.
+#   - проводит языком по следу от укуса на шее $target.
+#   - исцеляюще зализывает шрам на шее $target.
+#   - баюкает рану на шее $target поцелуями.
+#   icon: _Arcane/Interface/ErpPanel/lick_neck.png
+#   userRequirements:
+#   - !type:SpeciesRequirement
+#     species: [Vampire]
+
+# - type: panelInteraction
+#   id: VampireWhisperPromise
+#   category: Mouth
+#   name: Шепнуть тёмное обещание
+#   userArouse: 5
+#   targetArouse: 10
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/breath1.ogg
+#   - /Audio/_Arcane/Interactions/breath2.ogg
+#   - /Audio/_Arcane/Interactions/breath3.ogg
+#   messages:
+#   - нашёптывает тёмные обещания на ухо $target.
+#   - клянётся в вечной любви на ухо $target.
+#   - шепчет имя $target голосом, от которого стынет кровь.
+#   - обещает $target обратить их в подобное себе.
+#   - признаётся в страсти голосом ночи.
+#   icon: _Arcane/Interface/ErpPanel/kiss_neck.png
+#   userRequirements:
+#   - !type:SpeciesRequirement
+#     species: [Vampire]
+
+# - type: panelInteraction
+#   id: VampireMarkCollar
+#   category: Neck
+#   name: Оставить печать на шее
+#   userArouse: 8
+#   targetArouse: 15
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/bite1.ogg
+#   - /Audio/_Arcane/Interactions/bite2.ogg
+#   messages:
+#   - с жадностью впивается в шею $target, оставляя свою метку!
+#   - кусает шею $target, помечая как свою собственность.
+#   - вонзает клыки в нежную кожу шеи $target с хриплым стоном.
+#   - жадно пьёт из шеи $target, ставя свою печать.
+#   - навеки помечает шею $target укусом.
+#   icon: _Arcane/Interface/ErpPanel/bite_neck.png
+#   userRequirements:
+#   - !type:SpeciesRequirement
+#     species: [Vampire]
+
+# - type: panelInteraction
+#   id: VampireEmbrace
+#   category: Mouth
+#   name: Затянуть в объятия
+#   userArouse: 5
+#   targetArouse: 10
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/breath1.ogg
+#   - /Audio/_Arcane/Interactions/breath2.ogg
+#   - /Audio/_Arcane/Interactions/breath3.ogg
+#   - /Audio/_Arcane/Interactions/breath4.ogg
+#   - /Audio/_Arcane/Interactions/breath5.ogg
+#   messages:
+#   - обвивает $target холодными руками, притягивая к себе.
+#   - крепко обнимает $target, погружая лицо в волосы.
+#   - сжимает $target в тёмных объятиях, обещая вечность.
+#   - накрывает $target плащом, скрывая от мира.
+#   - увлекает $target в тень, подальше от людских глаз.
+#   - прижимает $target к груди, слушая биение сердца.
+#   icon: _Arcane/Interface/ErpPanel/lick_neck.png
+
+# - type: panelInteraction
+#   id: VampireLickBlood
+#   category: Mouth
+#   name: Слизнуть каплю крови
+#   userArouse: 5
+#   targetArouse: 8
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/kiss1.ogg
+#   - /Audio/_Arcane/Interactions/kiss2.ogg
+#   messages:
+#   - слизывает каплю крови с губ $target.
+#   - с наслаждением пробует кровь на коже $target.
+#   - проводит языком по подбородку $target, слизывая кровь.
+#   - собирает языком багряные капли с шеи $target.
+#   - медленно слизывает алую струйку с кожи $target.
+#   icon: _Arcane/Interface/ErpPanel/pussy_lick.png
+#   userRequirements:
+#   - !type:SpeciesRequirement
+#     species: [Vampire]
+
+# - type: panelInteraction
+#   id: VampireBiteWrist
+#   category: Mouth
+#   name: Укусить за запястье
+#   userArouse: 5
+#   targetArouse: 10
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/bite1.ogg
+#   - /Audio/_Arcane/Interactions/bite2.ogg
+#   - /Audio/_Arcane/Interactions/bite3.ogg
+#   messages:
+#   - подносит запястье $target к губам и впивается зубами.
+#   - жадно пьёт кровь из запястья $target.
+#   - вонзает клыки в нежное запястье $target!
+#   - осушает запястье $target с хриплым стоном наслаждения.
+#   icon: _Arcane/Interface/ErpPanel/bite_neck.png
+#   userRequirements:
+#   - !type:SpeciesRequirement
+#     species: [Vampire]
+
+# - type: panelInteraction
+#   id: VampireStraddle
+#   category: Penis
+#   name: Оседлать бёдра
+#   userArouse: 10
+#   targetArouse: 15
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/bang1.ogg
+#   - /Audio/_Arcane/Interactions/bang2.ogg
+#   - /Audio/_Arcane/Interactions/bang4.ogg
+#   messages:
+#   - уверенно оседлывает бёдра $target, глядя в глаза.
+#   - устраивается на коленях $target, обвивая ногами.
+#   - прижимается к $target, ловя его дыхание.
+#   - скачет на коленях $target, наслаждаясь близостью.
+#   - танцует бёдрами на коленях $target в лунном свете.
+#   icon: _Arcane/Interface/ErpPanel/legs_cock_fuck.png
+#   targetRequirements:
+#   - !type:EroticOrganRequirement
+#     organ: penis
+#     requireVisible: true
+#   userRequirements:
+#   - !type:EroticOrganRequirement
+#     organ: vagina
+#     requireVisible: true
+
+# - type: panelInteraction
+#   id: VampirePinWall
+#   category: Penis
+#   name: Прижать к стене
+#   userArouse: 10
+#   targetArouse: 15
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/asscrap1.ogg
+#   - /Audio/_Arcane/Interactions/asscrap2.ogg
+#   messages:
+#   - прижимает $target к холодной стене, нависая сверху.
+#   - вжимает $target в стену, сжимая бёдра.
+#   - поднимает ноги $target, прижимая к стене.
+#   - удерживает $target у стены, не давая вырваться.
+#   icon: _Arcane/Interface/ErpPanel/cock_near_ass.png
+#   targetRequirements:
+#   - !type:EroticOrganRequirement
+#     organ: penis
+#     requireVisible: true
+
+# - type: panelInteraction
+#   id: VampireEyeContact
+#   category: Mouth
+#   name: Гипнотический взгляд
+#   userArouse: 5
+#   targetArouse: 12
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/breath1.ogg
+#   - /Audio/_Arcane/Interactions/breath2.ogg
+#   - /Audio/_Arcane/Interactions/breath3.ogg
+#   - /Audio/_Arcane/Interactions/breath4.ogg
+#   - /Audio/_Arcane/Interactions/breath5.ogg
+#   messages:
+#   - смотрит в глаза $target, гипнотизируя своим взором.
+#   - удерживает взгляд $target, погружая в транс.
+#   - взгляд $target тонет в багровых глазах.
+#   - шепчет древние слова, оковывая разум $target.
+#   - заставляет $target замолчать одним лишь взглядом.
+#   icon: _Arcane/Interface/ErpPanel/kiss_neck.png
+#   userRequirements:
+#   - !type:SpeciesRequirement
+#     species: [Vampire]
+
+# - type: panelInteraction
+#   id: VampireMoonlightKiss
+#   category: Mouth
+#   name: Поцелуй под луной
+#   userArouse: 5
+#   targetArouse: 10
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/kiss1.ogg
+#   - /Audio/_Arcane/Interactions/kiss2.ogg
+#   - /Audio/_Arcane/Interactions/kiss3.ogg
+#   - /Audio/_Arcane/Interactions/kiss4.ogg
+#   - /Audio/_Arcane/Interactions/kiss5.ogg
+#   messages:
+#   - под лунным светом нежно целует $target.
+#   - освещённые луной, губы встречаются в жарком поцелуе.
+#   - в лунном сиянии $target оказывается в плену холодных губ.
+#   - целует $target так, словно сегодня последняя ночь.
+#   - в серебряном свете луны губы сливаются в экстазе.
+#   icon: _Arcane/Interface/ErpPanel/kiss_neck.png
+
+# - type: panelInteraction
+#   id: VampireColdBreath
+#   category: Mouth
+#   name: Дразнить дыханием
+#   userArouse: 5
+#   targetArouse: 8
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/breath1.ogg
+#   - /Audio/_Arcane/Interactions/breath2.ogg
+#   - /Audio/_Arcane/Interactions/breath3.ogg
+#   - /Audio/_Arcane/Interactions/breath4.ogg
+#   - /Audio/_Arcane/Interactions/breath5.ogg
+#   messages:
+#   - холодным дыханием дразнит ухо $target.
+#   - проводит ледяным дыханием по шее $target.
+#   - щекочет губами мочку уха $target, обдавая холодом.
+#   - почти касается губами $target, мучая дыханием.
+#   - дышит на кожу $target, заставляя трепетать от холода.
+#   icon: _Arcane/Interface/ErpPanel/lick_neck.png
+#   userRequirements:
+#   - !type:SpeciesRequirement
+#     species: [Vampire]
+
+# - type: panelInteraction
+#   id: VampireDrinkNectar
+#   category: Pussy
+#   name: Испить лунного нектара
+#   userArouse: 8
+#   targetArouse: 20
+#   range: 1
+#   sounds:
+#   - /Audio/_Arcane/Interactions/bj1.ogg
+#   - /Audio/_Arcane/Interactions/bj2.ogg
+#   - /Audio/_Arcane/Interactions/bj3.ogg
+#   - /Audio/_Arcane/Interactions/bj4.ogg
+#   - /Audio/_Arcane/Interactions/bj5.ogg
+#   messages:
+#   - припадает к лону $target, испивая лунный нектар.
+#   - пьёт божественный нектар из глубин $target.
+#   - с жадностью собирает языком капли нектара с губ $target.
+#   - впивается в киску $target, наслаждаясь сладким нектаром.
+#   icon: _Arcane/Interface/ErpPanel/pussy_lick.png
+#   targetRequirements:
+#   - !type:EroticOrganRequirement
+#     organ: vagina
+#     requireVisible: true
+
+# - type: panelInteraction
+#   id: VampireCloakEmbrace
+#   category: Boobs
+#   name: Укутать плащом у груди
+#   userArouse: 3
+#   targetArouse: 8
+#   range: 1
+#   messages:
+#   - укутывает $target плащом, прижимая к своей груди.
+#   - прижимает $target к себе, скрывая под тёмным плащом.
+#   - накидывает капюшон плаща на $target, обнимая.
+#   - баюкает $target у груди, укрывая плащом.
+#   icon: _Arcane/Interface/ErpPanel/boobs_paw.png
+#   targetRequirements:
+#   - !type:EroticOrganRequirement
+#     organ: breasts
+#     requireVisible: true
