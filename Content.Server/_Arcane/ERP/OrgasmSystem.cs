@@ -24,6 +24,7 @@ public sealed class OrgasmSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly ServerCreampieSystem _creampie = default!;
 
     private static readonly EntProtoId HeartsProto = "EffectHearts";
     private static readonly EntProtoId SemenPuddleProto = "PuddleSemen";
@@ -56,7 +57,27 @@ public sealed class OrgasmSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("orgasm-popup-self"), uid, uid, PopupType.MediumCaution);
 
         if (humanoid?.Sex == Sex.Male)
-            SpawnEjaculation(uid);
+        {
+            // Показываем окно выбора "кончить внутрь?" только если последняя интеракция была с вагиной
+            if (TryComp<LastInteractionPartnerComponent>(uid, out var lastPartner)
+                && lastPartner.LastTarget != null
+                && lastPartner.LastInteractionId is "PenisFuck" or "PussyFuck")
+            {
+                var target = GetEntity(lastPartner.LastTarget.Value);
+                if (Exists(target) && TryComp<HumanoidAppearanceComponent>(target, out var targetHumanoid) && targetHumanoid.Sex == Sex.Female)
+                {
+                    _creampie.RequestCreampieConfirm(uid, target);
+                }
+                else
+                {
+                    SpawnEjaculation(uid);
+                }
+            }
+            else
+            {
+                SpawnEjaculation(uid);
+            }
+        }
 
         var weakness = EnsureComp<OrgasmWeaknessComponent>(uid);
         weakness.ExpiresAt = _timing.CurTime + weakness.WeaknessDuration;

@@ -6,33 +6,9 @@
     Name="InventoryInterface"
     VerticalExpand="True"
     VerticalAlignment="Bottom"
-    Orientation="Horizontal"
+    Orientation="Vertical"
     HorizontalAlignment="Center">
-    <Control HorizontalAlignment="Center">
-        <controls:SlotButton
-            Name="InventoryButton"
-            Access="Public"
-            VerticalAlignment="Bottom"
-            HorizontalExpand="False"
-            VerticalExpand="False"
-            ButtonTexturePath="Slots/toggle"/>
-        <controls:SlotButton
-            Name="ExtraButton"
-            Access="Public"
-            VerticalAlignment="Bottom"
-            HorizontalExpand="False"
-            VerticalExpand="False"
-            ButtonTexturePath="Slots/toggle-alt"/>
-        <inventory:ItemSlotButtonContainer
-            Name="InventoryHotbar"
-            Access="Public"
-            Visible="False"
-            MaxColumns="3"
-            SlotGroup="Default"
-            ExpandBackwards="True"
-            VerticalExpand="True"
-            HorizontalAlignment="Center"
-        />
+    <Control HorizontalAlignment="Left">
         <inventory:ItemSlotButtonContainer
             Name="ExtraHotbar"
             Access="Public"
@@ -43,5 +19,35 @@
             VerticalExpand="True"
             HorizontalAlignment="Center"
         />
+        <controls:SlotButton
+            Name="ExtraButton"
+            Access="Public"
+            Visible="False"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Left"
+            HorizontalExpand="False"
+            VerticalExpand="False"
+            ButtonTexturePath="Slots/toggle-alt"/>
+    </Control>
+    <Control HorizontalAlignment="Center">
+        <inventory:ItemSlotButtonContainer
+            Name="InventoryHotbar"
+            Access="Public"
+            Visible="False"
+            MaxColumns="3"
+            SlotGroup="Default"
+            ExpandBackwards="True"
+            VerticalExpand="True"
+            HorizontalAlignment="Center"
+        />
+        <controls:SlotButton
+            Name="InventoryButton"
+            Access="Public"
+            Visible="False"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Left"
+            HorizontalExpand="False"
+            VerticalExpand="False"
+            ButtonTexturePath="Slots/toggle"/>
     </Control>
 </widgets:InventoryGui>

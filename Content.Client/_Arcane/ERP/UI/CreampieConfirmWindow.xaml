@@ -1,0 +1,47 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+               xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+               Title="{Loc creampie-confirm-title}"
+               Resizable="False"
+               SetSize="300 150">
+
+    <PanelContainer HorizontalExpand="True" VerticalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#1A0505" />
+        </PanelContainer.PanelOverride>
+    </PanelContainer>
+
+    <PanelContainer Margin="3">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#0A0505" BorderColor="#3A0808" BorderThickness="2" />
+        </PanelContainer.PanelOverride>
+
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+            <RichTextLabel Name="HeaderLabel" Margin="0 15 0 5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Text="{Loc creampie-confirm-question}" />
+
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 15 0 0">
+                <Button Name="YesButton"
+                        StyleClasses="OpenBoth"
+                        Text="{Loc creampie-confirm-yes}"
+                        SetHeight="35"
+                        SetWidth="100"
+                        Margin="10 0">
+                    <Button.StyleBoxOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#2A0808" BorderColor="#8B1A1A" BorderThickness="2"/>
+                    </Button.StyleBoxOverride>
+                </Button>
+                <Button Name="NoButton"
+                        StyleClasses="OpenBoth"
+                        Text="{Loc creampie-confirm-no}"
+                        SetHeight="35"
+                        SetWidth="100"
+                        Margin="10 0">
+                    <Button.StyleBoxOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1A1A2A" BorderColor="#4A4A8A" BorderThickness="2"/>
+                    </Button.StyleBoxOverride>
+                </Button>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</controls:FancyWindow>

@@ -83,6 +83,10 @@
   - type: EroticOrgan
     sensitivity: 1.5
   - type: VaginaOrgan
+  - type: SolutionContainerManager
+    solutions:
+      vagina:
+        maxVol: 100
 
 # Deeply internal — no integrity display in health scanner.
 - type: entity

@@ -47,6 +47,5 @@ public enum SlotFlags
     WRISTS = 1 << 20,
     // Orion-End
     All = ~NONE,
-
     WITHOUT_POCKET = All & ~POCKET,
 }

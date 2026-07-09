@@ -115,6 +115,20 @@ public sealed partial class ErpPanelSystem : EntitySystem
         if (!CheckRequirements(user, target, interaction))
             return;
 
+        // Сохраняем последнюю цель и ID интеракции для обоих участников
+        var lastCompUser = EnsureComp<LastInteractionPartnerComponent>(user);
+        lastCompUser.LastTarget = GetNetEntity(target);
+        lastCompUser.LastInteractionId = interaction.ID;
+        Dirty(user, lastCompUser);
+
+        if (user != target)
+        {
+            var lastCompTarget = EnsureComp<LastInteractionPartnerComponent>(target);
+            lastCompTarget.LastTarget = GetNetEntity(user);
+            lastCompTarget.LastInteractionId = interaction.ID;
+            Dirty(target, lastCompTarget);
+        }
+
         customArousal = Math.Clamp(customArousal, 0, 300);
         customMoaning = Math.Clamp(customMoaning, 0, 300);
 

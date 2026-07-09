@@ -1,5 +1,6 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Arcane.ERP;
 
@@ -8,6 +9,26 @@ public sealed partial class CreampiePendingComponent : Component
 {
     [AutoNetworkedField]
     public NetEntity? Target;
+}
+
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
+public sealed partial class CreampieInsideComponent : Component
+{
+    [AutoNetworkedField]
+    public int Count;
+
+    [DataField, AutoNetworkedField]
+    public float SpeedModifier = 0.95f;
+
+    [DataField]
+    public float CumAmount;
+
+    [DataField]
+    public float LeakThreshold = 15f;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoNetworkedField, AutoPausedField]
+    public TimeSpan NextLeakAt;
 }
 
 [Serializable, NetSerializable]
