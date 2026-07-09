@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Wraith.Components;
+namespace Content.Shared._Goobstation.Wraith.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]

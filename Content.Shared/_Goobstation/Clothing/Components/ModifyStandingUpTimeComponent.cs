@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Clothing.Components;
+namespace Content.Shared._Goobstation.Clothing.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ModifyStandingUpTimeComponent : Component

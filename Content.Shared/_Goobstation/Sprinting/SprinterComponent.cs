@@ -1,7 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Sprinting;
+namespace Content.Shared._Goobstation.Sprinting;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SprinterComponent : Component
