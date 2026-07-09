@@ -13,7 +13,13 @@ public sealed partial class InventoryGui : UIWidget
 
         var inventoryUIController = UserInterfaceManager.GetUIController<InventoryUIController>();
         inventoryUIController.RegisterInventoryBarContainer(InventoryHotbar);
+        inventoryUIController.RegisterExtraHotbarContainer(ExtraHotbar);
 
         LayoutContainer.SetGrowVertical(this, LayoutContainer.GrowDirection.Begin);
+    }
+
+    public void ToggleExtraHotbarVisibility()
+    {
+        ExtraHotbar.Visible = !ExtraHotbar.Visible;
     }
 }

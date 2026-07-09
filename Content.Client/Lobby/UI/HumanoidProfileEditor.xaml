@@ -153,12 +153,7 @@
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-clothing'}" />
                                     <Control HorizontalExpand="True"/>
-                                    <!-- Orion-Edit-Start: Clothing display -->
-                                    <BoxContainer HorizontalExpand="True">
-                                        <Control HorizontalExpand="True"/>
-                                        <OptionButton Name="ClothingDisplayButton" HorizontalAlignment="Right" />
-                                    </BoxContainer>
-                                    <!-- Orion-Edit-End -->
+                                    <Button Name="ShowClothes" Pressed="True" ToggleMode="True" Text="{Loc 'humanoid-profile-editor-clothing-show'}" HorizontalAlignment="Right" />
                                 </BoxContainer>
                                 <!-- Show loadouts -->
                                 <BoxContainer HorizontalExpand="True">

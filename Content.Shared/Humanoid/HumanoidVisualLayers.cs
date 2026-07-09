@@ -39,9 +39,9 @@ namespace Content.Shared.Humanoid
         Hair,
         FacialHair,
         Face, // EE Plasmeme Port
+        UndergarmentTop,
+        UndergarmentBottom,
         Chest,
-//        Underwear, // Orion-Edit: Removed
-//        Undershirt, // Orion-Edit: Removed
         Groin,
         Head,
         Snout,
@@ -51,16 +51,18 @@ namespace Content.Shared.Humanoid
         RArm,
         LArm,
         RHand,
-
         LHand,
         RLeg,
         LLeg,
         RFoot,
         LFoot,
+        SOCKS,
+        UNDERWEAR,
+        UNDERSHIRT,
+        WRISTS,
         Handcuffs,
         StencilMask,
         Ensnare,
         Fire,
-
     }
 }

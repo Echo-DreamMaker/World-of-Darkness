@@ -16,12 +16,29 @@
             HorizontalExpand="False"
             VerticalExpand="False"
             ButtonTexturePath="Slots/toggle"/>
+        <controls:SlotButton
+            Name="ExtraButton"
+            Access="Public"
+            VerticalAlignment="Bottom"
+            HorizontalExpand="False"
+            VerticalExpand="False"
+            ButtonTexturePath="Slots/toggle-alt"/>
         <inventory:ItemSlotButtonContainer
             Name="InventoryHotbar"
             Access="Public"
             Visible="False"
             MaxColumns="3"
             SlotGroup="Default"
+            ExpandBackwards="True"
+            VerticalExpand="True"
+            HorizontalAlignment="Center"
+        />
+        <inventory:ItemSlotButtonContainer
+            Name="ExtraHotbar"
+            Access="Public"
+            Visible="False"
+            MaxColumns="3"
+            SlotGroup="Extra"
             ExpandBackwards="True"
             VerticalExpand="True"
             HorizontalAlignment="Center"

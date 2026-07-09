@@ -29,6 +29,8 @@ namespace Content.Shared.Humanoid.Markings
         HeadSide,
         Face, // Plasmeme Port
         Snout,
+        UndergarmentTop,
+        UndergarmentBottom,
         Chest,
         RightArm,
         RightHand,
@@ -42,10 +44,12 @@ namespace Content.Shared.Humanoid.Markings
         Legs,
         Groin, // Shitmed Change
         Wings, // For IPC wings porting from SimpleStation
-//        Underwear, // Orion-Edit: Removed
-//        Undershirt, // Orion-Edit: Removed
         Tail,
         Overlay,
+        SOCKS,
+        UNDERWEAR,
+        UNDERSHIRT,
+        WRISTS,
     }
 
     public static class MarkingCategoriesConversion
@@ -62,8 +66,8 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.HeadTop => MarkingCategories.HeadTop,
                 HumanoidVisualLayers.HeadSide => MarkingCategories.HeadSide,
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
-//                HumanoidVisualLayers.Undershirt => MarkingCategories.Undershirt, // Orion-Edit: Removed
-//                HumanoidVisualLayers.Underwear => MarkingCategories.Underwear, // Orion-Edit: Removed
+                HumanoidVisualLayers.UndergarmentTop => MarkingCategories.UndergarmentTop,
+                HumanoidVisualLayers.UndergarmentBottom => MarkingCategories.UndergarmentBottom,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
                 HumanoidVisualLayers.Groin => MarkingCategories.Groin, // Shitmed Change
                 HumanoidVisualLayers.RArm => MarkingCategories.RightArm,
@@ -76,6 +80,10 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.RFoot => MarkingCategories.RightFoot,
                 HumanoidVisualLayers.Wings => MarkingCategories.Wings,
                 HumanoidVisualLayers.Tail => MarkingCategories.Tail,
+                HumanoidVisualLayers.SOCKS => MarkingCategories.SOCKS,
+                HumanoidVisualLayers.UNDERWEAR => MarkingCategories.UNDERWEAR,
+                HumanoidVisualLayers.UNDERSHIRT => MarkingCategories.UNDERSHIRT,
+                HumanoidVisualLayers.WRISTS => MarkingCategories.WRISTS,
                 _ => MarkingCategories.Overlay,
             };
         }

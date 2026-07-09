@@ -1,12 +1,12 @@
 using System.Linq;
 using Content.Shared.Examine;
-using Content.Shared._Orion.Time.Components;
+using Content.Shared.GameTicking;
 
 namespace Content.Shared.Clock;
 
 public abstract class SharedClockSystem : EntitySystem
 {
-//    [Dependency] private readonly SharedGameTicker _ticker = default!; /// Orion-Edit: Removed
+    [Dependency] private readonly SharedGameTicker _ticker = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -38,10 +38,7 @@ public abstract class SharedClockSystem : EntitySystem
 
     private TimeSpan GetGlobalTime()
     {
-        // Orion-Edit-Start
-        var stationTime = EntityQuery<StationTimeManagerComponent>().FirstOrDefault();
-        return stationTime?.StationTime ?? TimeSpan.Zero;
-        // Orion-Edit-End
+        return (EntityQuery<GlobalTimeManagerComponent>().FirstOrDefault()?.TimeOffset ?? TimeSpan.Zero) + _ticker.RoundDuration();
     }
 
     public TimeSpan GetClockTime(Entity<ClockComponent> ent)
