@@ -26,7 +26,7 @@ public sealed class CreampieSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
-    private const SlotFlags GroinCovering = SlotFlags.INNERCLOTHING | SlotFlags.OUTERCLOTHING | SlotFlags.LEGS | SlotFlags.UNDERWEAR;
+    private const SlotFlags GroinCovering = SlotFlags.INNERCLOTHING | SlotFlags.UNDERWEAR;
     private const string VaginaSolutionName = "vagina";
 
     private static readonly EntProtoId SemenPuddleProto = "PuddleSemen";

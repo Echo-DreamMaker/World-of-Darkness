@@ -25,6 +25,7 @@
     state: icon1
   - type: Clothing
     sprite: _Arcane/ERP/condoms.rsi
+  - type: Condom
 
 - type: entity
   parent: [BaseItem]

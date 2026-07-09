@@ -1,5 +1,5 @@
 - type: vendingMachineInventory
-  id: ClothesMateInventory
+  id: LoveMateInventory
   startingInventory:
     ClothingJumpsuitBDSMress: 3
     ClothingJumpsuitBlackShirt: 3

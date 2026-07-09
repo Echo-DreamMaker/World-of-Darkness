@@ -3,6 +3,7 @@ using Content.Shared._Arcane.ERP;
 using Content.Shared.Chat;
 using Content.Shared.Dataset;
 using Content.Shared.Humanoid;
+using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using System.Numerics;
 using Robust.Server.Audio;
@@ -25,6 +26,7 @@ public sealed class OrgasmSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly ServerCreampieSystem _creampie = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     private static readonly EntProtoId HeartsProto = "EffectHearts";
     private static readonly EntProtoId SemenPuddleProto = "PuddleSemen";
@@ -58,8 +60,16 @@ public sealed class OrgasmSystem : EntitySystem
 
         if (humanoid?.Sex == Sex.Male)
         {
+            // Проверяем, надет ли презерватив
+            var hasCondom = _inventory.TryGetSlotEntity(uid, "underwear", out var slotItem)
+                && HasComp<CondomComponent>(slotItem);
+
+            if (hasCondom)
+            {
+                SpawnEjaculation(uid);
+            }
             // Показываем окно выбора "кончить внутрь?" только если последняя интеракция была с вагиной
-            if (TryComp<LastInteractionPartnerComponent>(uid, out var lastPartner)
+            else if (TryComp<LastInteractionPartnerComponent>(uid, out var lastPartner)
                 && lastPartner.LastTarget != null
                 && lastPartner.LastInteractionId is "PenisFuck" or "PussyFuck")
             {
