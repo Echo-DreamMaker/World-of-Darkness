@@ -1,159 +1,191 @@
 - type: loadout
   id: UnderwearBoxerShorts # Named like that because Boxer (Job) claimed this ID
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearBoxerShorts
 
 - type: loadout
   id: BoxerShortsAssBlastUSA
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearBoxerShortsAssBlastUSA
 
 - type: loadout
   id: BoxerShortsBee
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearBoxerShortsBee
 
 - type: loadout
   id: BoxerShortsBriefs
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearBoxerShortsBriefs
 
 - type: loadout
   id: BoxerShortsCommie
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearBoxerShortsCommie
 
 - type: loadout
   id: BoxerShortsHeart
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearBoxerShortsHeart
 
 - type: loadout
   id: BoxerShortsLong
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearBoxerShortsLong
 
 - type: loadout
   id: BoxerShortsSponge
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearBoxerShortsSponge
 
 - type: loadout
   id: BoxerShortsStriped
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearBoxerShortsStriped
 
 - type: loadout
   id: BoxerShortsUK
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearBoxerShortsUK
 
 - type: loadout
   id: Mankini
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearMankini
 
 - type: loadout
   id: Panties
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPanties
 
 - type: loadout
   id: PantiesAssBlastUSA
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesAssBlastUSA
 
 - type: loadout
   id: PantiesBeeKini
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesBeeKini
 
 - type: loadout
   id: PantiesBriefs
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesBriefs
 
 - type: loadout
   id: PantiesCommie
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesCommie
 
 - type: loadout
   id: PantiesFishnet
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesFishnet
 
 - type: loadout
   id: PantiesFishnetLower
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesFishnetLower
 
 - type: loadout
   id: PantiesFishnetLowerAlt
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesFishnetLowerAlt
 
 - type: loadout
   id: PantiesHarley
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesHarley
 
 - type: loadout
   id: PantiesJockstrap
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesJockstrap
 
 - type: loadout
   id: PantiesKinky
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesKinky
 
 - type: loadout
   id: PantiesLizared
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesLizared
 
 - type: loadout
   id: PantiesNeko
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesNeko
 
 - type: loadout
   id: PantiesSlim
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesSlim
 
 - type: loadout
   id: PantiesStriped
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesStriped
 
 - type: loadout
   id: PantiesSwimming
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesSwimming
 
 - type: loadout
   id: PantiesThin
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesThin
 
 - type: loadout
   id: PantiesUK
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesUK
 
 - type: loadout
   id: PantiesAlt
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearPantiesAlt
 
 - type: loadout
   id: Thong
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearThong
 
 - type: loadout
   id: ThongBabydoll
+  category: Underwear
   equipment:
     underwear: ClothingUnderwearThongBabydoll

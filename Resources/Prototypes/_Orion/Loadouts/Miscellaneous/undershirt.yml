@@ -1,429 +1,515 @@
 - type: loadout
   id: Babydoll
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBabydoll
 
 - type: loadout
   id: Bra
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBra
 
 - type: loadout
   id: BraAssBlastUSA
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraAssBlastUSA
 
 - type: loadout
   id: BraBeeKini
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraBeeKini
 
 - type: loadout
   id: BraBinder
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraBinder
 
 - type: loadout
   id: BraBinderStrapless
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraBinderStrapless
 
 - type: loadout
   id: BraCommie
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraCommie
 
 - type: loadout
   id: BraHalterneck
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraHalterneck
 
 - type: loadout
   id: BraHarley
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraHarley
 
 - type: loadout
   id: BraKinky
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraKinky
 
 - type: loadout
   id: BraLizared
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraLizared
 
 - type: loadout
   id: BraNeko
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraNeko
 
 - type: loadout
   id: BraSport
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraSport
 
 - type: loadout
   id: BraSportAlt
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraSportAlt
 
 - type: loadout
   id: BraStrapless
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraStrapless
 
 - type: loadout
   id: BraStraplessAlt
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraStraplessAlt
 
 - type: loadout
   id: BraStriped
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraStriped
 
 - type: loadout
   id: BraSwimming
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraSwimming
 
 - type: loadout
   id: BraSwimmingAlt
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraSwimmingAlt
 
 - type: loadout
   id: BraThin
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraThin
 
 - type: loadout
   id: BraTubeTop
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraTubeTop
 
 - type: loadout
   id: BraUK
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraUK
 
 - type: loadout
   id: BraAlt
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtBraAlt
 
 - type: loadout
   id: Corset
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtCorset
 
 - type: loadout
   id: FishnetBody
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtFishnetBody
 
 - type: loadout
   id: FishnetBodyAlt
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtFishnetBodyAlt
 
 - type: loadout
   id: FishnetGloves
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtFishnetGloves
 
 - type: loadout
   id: FishnetSleeves
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtFishnetSleeves
 
 - type: loadout
   id: FishnetSleevesAlt
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtFishnetSleevesAlt
 
 - type: loadout
   id: Shibari
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShibari
 
 - type: loadout
   id: ShibariSleeves
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShibariSleeves
 
 - type: loadout
   id: Shirt
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirt
 
 - type: loadout
   id: ShirtAlien
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtAlien
 
 - type: loadout
   id: ShirtAssBlastUSA
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtAssBlastUSA
 
 - type: loadout
   id: ShirtBand
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtBand
 
 - type: loadout
   id: ShirtBee
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtBee
 
 - type: loadout
   id: ShirtBowlingCyan
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtBowlingCyan
 
 - type: loadout
   id: ShirtBowlingGrey
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtBowlingGrey
 
 - type: loadout
   id: ShirtBowlingPink
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtBowlingPink
 
 - type: loadout
   id: ShirtBowlingRed
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtBowlingRed
 
 - type: loadout
   id: ShirtClown
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtClown
 
 - type: loadout
   id: ShirtCommie
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtCommie
 
 - type: loadout
   id: ShirtCowboy
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtCowboy
 
 - type: loadout
   id: ShirtCowboyNavy
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtCowboyNavy
 
 - type: loadout
   id: ShirtCowboyRed
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtCowboyRed
 
 - type: loadout
   id: ShirtCowboyShort
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtCowboyShort
 
 - type: loadout
   id: ShirtCowboyShortNavy
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtCowboyShortNavy
 
 - type: loadout
   id: ShirtCowboyShortRed
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtCowboyShortRed
 
 - type: loadout
   id: ShirtCowboyShortWhite
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtCowboyShortWhite
 
 - type: loadout
   id: ShirtCowboyWhite
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtCowboyWhite
 
 - type: loadout
   id: ShirtILoveNT
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtILoveNT
 
 - type: loadout
   id: ShirtIan
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtIan
 
 - type: loadout
   id: ShirtJerseyBlue
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtJerseyBlue
 
 - type: loadout
   id: ShirtJerseyRed
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtJerseyRed
 
 - type: loadout
   id: ShirtLong
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtLong
 
 - type: loadout
   id: ShirtLongStriped
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtLongStriped
 
 - type: loadout
   id: ShirtLongStripedBlue
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtLongStripedBlue
 
 - type: loadout
   id: ShirtLover
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtLover
 
 - type: loadout
   id: ShirtMatroska
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtMatroska
 
 - type: loadout
   id: ShirtMeat
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtMeat
 
 - type: loadout
   id: ShirtNanoTrasen
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtNanoTrasen
 
 - type: loadout
   id: ShirtPeace
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtPeace
 
 - type: loadout
   id: ShirtPogoman
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtPogoman
 
 - type: loadout
   id: ShirtPolo
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtPolo
 
 - type: loadout
   id: ShirtQuestion
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtQuestion
 
 - type: loadout
   id: ShirtShort
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtShort
 
 - type: loadout
   id: ShirtShortSleeves
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtShortSleeves
 
 - type: loadout
   id: ShirtSkull
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtSkull
 
 - type: loadout
   id: ShirtSportBlue
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtSportBlue
 
 - type: loadout
   id: ShirtSportGreen
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtSportGreen
 
 - type: loadout
   id: ShirtSportRed
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtSportRed
 
 - type: loadout
   id: ShirtSS13
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtSS13
 
 - type: loadout
   id: ShirtStriped
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtStriped
 
 - type: loadout
   id: ShirtTankTop
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtTankTop
 
 - type: loadout
   id: ShirtTankTopFire
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtTankTopFire
 
 - type: loadout
   id: ShirtTankTopMidriff
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtTankTopMidriff
 
 - type: loadout
   id: ShirtTankTopMidriffAlt
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtTankTopMidriffAlt
 
 - type: loadout
   id: ShirtTankTopStriped
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtTankTopStriped
 
 - type: loadout
   id: ShirtTankTopSun
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtTankTopSun
 
 - type: loadout
   id: ShirtTankTopAlt
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtTankTopAlt
 
 - type: loadout
   id: ShirtTieDye
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtTieDye
 
 - type: loadout
   id: ShirtUK
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtShirtUK
 
 - type: loadout
   id: Swimming
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtSwimming
 
 - type: loadout
   id: SwimmingBlack
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtSwimmingBlack
 
 - type: loadout
   id: SwimmingBlue
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtSwimmingBlue
 
 - type: loadout
   id: SwimmingRed
+  category: Undershirt
   equipment:
     undershirt: ClothingUndershirtSwimmingRed

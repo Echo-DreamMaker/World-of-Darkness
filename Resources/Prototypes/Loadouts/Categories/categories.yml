@@ -342,3 +342,19 @@
 - type: loadoutCategory
   id: Uniform
   root: true
+
+- type: loadoutCategory
+  id: Underwear
+  root: true
+
+- type: loadoutCategory
+  id: Undershirt
+  root: true
+
+- type: loadoutCategory
+  id: Socks
+  root: true
+
+- type: loadoutCategory
+  id: Wrists
+  root: true
