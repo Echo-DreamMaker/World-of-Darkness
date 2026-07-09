@@ -128,3 +128,24 @@
     - Skirt
     - ClothMade
     - WhitelistChameleon
+
+- type: entity
+  abstract: true
+  parent: ClothingUniformBase
+  id: ClothingUniformBaseFlippable
+  components:
+  - type: SuitSensor
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: SuitSensor
+  - type: WirelessNetworkConnection
+    range: 1200
+  - type: StationLimitedNetwork
+
+- type: entity
+  parent: ClothingUniformBaseFlippable
+  id: ClothingUniformBaseFlipped
+  suffix: flipped
+  abstract: true
+  components:
+  - type: Foldable
