@@ -1,35 +1,14 @@
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
-# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 Sapphire <98045970+sapphirescript@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Zalycon <84675130+Zalycon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: species
   id: Human
   name: species-name-human
   roundStart: true
   prototype: MobHuman
-  sprites: MobHumanSprites
+  # WD EDIT START
+  bodyTypes:
+  - HumanNormal
+  - HumanSlim
+  # WD EDIT END
+  defaultSkinTone: "#c0967f"
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
@@ -37,6 +16,7 @@
   category: Classic
   description: "/ServerInfo/_Orion/SpeciesDescriptions/Human.xml"
   # Orion-End
+  bonusTraitPoints: 2
   # begin Goobstation: port EE height/width sliders
   minHeight: 0.90
   defaultHeight: 1
@@ -52,8 +32,11 @@
 # be defined as a 'custom base layer'
 # in either the mob's starting marking prototype,
 # or it has to be added in C#.
-- type: speciesBaseSprites
-  id: MobHumanSprites
+# WD EDIT START
+- type: bodyType
+  id: HumanNormal
+  name: body-normal
+  # WD EDIT END
   sprites:
     Special: MobHumanoidAnyMarking
     Head: MobHumanHead
@@ -61,10 +44,9 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-#    Underwear: MobHumanoidAnyMarking # Orion-Edit: Removed
-#    Undershirt: MobHumanoidAnyMarking # Orion-Edit: Removed
-    Chest: MobHumanChest
-    Groin: MobHumanGroin
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    Chest: MobHumanTorso
     Eyes: MobHumanoidEyes
     HeadTop: MobHumanoidAnyMarking
     LArm: MobHumanLArm
@@ -75,12 +57,18 @@
     RLeg: MobHumanRLeg
     LFoot: MobHumanLFoot
     RFoot: MobHumanRFoot
-    Tail: MobHumanoidAnyMarking # Goobstation - Required for felinids, harpies & tajaran.
-    HeadSide: MobHumanoidAnyMarking # Oni port from DeltaV
+    Tail: MobHumanoidAnyMarking # Nyanotrasen - Felinid
+    HeadSide: MobHumanoidAnyMarking
 
 - type: markingPoints
   id: MobHumanMarkingLimits
   points:
+    Special: # the cat ear joke
+      points: 0
+      required: false
+    Head:
+      points: 2
+      required: false
     Hair:
       points: 1
       required: false
@@ -90,47 +78,47 @@
     Snout:
       points: 1
       required: false
-    Tail: # the cat tail joke, its real *godo*
-      points: 2
+    Tail:
+      points: 1
       required: false
     HeadTop:
-      points: 8
+      points: 1
       required: false
     HeadSide:
-      points: 8
+      points: 4
+      required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
       required: false
     Chest:
-      points: 10
+      points: 6
       required: false
-#    Underwear: # Orion-Edit: Removed
-#      points: 1
-#      required: false
-#    Undershirt: # Orion-Edit: Removed
-#      points: 1
-#      required: false
     RightLeg:
-      points: 2
+      points: 6
       required: false
     RightFoot:
-      points: 2
+      points: 6
       required: false
     LeftLeg:
-      points: 2
+      points: 6
       required: false
     LeftFoot:
-      points: 2
+      points: 6
       required: false
     RightArm:
-      points: 2
+      points: 6
       required: false
     RightHand:
-      points: 3
+      points: 6
       required: false
     LeftArm:
-      points: 2
+      points: 6
       required: false
     LeftHand:
-      points: 3
+      points: 6
       required: false
 
 - type: humanoidBaseSprite
@@ -165,40 +153,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobHumanChest
+  id: MobHumanTorso
   baseSprite:
     sprite: Mobs/Species/Human/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobHumanChestMale
+  id: MobHumanTorsoMale
   baseSprite:
     sprite: Mobs/Species/Human/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobHumanChestFemale
+  id: MobHumanTorsoFemale
   baseSprite:
     sprite: Mobs/Species/Human/parts.rsi
-    state: chest_f
-
-- type: humanoidBaseSprite
-  id: MobHumanGroin
-  baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
-    state: groin_m
-
-- type: humanoidBaseSprite
-  id: MobHumanGroinMale
-  baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
-    state: groin_m
-
-- type: humanoidBaseSprite
-  id: MobHumanGroinFemale
-  baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
-    state: groin_f
+    state: torso_f
 
 - type: humanoidBaseSprite
   id: MobHumanLLeg
