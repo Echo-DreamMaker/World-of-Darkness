@@ -14,8 +14,8 @@ public sealed partial class ArmorComponent : Component
     /// <summary>
     /// The damage reduction
     /// </summary>
-    [DataField(required: true), AutoNetworkedField]
-    public DamageModifierSet Modifiers = default!;
+    [DataField, AutoNetworkedField]
+    public DamageModifierSet? Modifiers = default!;
 
     /// <summary>
     /// A multiplier applied to the calculated point value

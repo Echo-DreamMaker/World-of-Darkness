@@ -19,13 +19,15 @@ public sealed class ArmorSystem : SharedArmorSystem
 
     private void GetArmorPrice(EntityUid uid, ArmorComponent component, ref PriceCalculationEvent args)
     {
-        foreach (var modifier in component.Modifiers.Coefficients)
+        if (component.Modifiers is not { } modifiers)
+            return;
+        foreach (var modifier in modifiers.Coefficients)
         {
             var damageType = _protoManager.Index<DamageTypePrototype>(modifier.Key);
             args.Price += component.PriceMultiplier * damageType.ArmorPriceCoefficient * 100 * (1 - modifier.Value);
         }
 
-        foreach (var modifier in component.Modifiers.FlatReduction)
+        foreach (var modifier in modifiers.FlatReduction)
         {
             var damageType = _protoManager.Index<DamageTypePrototype>(modifier.Key);
             args.Price += component.PriceMultiplier * damageType.ArmorPriceFlat * modifier.Value;

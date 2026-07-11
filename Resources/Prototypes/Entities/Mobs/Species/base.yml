@@ -376,7 +376,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
-      Acidic: [Touch, Ingestion, Eyes] # Goobstation
+      Acidic: [Touch, Ingestion]
     reactions:
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
@@ -458,16 +458,9 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SetWantedVerbMenu.Key: # Goobstation-WantedMenu
-        type: WantedMenuBoundUserInterface
       # Goobstation - changelings
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.HereticLivingHeartKey.Key: # goob edit - heretics
-        type: LivingHeartMenuBoundUserInterface
-      enum.WizardTeleportUiKey.Key: # Goobstation - wizard
-        type: WizardTeleportBoundUserInterface
-        requireInputValidation: false
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -510,6 +503,25 @@
   - type: Sprinter # Goobstation
   - type: MindControllable # Goobstation
   - type: VisibleContraband # Goobstation
+  - type: ErpPanelOwner
+  - type: Arousal
+  - type: EroticOrgans
+    groinCommon:
+    - proto: OrganAnus
+      slot: anus
+    groinMale:
+    - proto: OrganPenis
+      slot: penis
+    - proto: OrganTesticles
+      slot: testicles
+    groinFemale:
+    - proto: OrganVagina
+      slot: vagina
+    - proto: OrganUterus
+      slot: uterus
+    chestFemale:
+    - proto: OrganBreasts
+      slot: breasts
 
 - type: entity
   save: false

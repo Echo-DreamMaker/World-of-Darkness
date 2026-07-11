@@ -103,7 +103,7 @@
     damage:
       types:
         Heat: 2
-    targetParts: Hands
+    targetParts: [Hands]
   - type: Speech
     speechVerb: Skeleton
   - type: Vocal

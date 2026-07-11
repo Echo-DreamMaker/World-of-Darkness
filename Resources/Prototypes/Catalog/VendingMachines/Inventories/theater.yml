@@ -138,6 +138,11 @@
     BarberScissors: 1
     ClothingNeckBellCollar: 2
     ClothingOuterUnathiRobe: 1
+    # Arcane-Start
+    ClothingHeadKubanka: 2
+    ClothingUniformBeshmet: 2
+    ClothingOuterSuitBlackCherkassa: 2
+    # Arcane-End
   emaggedInventory:
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1

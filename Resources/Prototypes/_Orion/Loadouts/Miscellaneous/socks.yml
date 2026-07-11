@@ -1,239 +1,239 @@
 - type: loadout
   id: SocksAssBlastUSAKnee
   category: Socks
-  equipment:
-    socks: ClothingSocksAssBlastUSAKnee
+  items:
+    - ClothingSocksAssBlastUSAKnee
 
 - type: loadout
   id: SocksAssBlastUSAThigh
   category: Socks
-  equipment:
-    socks: ClothingSocksAssBlastUSAThigh
+  items:
+    - ClothingSocksAssBlastUSAThigh
 
 - type: loadout
   id: SocksBeeKnee
   category: Socks
-  equipment:
-    socks: ClothingSocksBeeKnee
+  items:
+    - ClothingSocksBeeKnee
 
 - type: loadout
   id: SocksBee
   category: Socks
-  equipment:
-    socks: ClothingSocksBee
+  items:
+    - ClothingSocksBee
 
 - type: loadout
   id: SocksBeeThigh
   category: Socks
-  equipment:
-    socks: ClothingSocksBeeThigh
+  items:
+    - ClothingSocksBeeThigh
 
 - type: loadout
   id: SocksCandyCaneGreenKnee
   category: Socks
-  equipment:
-    socks: ClothingSocksCandyCaneGreenKnee
+  items:
+    - ClothingSocksCandyCaneGreenKnee
 
 - type: loadout
   id: SocksCandyCaneGreen
   category: Socks
-  equipment:
-    socks: ClothingSocksCandyCaneGreen
+  items:
+    - ClothingSocksCandyCaneGreen
 
 - type: loadout
   id: SocksCandyCaneGreenThigh
   category: Socks
-  equipment:
-    socks: ClothingSocksCandyCaneGreenThigh
+  items:
+    - ClothingSocksCandyCaneGreenThigh
 
 - type: loadout
   id: SocksCandyCaneRedKnee
   category: Socks
-  equipment:
-    socks: ClothingSocksCandyCaneRedKnee
+  items:
+    - ClothingSocksCandyCaneRedKnee
 
 - type: loadout
   id: SocksCandyCaneRed
   category: Socks
-  equipment:
-    socks: ClothingSocksCandyCaneRed
+  items:
+    - ClothingSocksCandyCaneRed
 
 - type: loadout
   id: SocksCandyCaneRedThigh
   category: Socks
-  equipment:
-    socks: ClothingSocksCandyCaneRedThigh
+  items:
+    - ClothingSocksCandyCaneRedThigh
 
 - type: loadout
   id: SocksChristmasKnee
   category: Socks
-  equipment:
-    socks: ClothingSocksChristmasKnee
+  items:
+    - ClothingSocksChristmasKnee
 
 - type: loadout
   id: SocksChristmas
   category: Socks
-  equipment:
-    socks: ClothingSocksChristmas
+  items:
+    - ClothingSocksChristmas
 
 - type: loadout
   id: SocksChristmasThigh
   category: Socks
-  equipment:
-    socks: ClothingSocksChristmasThigh
+  items:
+    - ClothingSocksChristmasThigh
 
 - type: loadout
   id: SocksCommieKnee
   category: Socks
-  equipment:
-    socks: ClothingSocksCommieKnee
+  items:
+    - ClothingSocksCommieKnee
 
 - type: loadout
   id: SocksCommieThigh
   category: Socks
-  equipment:
-    socks: ClothingSocksCommieThigh
+  items:
+    - ClothingSocksCommieThigh
 
 - type: loadout
   id: SocksFishnet
   category: Socks
-  equipment:
-    socks: ClothingSocksFishnet
+  items:
+    - ClothingSocksFishnet
 
 - type: loadout
   id: SocksFishnetAlt
   category: Socks
-  equipment:
-    socks: ClothingSocksFishnetAlt
+  items:
+    - ClothingSocksFishnetAlt
 
 - type: loadout
   id: SocksGarter
   category: Socks
-  equipment:
-    socks: ClothingSocksGarter
+  items:
+    - ClothingSocksGarter
 
 - type: loadout
   id: SocksLeggings
   category: Socks
-  equipment:
-    socks: ClothingSocksLeggings
+  items:
+    - ClothingSocksLeggings
 
 - type: loadout
   id: SocksLeggingsBlack
   category: Socks
-  equipment:
-    socks: ClothingSocksLeggingsBlack
+  items:
+    - ClothingSocksLeggingsBlack
 
 - type: loadout
   id: SocksPantyhose
   category: Socks
-  equipment:
-    socks: ClothingSocksPantyhose
+  items:
+    - ClothingSocksPantyhose
 
 - type: loadout
   id: SocksPantyhoseRipped
   category: Socks
-  equipment:
-    socks: ClothingSocksPantyhoseRipped
+  items:
+    - ClothingSocksPantyhoseRipped
 
 - type: loadout
   id: SocksKnee
   category: Socks
-  equipment:
-    socks: ClothingSocksKnee
+  items:
+    - ClothingSocksKnee
 
 - type: loadout
   id: SocksLatex
   category: Socks
-  equipment:
-    socks: ClothingSocksLatex
+  items:
+    - ClothingSocksLatex
 
 - type: loadout
   id: Socks
   category: Socks
-  equipment:
-    socks: ClothingSocks
+  items:
+    - ClothingSocks
 
 - type: loadout
   id: SocksShort
   category: Socks
-  equipment:
-    socks: ClothingSocksShort
+  items:
+    - ClothingSocksShort
 
 - type: loadout
   id: SocksThigh
   category: Socks
-  equipment:
-    socks: ClothingSocksThigh
+  items:
+    - ClothingSocksThigh
 
 - type: loadout
   id: StockingsDarkPink
   category: Socks
-  equipment:
-    socks: ClothingStockingsDarkPink
+  items:
+    - ClothingStockingsDarkPink
 
 - type: loadout
   id: StockingsGreen
   category: Socks
-  equipment:
-    socks: ClothingStockingsGreen
+  items:
+    - ClothingStockingsGreen
 
 - type: loadout
   id: StockingsLightPink
   category: Socks
-  equipment:
-    socks: ClothingStockingsLightPink
+  items:
+    - ClothingStockingsLightPink
 
 - type: loadout
   id: StockingsOrange
   category: Socks
-  equipment:
-    socks: ClothingStockingsOrange
+  items:
+    - ClothingStockingsOrange
 
 - type: loadout
   id: StockingsPurple
   category: Socks
-  equipment:
-    socks: ClothingStockingsPurple
+  items:
+    - ClothingStockingsPurple
 
 - type: loadout
   id: StockingsYellow
   category: Socks
-  equipment:
-    socks: ClothingStockingsYellow
+  items:
+    - ClothingStockingsYellow
 
 - type: loadout
   id: SocksStripedKnee
   category: Socks
-  equipment:
-    socks: ClothingSocksStripedKnee
+  items:
+    - ClothingSocksStripedKnee
 
 - type: loadout
   id: SocksStripedThigh
   category: Socks
-  equipment:
-    socks: ClothingSocksStripedThigh
+  items:
+    - ClothingSocksStripedThigh
 
 - type: loadout
   id: SocksThinKnee
   category: Socks
-  equipment:
-    socks: ClothingSocksThinKnee
+  items:
+    - ClothingSocksThinKnee
 
 - type: loadout
   id: SocksThinThigh
   category: Socks
-  equipment:
-    socks: ClothingSocksThinThigh
+  items:
+    - ClothingSocksThinThigh
 
 - type: loadout
   id: SocksUKKnee
   category: Socks
-  equipment:
-    socks: ClothingSocksUKKnee
+  items:
+    - ClothingSocksUKKnee
 
 - type: loadout
   id: SocksUKThigh
   category: Socks
-  equipment:
-    socks: ClothingSocksUKThigh
+  items:
+    - ClothingSocksUKThigh

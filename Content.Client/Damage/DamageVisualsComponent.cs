@@ -22,7 +22,7 @@ public sealed partial class DamageVisualsComponent : Component
     ///     sets all layers to invisible, so a sprite
     ///     isn't required for it.
     /// </remarks>
-    [DataField("thresholds", required: true)]
+    [DataField("thresholds")]
     public List<FixedPoint2> Thresholds = new();
 
     /// <summary>

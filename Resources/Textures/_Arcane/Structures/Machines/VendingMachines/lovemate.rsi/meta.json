@@ -14,28 +14,13 @@
             "name": "icon"
         },
         {
-            "name": "normal-unshaded",
-            "delays": [
-                [
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2
-                ]
-            ]
+            "name": "normal-unshaded"
         },
         {
             "name": "off"
         },
         {
             "name": "deny-unshaded"
-        },
-        {
-            "name": "panel"
         }
     ]
 }

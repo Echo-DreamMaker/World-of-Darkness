@@ -45,8 +45,8 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// <summary>
     ///     Default body type for this species.
     /// </summary>
-    [DataField(required: true)]
-    public List<string> BodyTypes { get; } = default!;
+    [DataField]
+    public List<string> BodyTypes { get; set; } = [];
     // WD EDIT END
 
     /// <summary>

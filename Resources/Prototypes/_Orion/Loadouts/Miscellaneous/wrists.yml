@@ -1,35 +1,35 @@
 - type: loadout
   id: RedworkSlab
   category: Wrists
-  equipment:
-    wrists: ClothingWristsRedworkSlab
+  items:
+    - ClothingWristsRedworkSlab
 
 - type: loadout
   id: ClockworkSlab
   category: Wrists
-  equipment:
-    wrists: ClothingWristsClockworkSlab
+  items:
+    - ClothingWristsClockworkSlab
 
 - type: loadout
   id: WatchGold
   category: Wrists
-  equipment:
-    wrists: WristwatchGold
+  items:
+    - WristwatchGold
 
 - type: loadout
   id: Watch
   category: Wrists
-  equipment:
-    wrists: Wristwatch
+  items:
+    - Wristwatch
 
 - type: loadout
   id: GoldRing
   category: Wrists
-  equipment:
-    wrists: GoldRing
+  items:
+    - GoldRing
 
 - type: loadout
   id: SilverRing
   category: Wrists
-  equipment:
-    wrists: SilverRing
+  items:
+    - SilverRing

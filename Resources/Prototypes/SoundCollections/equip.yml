@@ -1,0 +1,4 @@
+- type: soundCollection
+  id: GenericEquip
+  files:
+  - /Audio/Items/belt_equip.ogg

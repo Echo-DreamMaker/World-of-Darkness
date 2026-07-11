@@ -26,13 +26,17 @@ public abstract class SharedArmorSystem : EntitySystem
 
     private void OnDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<DamageModifyEvent> args)
     {
-        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
+        if (component.Modifiers is not { } modifiers)
+            return;
+        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, modifiers);
     }
 
     private void OnBorgDamageModify(EntityUid uid, ArmorComponent component,
         ref BorgModuleRelayedEvent<DamageModifyEvent> args)
     {
-        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
+        if (component.Modifiers is not { } modifiers)
+            return;
+        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, modifiers);
     }
 
     private void OnArmorVerbExamine(EntityUid uid, ArmorComponent component, GetVerbsEvent<ExamineVerb> args)
@@ -40,7 +44,10 @@ public abstract class SharedArmorSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
-        var examineMarkup = GetArmorExamine(component.Modifiers);
+        if (component.Modifiers is not { } modifiers)
+            return;
+
+        var examineMarkup = GetArmorExamine(modifiers);
 
         var ev = new ArmorExamineEvent(examineMarkup);
         RaiseLocalEvent(uid, ref ev);
