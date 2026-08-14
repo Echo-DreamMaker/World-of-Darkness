@@ -5,7 +5,6 @@
   components:
   - type: Organ
     canEnable: true
-    removable: false
 
 # Universal (all sexes)
 # Internal muscle — no integrity display in health scanner.
@@ -20,7 +19,6 @@
     state: default
   - type: Organ
     slotId: anus
-    removable: false
   - type: EroticOrgan
     sensitivity: 1.2
   - type: AnusOrgan
@@ -37,14 +35,7 @@
     sprite: _Arcane/Mobs/organs/penis.rsi
     state: default
   - type: Organ
-    intCap: 15
-    integrity: 15
-    integrityThresholds:
-      Normal: 15
-      Damaged: 6
-      Destroyed: 0
     slotId: penis
-    removable: false
   - type: EroticOrgan
     sensitivity: 1.5
   - type: PenisOrgan
@@ -61,7 +52,6 @@
     state: default
   - type: Organ
     slotId: testicles
-    removable: false
   - type: EroticOrgan
     sensitivity: 1.0
   - type: TesticlesOrgan
@@ -79,7 +69,6 @@
     state: default
   - type: Organ
     slotId: vagina
-    removable: false
   - type: EroticOrgan
     sensitivity: 1.5
   - type: VaginaOrgan
@@ -100,7 +89,6 @@
     state: default
   - type: Organ
     slotId: uterus
-    removable: false
   - type: EroticOrgan
     sensitivity: 0.8
   - type: UterusOrgan
@@ -116,14 +104,7 @@
     sprite: _Arcane/Mobs/organs/breasts.rsi
     state: default
   - type: Organ
-    intCap: 15
-    integrity: 15
-    integrityThresholds:
-      Normal: 15
-      Damaged: 6
-      Destroyed: 0
     slotId: breasts
-    removable: false
   - type: EroticOrgan
     sensitivity: 1.1
   - type: BreastsOrgan

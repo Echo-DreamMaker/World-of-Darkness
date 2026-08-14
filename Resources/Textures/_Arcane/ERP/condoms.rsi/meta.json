@@ -8,10 +8,6 @@
     },
     "states": [
         {
-            "name": "condom",
-            "directions": 4
-        },
-        {
             "name": "icon-open"
         },
         {
@@ -21,8 +17,7 @@
             "name": "icon1"
         },
         {
-            "name": "condom-trash",
-            "directions": 4
+            "name": "condom-trash"
         },
         {
             "name": "equipped-UNDERWEAR",

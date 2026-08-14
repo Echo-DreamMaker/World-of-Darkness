@@ -382,6 +382,7 @@
       methods: [Touch]
       effects:
       - !type:WashCreamPieReaction
+      - !type:WashCumOverlayReaction # Arcane
   - type: StatusEffects
     allowed:
     - Stun

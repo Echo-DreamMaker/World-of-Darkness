@@ -41,6 +41,3 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
-  - type: Armor
-    coverage:
-    - Groin

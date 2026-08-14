@@ -219,7 +219,7 @@ namespace Content.Shared.Humanoid.Markings
             IoCManager.Resolve(ref prototypeManager);
             var speciesProto = prototypeManager.Index<SpeciesPrototype>(species);
             if (
-                !prototypeManager.TryIndex(speciesProto.BodyTypes.First(), out BodyTypePrototype? baseBodyType) || // WD EDIT
+                !prototypeManager.TryIndex(speciesProto.BodyTypes.FirstOrDefault() ?? SharedHumanoidAppearanceSystem.DefaultBodyType, out BodyTypePrototype? baseBodyType) || // WD EDIT
                 !baseBodyType.Sprites.TryGetValue(layer, out var spriteName) || // WD EDIT
                 !prototypeManager.TryIndex(spriteName, out HumanoidSpeciesSpriteLayer? sprite) ||
                 !sprite.MarkingsMatchSkin

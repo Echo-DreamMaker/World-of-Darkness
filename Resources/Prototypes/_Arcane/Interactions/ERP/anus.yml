@@ -93,9 +93,6 @@
   userRequirements:
   - !type:SpeciesRequirement
     species:
-    - Demon
     - Felinid
     - Vulpkanin
     - Tajaran
-    - HumanoidXeno
-    - Rodentia

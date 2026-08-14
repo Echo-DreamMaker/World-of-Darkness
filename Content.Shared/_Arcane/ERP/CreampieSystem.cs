@@ -32,9 +32,9 @@ public sealed class CreampieSystem : EntitySystem
     private static readonly EntProtoId SemenPuddleProto = "PuddleSemen";
 
     /// <summary>
-    /// Сколько семени должно быть в вагине, чтобы вытекла одна лужица.
+    /// Сколько семени содержит одна лужица на полу.
     /// </summary>
-    private static readonly FixedPoint2 LeakThreshold = FixedPoint2.New(15);
+    private const int PuddleReagentAmount = 10;
 
     public override void Initialize()
     {
@@ -58,7 +58,8 @@ public sealed class CreampieSystem : EntitySystem
             if (now < comp.NextLeakAt)
                 continue;
 
-            var nextDelay = TimeSpan.FromSeconds(3 + comp.Count * 2);
+            // Чем больше кремпаев, тем чаще вытекание.
+            var nextDelay = TimeSpan.FromSeconds(MathF.Max(1.5f, 4 - comp.Count));
 
             // Проверяем, есть ли одежда на нижней части тела
             if (IsGroinCovered(uid))
@@ -69,15 +70,15 @@ public sealed class CreampieSystem : EntitySystem
             }
 
             // Пытаемся вытянуть семя из вагины
-            if (TryDrainVagina(uid, out var drained))
+            if (TryDrainVagina(uid, comp.LeakThreshold, out var drained) && drained > 0)
+                SpawnLeakPuddles(uid, drained);
+
+            // Если семя в вагине закончилось — кремпай вытек, убираем эффект.
+            if (!HasLeakableSemen(uid, comp.LeakThreshold))
             {
-                if (drained > 0)
-                {
-                    var coords = Transform(uid).Coordinates;
-                    Spawn(SemenPuddleProto, coords.Offset(new System.Numerics.Vector2(
-                        _random.NextFloat(-0.3f, 0.3f),
-                        _random.NextFloat(-0.3f, 0.3f))));
-                }
+                RemCompDeferred<CreampieInsideComponent>(uid);
+                RemCompDeferred<CumOverlayComponent>(uid);
+                continue;
             }
 
             comp.NextLeakAt = now + nextDelay;
@@ -88,7 +89,7 @@ public sealed class CreampieSystem : EntitySystem
     /// <summary>
     /// Пытается вытянуть порцию семени из вагины цели.
     /// </summary>
-    private bool TryDrainVagina(EntityUid uid, out FixedPoint2 drained)
+    private bool TryDrainVagina(EntityUid uid, FixedPoint2 threshold, out FixedPoint2 drained)
     {
         drained = FixedPoint2.Zero;
 
@@ -104,17 +105,55 @@ public sealed class CreampieSystem : EntitySystem
 
             var semenId = new ReagentId("Semen", null);
             var semenAmount = solution.GetReagentQuantity(semenId);
-            if (semenAmount < LeakThreshold)
+            if (semenAmount < threshold)
                 continue;
 
             // Забираем порцию и создаём на полу
-            var toRemove = FixedPoint2.Min(semenAmount, LeakThreshold);
-            _solution.RemoveReagent((organUid, Comp<SolutionComponent>(organUid)), semenId, toRemove);
+            var toRemove = FixedPoint2.Min(semenAmount, threshold);
+            _solution.RemoveReagent(solRef.Value, semenId, toRemove);
             drained = toRemove;
             return true;
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Осталось ли в вагине достаточно семени для новой лужицы.
+    /// </summary>
+    private bool HasLeakableSemen(EntityUid uid, FixedPoint2 threshold)
+    {
+        if (!TryComp<BodyComponent>(uid, out var body))
+            return false;
+
+        var vaginas = _body.GetBodyOrganEntityComps<VaginaOrganComponent>((uid, body));
+        foreach (var (organUid, _, _) in vaginas)
+        {
+            Entity<SolutionComponent>? solRef = null;
+            if (!_solution.ResolveSolution(organUid, VaginaSolutionName, ref solRef, out var solution))
+                continue;
+
+            if (solution.GetReagentQuantity(new ReagentId("Semen", null)) >= threshold)
+                return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Создаёт лужицы на полу пропорционально вытекшему количеству семени.
+    /// </summary>
+    private void SpawnLeakPuddles(EntityUid uid, FixedPoint2 drained)
+    {
+        var count = (int)Math.Ceiling(drained.Double() / PuddleReagentAmount);
+        var coords = Transform(uid).Coordinates;
+        for (var i = 0; i < count; i++)
+        {
+            var offset = new System.Numerics.Vector2(
+                _random.NextFloat(-0.3f, 0.3f),
+                _random.NextFloat(-0.3f, 0.3f));
+            Spawn(SemenPuddleProto, coords.Offset(offset));
+        }
     }
 
     private void OnInit(Entity<CreampieInsideComponent> ent, ref ComponentInit args)

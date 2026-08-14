@@ -1,3 +1,4 @@
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -20,11 +21,11 @@ public sealed partial class CreampieInsideComponent : Component
     [DataField, AutoNetworkedField]
     public float SpeedModifier = 0.95f;
 
+    /// <summary>
+    /// Сколько семени вытекает за одну лужицу.
+    /// </summary>
     [DataField]
-    public float CumAmount;
-
-    [DataField]
-    public float LeakThreshold = 15f;
+    public FixedPoint2 LeakThreshold = 10;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField]

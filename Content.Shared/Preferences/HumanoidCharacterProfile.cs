@@ -339,7 +339,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         {
             sex = random.Pick(speciesPrototype.Sexes);
             age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
-            bodyType = speciesPrototype.BodyTypes.First(); // WD EDIT
+            bodyType = speciesPrototype.BodyTypes.FirstOrDefault() ?? SharedHumanoidAppearanceSystem.DefaultBodyType; // WD EDIT
         }
 
         var gender = Gender.Epicene;
@@ -583,7 +583,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             _ => Gender.Epicene // Invalid enum values.
         };
 
-        var bodyType = speciesPrototype.BodyTypes.Contains(BodyType) ? BodyType : speciesPrototype.BodyTypes.First(); // WD EDIT
+        var bodyType = speciesPrototype.BodyTypes.Contains(BodyType) ? BodyType : (speciesPrototype.BodyTypes.FirstOrDefault() ?? SharedHumanoidAppearanceSystem.DefaultBodyType); // WD EDIT
         var height = Height <= 0 ? speciesPrototype.DefaultHeight : Math.Clamp(Height, speciesPrototype.MinHeight, speciesPrototype.MaxHeight); // WD EDIT
         var width = Width <= 0 ? speciesPrototype.DefaultWidth : Math.Clamp(Width, speciesPrototype.MinWidth, speciesPrototype.MaxWidth); // WD EDIT
 

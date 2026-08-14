@@ -71,7 +71,7 @@ public sealed class OrgasmSystem : EntitySystem
             // Показываем окно выбора "кончить внутрь?" только если последняя интеракция была с вагиной
             else if (TryComp<LastInteractionPartnerComponent>(uid, out var lastPartner)
                 && lastPartner.LastTarget != null
-                && lastPartner.LastInteractionId is "PenisFuck" or "PussyFuck")
+                && lastPartner.LastInteractionId is "PenisFuck" or "PussyFuck" or "PenisGrind")
             {
                 var target = GetEntity(lastPartner.LastTarget.Value);
                 if (Exists(target) && TryComp<HumanoidAppearanceComponent>(target, out var targetHumanoid) && targetHumanoid.Sex == Sex.Female)

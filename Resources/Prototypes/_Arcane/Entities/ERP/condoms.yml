@@ -7,7 +7,6 @@
     state: condom-trash
   - type: Item
     sprite: _Arcane/ERP/condoms.rsi
-    state: condom-trash
     size: Tiny
 
 - type: entity
@@ -22,7 +21,6 @@
   - type: Item
     size: Tiny
     sprite: _Arcane/ERP/condoms.rsi
-    state: icon1
   - type: Clothing
     sprite: _Arcane/ERP/condoms.rsi
   - type: Condom
@@ -39,7 +37,6 @@
   - type: Item
     size: Tiny
     sprite: _Arcane/ERP/condoms.rsi
-    state: icon
   - type: SpawnItemsOnUse
     items:
       - id: CondomTrash

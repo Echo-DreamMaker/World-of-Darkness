@@ -427,7 +427,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         if (speciesPrototype.BodyTypes.Contains(bodyType))
             humanoid.BodyType = bodyType;
         else
-            humanoid.BodyType = speciesPrototype.BodyTypes.First();
+            humanoid.BodyType = speciesPrototype.BodyTypes.FirstOrDefault() ?? DefaultBodyType;
 
         if (sync)
             Dirty(uid, humanoid);

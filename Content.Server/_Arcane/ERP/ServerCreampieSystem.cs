@@ -131,11 +131,14 @@ public sealed class ServerCreampieSystem : EntitySystem
         foreach (var (organUid, _, _) in vaginas)
         {
             _solution.EnsureSolution(organUid, "vagina", out var solution, FixedPoint2.New(100));
-            if (solution != null)
-            {
-                var solnComp = Comp<SolutionComponent>(organUid);
-                _solution.TryAddReagent((organUid, solnComp), "Semen", FixedPoint2.New(20));
-            }
+            if (solution == null)
+                continue;
+
+            Entity<SolutionComponent>? solRef = null;
+            if (!_solution.ResolveSolution(organUid, "vagina", ref solRef, out _))
+                continue;
+
+            _solution.TryAddReagent(solRef.Value, "Semen", FixedPoint2.New(20));
         }
     }
 }

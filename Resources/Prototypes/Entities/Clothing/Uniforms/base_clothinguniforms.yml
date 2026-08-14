@@ -200,7 +200,7 @@
   id: UnsensoredClothingUniformEnvirosuitCustomBase
   components:
   - type: Sprite
-    sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/custom.rsi
+    sprite: Clothing/Uniforms/Envirosuits/custom.rsi
     layers:
     - state: icon
       color: "#FFFFFF"
@@ -219,7 +219,7 @@
       - state: accent-inhand-right
         color: "#FF0000"
   - type: Clothing
-    sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/custom.rsi
+    sprite: Clothing/Uniforms/Envirosuits/custom.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
